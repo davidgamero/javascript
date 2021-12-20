@@ -25,7 +25,7 @@ describe('WebSocket', () => {
         const osStream = new WritableStreamBuffer();
         const errStream = new WritableStreamBuffer();
 
-        const status = new V1Status();
+        const status: V1Status = {};
         status.message = 'Some message';
         status.reason = 'Some Reason';
         const data = JSON.stringify(status);
@@ -303,7 +303,7 @@ describe('WebSocket', () => {
 
 describe('Restartable Handle Standard Input', () => {
     it('should throw on negative retry', () => {
-        const p = new Promise<WebSocket>(() => {});
+        const p = new Promise<WebSocket>(() => { });
         expect(() => WebSocketHandler.restartableHandleStandardInput(() => p, null, 0, -1)).to.throw(
             "retryCount can't be lower than 0.",
         );

@@ -446,7 +446,7 @@ export class KubeConfig {
 
 export interface ApiType {
     defaultHeaders: any;
-    setDefaultAuthentication(config: api.Authentication): void;
+    setDefaultAuthentication(config: api.AuthenticationApi): void;
 }
 
 type ApiConstructor<T extends ApiType> = new (server: string) => T;
@@ -539,7 +539,7 @@ export function findHomeDir(): string | null {
                 fs.accessSync(process.env.HOME);
                 return process.env.HOME;
                 // tslint:disable-next-line:no-empty
-            } catch (ignore) {}
+            } catch (ignore) { }
         }
         return null;
     }
@@ -559,7 +559,7 @@ export function findHomeDir(): string | null {
             fs.accessSync(path.join(dir, '.kube', 'config'));
             return dir;
             // tslint:disable-next-line:no-empty
-        } catch (ignore) {}
+        } catch (ignore) { }
     }
     // 2. ...the first of %HOME%, %USERPROFILE%, %HOMEDRIVE%%HOMEPATH% that exists and is writeable is returned
     for (const dir of favourUserProfileList) {
@@ -567,7 +567,7 @@ export function findHomeDir(): string | null {
             fs.accessSync(dir, fs.constants.W_OK);
             return dir;
             // tslint:disable-next-line:no-empty
-        } catch (ignore) {}
+        } catch (ignore) { }
     }
     // 3. ...the first of %HOME%, %USERPROFILE%, %HOMEDRIVE%%HOMEPATH% that exists is returned.
     for (const dir of favourUserProfileList) {
@@ -575,7 +575,7 @@ export function findHomeDir(): string | null {
             fs.accessSync(dir);
             return dir;
             // tslint:disable-next-line:no-empty
-        } catch (ignore) {}
+        } catch (ignore) { }
     }
     // 4. if none of those locations exists, the first of
     // %HOME%, %USERPROFILE%, %HOMEDRIVE%%HOMEPATH% that is set is returned.
