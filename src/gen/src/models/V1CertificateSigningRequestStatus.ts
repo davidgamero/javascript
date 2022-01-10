@@ -18,7 +18,7 @@ import {
     V1CertificateSigningRequestConditionFromJSON,
     V1CertificateSigningRequestConditionFromJSONTyped,
     V1CertificateSigningRequestConditionToJSON,
-} from './V1CertificateSigningRequestCondition';
+} from './';
 
 /**
  * CertificateSigningRequestStatus contains conditions used to indicate approved/denied/failed status of the request, and the issued certificate.

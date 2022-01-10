@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1RuntimeClass,
     V1RuntimeClassFromJSON,
     V1RuntimeClassFromJSONTyped,
     V1RuntimeClassToJSON,
-} from './V1RuntimeClass';
+} from './';
 
 /**
  * RuntimeClassList is a list of RuntimeClass objects.

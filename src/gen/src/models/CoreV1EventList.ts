@@ -18,13 +18,13 @@ import {
     CoreV1EventFromJSON,
     CoreV1EventFromJSONTyped,
     CoreV1EventToJSON,
-} from './CoreV1Event';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * EventList is a list of events.

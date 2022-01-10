@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1alpha1AggregationRule,
     V1alpha1AggregationRuleFromJSON,
     V1alpha1AggregationRuleFromJSONTyped,
     V1alpha1AggregationRuleToJSON,
-} from './V1alpha1AggregationRule';
+} from './';
 import {
     V1alpha1PolicyRule,
     V1alpha1PolicyRuleFromJSON,
     V1alpha1PolicyRuleFromJSONTyped,
     V1alpha1PolicyRuleToJSON,
-} from './V1alpha1PolicyRule';
+} from './';
 
 /**
  * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.22.

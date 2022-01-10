@@ -18,7 +18,7 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.

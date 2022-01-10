@@ -9,6 +9,7 @@ import request = require('request');
 import shelljs = require('shelljs');
 
 import * as api from './api';
+import { CoreV1Api } from './api';
 import { Authenticator } from './auth';
 import { AzureAuth } from './azure_auth';
 import {
@@ -459,7 +460,7 @@ export class Config {
     public static SERVICEACCOUNT_NAMESPACE_PATH: string = Config.SERVICEACCOUNT_ROOT + '/namespace';
 
     public static fromFile(filename: string): api.CoreV1Api {
-        return Config.apiFromFile(filename, api.CoreV1Api);
+        return Config.apiFromFile<CoreV1Api>(filename, api.CoreV1Api<CoreV1Api>);
     }
 
     public static fromCluster(): api.CoreV1Api {

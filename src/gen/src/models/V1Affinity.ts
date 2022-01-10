@@ -18,19 +18,19 @@ import {
     V1NodeAffinityFromJSON,
     V1NodeAffinityFromJSONTyped,
     V1NodeAffinityToJSON,
-} from './V1NodeAffinity';
+} from './';
 import {
     V1PodAffinity,
     V1PodAffinityFromJSON,
     V1PodAffinityFromJSONTyped,
     V1PodAffinityToJSON,
-} from './V1PodAffinity';
+} from './';
 import {
     V1PodAntiAffinity,
     V1PodAntiAffinityFromJSON,
     V1PodAntiAffinityFromJSONTyped,
     V1PodAntiAffinityToJSON,
-} from './V1PodAntiAffinity';
+} from './';
 
 /**
  * Affinity is a group of affinity scheduling rules.

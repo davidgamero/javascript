@@ -18,7 +18,7 @@ import {
     V1PersistentVolumeClaimConditionFromJSON,
     V1PersistentVolumeClaimConditionFromJSONTyped,
     V1PersistentVolumeClaimConditionToJSON,
-} from './V1PersistentVolumeClaimCondition';
+} from './';
 
 /**
  * PersistentVolumeClaimStatus is the current status of a persistent volume claim.

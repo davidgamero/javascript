@@ -18,13 +18,13 @@ import {
     V1ControllerRevisionFromJSON,
     V1ControllerRevisionFromJSONTyped,
     V1ControllerRevisionToJSON,
-} from './V1ControllerRevision';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * ControllerRevisionList is a resource containing a list of ControllerRevision objects.

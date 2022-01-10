@@ -18,19 +18,19 @@ import {
     V2beta2CrossVersionObjectReferenceFromJSON,
     V2beta2CrossVersionObjectReferenceFromJSONTyped,
     V2beta2CrossVersionObjectReferenceToJSON,
-} from './V2beta2CrossVersionObjectReference';
+} from './';
 import {
     V2beta2MetricIdentifier,
     V2beta2MetricIdentifierFromJSON,
     V2beta2MetricIdentifierFromJSONTyped,
     V2beta2MetricIdentifierToJSON,
-} from './V2beta2MetricIdentifier';
+} from './';
 import {
     V2beta2MetricValueStatus,
     V2beta2MetricValueStatusFromJSON,
     V2beta2MetricValueStatusFromJSONTyped,
     V2beta2MetricValueStatusToJSON,
-} from './V2beta2MetricValueStatus';
+} from './';
 
 /**
  * ObjectMetricStatus indicates the current value of a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).

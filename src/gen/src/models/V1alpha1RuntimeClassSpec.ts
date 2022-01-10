@@ -18,13 +18,13 @@ import {
     V1alpha1OverheadFromJSON,
     V1alpha1OverheadFromJSONTyped,
     V1alpha1OverheadToJSON,
-} from './V1alpha1Overhead';
+} from './';
 import {
     V1alpha1Scheduling,
     V1alpha1SchedulingFromJSON,
     V1alpha1SchedulingFromJSONTyped,
     V1alpha1SchedulingToJSON,
-} from './V1alpha1Scheduling';
+} from './';
 
 /**
  * RuntimeClassSpec is a specification of a RuntimeClass. It contains parameters that are required to describe the RuntimeClass to the Container Runtime Interface (CRI) implementation, as well as any other components that need to understand how the pod will be run. The RuntimeClassSpec is immutable.

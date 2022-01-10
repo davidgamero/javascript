@@ -18,13 +18,13 @@ import {
     V1CSIDriverFromJSON,
     V1CSIDriverFromJSONTyped,
     V1CSIDriverToJSON,
-} from './V1CSIDriver';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * CSIDriverList is a collection of CSIDriver objects.

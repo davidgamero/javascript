@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1Node,
     V1NodeFromJSON,
     V1NodeFromJSONTyped,
     V1NodeToJSON,
-} from './V1Node';
+} from './';
 
 /**
  * NodeList is the whole list of all Nodes which have been registered with master.

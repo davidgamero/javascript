@@ -18,13 +18,13 @@ import {
     V1JobSpecFromJSON,
     V1JobSpecFromJSONTyped,
     V1JobSpecToJSON,
-} from './V1JobSpec';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * JobTemplateSpec describes the data a Job should have when created from a template

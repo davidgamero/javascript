@@ -18,13 +18,13 @@ import {
     V1ClusterRoleBindingFromJSON,
     V1ClusterRoleBindingFromJSONTyped,
     V1ClusterRoleBindingToJSON,
-} from './V1ClusterRoleBinding';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * ClusterRoleBindingList is a collection of ClusterRoleBindings

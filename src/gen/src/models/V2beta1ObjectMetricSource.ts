@@ -18,13 +18,13 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 import {
     V2beta1CrossVersionObjectReference,
     V2beta1CrossVersionObjectReferenceFromJSON,
     V2beta1CrossVersionObjectReferenceFromJSONTyped,
     V2beta1CrossVersionObjectReferenceToJSON,
-} from './V2beta1CrossVersionObjectReference';
+} from './';
 
 /**
  * ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).

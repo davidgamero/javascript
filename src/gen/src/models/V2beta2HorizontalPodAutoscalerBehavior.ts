@@ -18,7 +18,7 @@ import {
     V2beta2HPAScalingRulesFromJSON,
     V2beta2HPAScalingRulesFromJSONTyped,
     V2beta2HPAScalingRulesToJSON,
-} from './V2beta2HPAScalingRules';
+} from './';
 
 /**
  * HorizontalPodAutoscalerBehavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively).

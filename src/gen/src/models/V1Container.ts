@@ -18,55 +18,55 @@ import {
     V1ContainerPortFromJSON,
     V1ContainerPortFromJSONTyped,
     V1ContainerPortToJSON,
-} from './V1ContainerPort';
+} from './';
 import {
     V1EnvFromSource,
     V1EnvFromSourceFromJSON,
     V1EnvFromSourceFromJSONTyped,
     V1EnvFromSourceToJSON,
-} from './V1EnvFromSource';
+} from './';
 import {
     V1EnvVar,
     V1EnvVarFromJSON,
     V1EnvVarFromJSONTyped,
     V1EnvVarToJSON,
-} from './V1EnvVar';
+} from './';
 import {
     V1Lifecycle,
     V1LifecycleFromJSON,
     V1LifecycleFromJSONTyped,
     V1LifecycleToJSON,
-} from './V1Lifecycle';
+} from './';
 import {
     V1Probe,
     V1ProbeFromJSON,
     V1ProbeFromJSONTyped,
     V1ProbeToJSON,
-} from './V1Probe';
+} from './';
 import {
     V1ResourceRequirements,
     V1ResourceRequirementsFromJSON,
     V1ResourceRequirementsFromJSONTyped,
     V1ResourceRequirementsToJSON,
-} from './V1ResourceRequirements';
+} from './';
 import {
     V1SecurityContext,
     V1SecurityContextFromJSON,
     V1SecurityContextFromJSONTyped,
     V1SecurityContextToJSON,
-} from './V1SecurityContext';
+} from './';
 import {
     V1VolumeDevice,
     V1VolumeDeviceFromJSON,
     V1VolumeDeviceFromJSONTyped,
     V1VolumeDeviceToJSON,
-} from './V1VolumeDevice';
+} from './';
 import {
     V1VolumeMount,
     V1VolumeMountFromJSON,
     V1VolumeMountFromJSONTyped,
     V1VolumeMountToJSON,
-} from './V1VolumeMount';
+} from './';
 
 /**
  * A single application container that you want to run within a pod.

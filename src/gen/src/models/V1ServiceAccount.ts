@@ -18,19 +18,19 @@ import {
     V1LocalObjectReferenceFromJSON,
     V1LocalObjectReferenceFromJSONTyped,
     V1LocalObjectReferenceToJSON,
-} from './V1LocalObjectReference';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ObjectReference,
     V1ObjectReferenceFromJSON,
     V1ObjectReferenceFromJSONTyped,
     V1ObjectReferenceToJSON,
-} from './V1ObjectReference';
+} from './';
 
 /**
  * ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets

@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1beta1CSIStorageCapacity,
     V1beta1CSIStorageCapacityFromJSON,
     V1beta1CSIStorageCapacityFromJSONTyped,
     V1beta1CSIStorageCapacityToJSON,
-} from './V1beta1CSIStorageCapacity';
+} from './';
 
 /**
  * CSIStorageCapacityList is a collection of CSIStorageCapacity objects.

@@ -18,13 +18,13 @@ import {
     CoreV1EndpointPortFromJSON,
     CoreV1EndpointPortFromJSONTyped,
     CoreV1EndpointPortToJSON,
-} from './CoreV1EndpointPort';
+} from './';
 import {
     V1EndpointAddress,
     V1EndpointAddressFromJSON,
     V1EndpointAddressFromJSONTyped,
     V1EndpointAddressToJSON,
-} from './V1EndpointAddress';
+} from './';
 
 /**
  * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:

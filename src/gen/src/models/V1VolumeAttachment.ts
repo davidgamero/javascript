@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1VolumeAttachmentSpec,
     V1VolumeAttachmentSpecFromJSON,
     V1VolumeAttachmentSpecFromJSONTyped,
     V1VolumeAttachmentSpecToJSON,
-} from './V1VolumeAttachmentSpec';
+} from './';
 import {
     V1VolumeAttachmentStatus,
     V1VolumeAttachmentStatusFromJSON,
     V1VolumeAttachmentStatusFromJSONTyped,
     V1VolumeAttachmentStatusToJSON,
-} from './V1VolumeAttachmentStatus';
+} from './';
 
 /**
  * VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.

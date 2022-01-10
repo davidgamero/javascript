@@ -18,13 +18,13 @@ import {
     V2beta1CrossVersionObjectReferenceFromJSON,
     V2beta1CrossVersionObjectReferenceFromJSONTyped,
     V2beta1CrossVersionObjectReferenceToJSON,
-} from './V2beta1CrossVersionObjectReference';
+} from './';
 import {
     V2beta1MetricSpec,
     V2beta1MetricSpecFromJSON,
     V2beta1MetricSpecFromJSONTyped,
     V2beta1MetricSpecToJSON,
-} from './V2beta1MetricSpec';
+} from './';
 
 /**
  * HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.

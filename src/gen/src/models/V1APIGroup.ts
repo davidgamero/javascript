@@ -18,13 +18,13 @@ import {
     V1GroupVersionForDiscoveryFromJSON,
     V1GroupVersionForDiscoveryFromJSONTyped,
     V1GroupVersionForDiscoveryToJSON,
-} from './V1GroupVersionForDiscovery';
+} from './';
 import {
     V1ServerAddressByClientCIDR,
     V1ServerAddressByClientCIDRFromJSON,
     V1ServerAddressByClientCIDRFromJSONTyped,
     V1ServerAddressByClientCIDRToJSON,
-} from './V1ServerAddressByClientCIDR';
+} from './';
 
 /**
  * APIGroup contains the name, the supported versions, and the preferred version of a group.

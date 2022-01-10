@@ -18,13 +18,13 @@ import {
     V1NodeConfigSourceFromJSON,
     V1NodeConfigSourceFromJSONTyped,
     V1NodeConfigSourceToJSON,
-} from './V1NodeConfigSource';
+} from './';
 import {
     V1Taint,
     V1TaintFromJSON,
     V1TaintFromJSONTyped,
     V1TaintToJSON,
-} from './V1Taint';
+} from './';
 
 /**
  * NodeSpec describes the attributes that a node is created with.

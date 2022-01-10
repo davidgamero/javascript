@@ -18,25 +18,25 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 import {
     V1PersistentVolumeClaim,
     V1PersistentVolumeClaimFromJSON,
     V1PersistentVolumeClaimFromJSONTyped,
     V1PersistentVolumeClaimToJSON,
-} from './V1PersistentVolumeClaim';
+} from './';
 import {
     V1PodTemplateSpec,
     V1PodTemplateSpecFromJSON,
     V1PodTemplateSpecFromJSONTyped,
     V1PodTemplateSpecToJSON,
-} from './V1PodTemplateSpec';
+} from './';
 import {
     V1StatefulSetUpdateStrategy,
     V1StatefulSetUpdateStrategyFromJSON,
     V1StatefulSetUpdateStrategyFromJSONTyped,
     V1StatefulSetUpdateStrategyToJSON,
-} from './V1StatefulSetUpdateStrategy';
+} from './';
 
 /**
  * A StatefulSetSpec is the specification of a StatefulSet.

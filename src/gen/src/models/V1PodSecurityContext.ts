@@ -18,25 +18,25 @@ import {
     V1SELinuxOptionsFromJSON,
     V1SELinuxOptionsFromJSONTyped,
     V1SELinuxOptionsToJSON,
-} from './V1SELinuxOptions';
+} from './';
 import {
     V1SeccompProfile,
     V1SeccompProfileFromJSON,
     V1SeccompProfileFromJSONTyped,
     V1SeccompProfileToJSON,
-} from './V1SeccompProfile';
+} from './';
 import {
     V1Sysctl,
     V1SysctlFromJSON,
     V1SysctlFromJSONTyped,
     V1SysctlToJSON,
-} from './V1Sysctl';
+} from './';
 import {
     V1WindowsSecurityContextOptions,
     V1WindowsSecurityContextOptionsFromJSON,
     V1WindowsSecurityContextOptionsFromJSONTyped,
     V1WindowsSecurityContextOptionsToJSON,
-} from './V1WindowsSecurityContextOptions';
+} from './';
 
 /**
  * PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.

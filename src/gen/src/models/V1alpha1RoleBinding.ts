@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1alpha1RoleRef,
     V1alpha1RoleRefFromJSON,
     V1alpha1RoleRefFromJSONTyped,
     V1alpha1RoleRefToJSON,
-} from './V1alpha1RoleRef';
+} from './';
 import {
     V1alpha1Subject,
     V1alpha1SubjectFromJSON,
     V1alpha1SubjectFromJSONTyped,
     V1alpha1SubjectToJSON,
-} from './V1alpha1Subject';
+} from './';
 
 /**
  * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.22.

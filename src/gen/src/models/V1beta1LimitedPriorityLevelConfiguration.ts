@@ -18,7 +18,7 @@ import {
     V1beta1LimitResponseFromJSON,
     V1beta1LimitResponseFromJSONTyped,
     V1beta1LimitResponseToJSON,
-} from './V1beta1LimitResponse';
+} from './';
 
 /**
  * LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits. It addresses two issues:

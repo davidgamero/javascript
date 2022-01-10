@@ -18,19 +18,19 @@ import {
     V1IngressBackendFromJSON,
     V1IngressBackendFromJSONTyped,
     V1IngressBackendToJSON,
-} from './V1IngressBackend';
+} from './';
 import {
     V1IngressRule,
     V1IngressRuleFromJSON,
     V1IngressRuleFromJSONTyped,
     V1IngressRuleToJSON,
-} from './V1IngressRule';
+} from './';
 import {
     V1IngressTLS,
     V1IngressTLSFromJSON,
     V1IngressTLSFromJSONTyped,
     V1IngressTLSToJSON,
-} from './V1IngressTLS';
+} from './';
 
 /**
  * IngressSpec describes the Ingress the user wishes to exist.

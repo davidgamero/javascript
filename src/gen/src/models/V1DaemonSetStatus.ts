@@ -18,7 +18,7 @@ import {
     V1DaemonSetConditionFromJSON,
     V1DaemonSetConditionFromJSONTyped,
     V1DaemonSetConditionToJSON,
-} from './V1DaemonSetCondition';
+} from './';
 
 /**
  * DaemonSetStatus represents the current status of a daemon set.

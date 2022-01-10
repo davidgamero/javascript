@@ -18,7 +18,7 @@ import {
     V1RollingUpdateStatefulSetStrategyFromJSON,
     V1RollingUpdateStatefulSetStrategyFromJSONTyped,
     V1RollingUpdateStatefulSetStrategyToJSON,
-} from './V1RollingUpdateStatefulSetStrategy';
+} from './';
 
 /**
  * StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates. It includes any additional parameters necessary to perform the update for the indicated strategy.

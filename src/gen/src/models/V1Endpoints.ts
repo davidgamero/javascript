@@ -18,13 +18,13 @@ import {
     V1EndpointSubsetFromJSON,
     V1EndpointSubsetFromJSONTyped,
     V1EndpointSubsetToJSON,
-} from './V1EndpointSubset';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * Endpoints is a collection of endpoints that implement the actual service. Example:

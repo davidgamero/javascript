@@ -18,175 +18,175 @@ import {
     V1AWSElasticBlockStoreVolumeSourceFromJSON,
     V1AWSElasticBlockStoreVolumeSourceFromJSONTyped,
     V1AWSElasticBlockStoreVolumeSourceToJSON,
-} from './V1AWSElasticBlockStoreVolumeSource';
+} from './';
 import {
     V1AzureDiskVolumeSource,
     V1AzureDiskVolumeSourceFromJSON,
     V1AzureDiskVolumeSourceFromJSONTyped,
     V1AzureDiskVolumeSourceToJSON,
-} from './V1AzureDiskVolumeSource';
+} from './';
 import {
     V1AzureFileVolumeSource,
     V1AzureFileVolumeSourceFromJSON,
     V1AzureFileVolumeSourceFromJSONTyped,
     V1AzureFileVolumeSourceToJSON,
-} from './V1AzureFileVolumeSource';
+} from './';
 import {
     V1CSIVolumeSource,
     V1CSIVolumeSourceFromJSON,
     V1CSIVolumeSourceFromJSONTyped,
     V1CSIVolumeSourceToJSON,
-} from './V1CSIVolumeSource';
+} from './';
 import {
     V1CephFSVolumeSource,
     V1CephFSVolumeSourceFromJSON,
     V1CephFSVolumeSourceFromJSONTyped,
     V1CephFSVolumeSourceToJSON,
-} from './V1CephFSVolumeSource';
+} from './';
 import {
     V1CinderVolumeSource,
     V1CinderVolumeSourceFromJSON,
     V1CinderVolumeSourceFromJSONTyped,
     V1CinderVolumeSourceToJSON,
-} from './V1CinderVolumeSource';
+} from './';
 import {
     V1ConfigMapVolumeSource,
     V1ConfigMapVolumeSourceFromJSON,
     V1ConfigMapVolumeSourceFromJSONTyped,
     V1ConfigMapVolumeSourceToJSON,
-} from './V1ConfigMapVolumeSource';
+} from './';
 import {
     V1DownwardAPIVolumeSource,
     V1DownwardAPIVolumeSourceFromJSON,
     V1DownwardAPIVolumeSourceFromJSONTyped,
     V1DownwardAPIVolumeSourceToJSON,
-} from './V1DownwardAPIVolumeSource';
+} from './';
 import {
     V1EmptyDirVolumeSource,
     V1EmptyDirVolumeSourceFromJSON,
     V1EmptyDirVolumeSourceFromJSONTyped,
     V1EmptyDirVolumeSourceToJSON,
-} from './V1EmptyDirVolumeSource';
+} from './';
 import {
     V1EphemeralVolumeSource,
     V1EphemeralVolumeSourceFromJSON,
     V1EphemeralVolumeSourceFromJSONTyped,
     V1EphemeralVolumeSourceToJSON,
-} from './V1EphemeralVolumeSource';
+} from './';
 import {
     V1FCVolumeSource,
     V1FCVolumeSourceFromJSON,
     V1FCVolumeSourceFromJSONTyped,
     V1FCVolumeSourceToJSON,
-} from './V1FCVolumeSource';
+} from './';
 import {
     V1FlexVolumeSource,
     V1FlexVolumeSourceFromJSON,
     V1FlexVolumeSourceFromJSONTyped,
     V1FlexVolumeSourceToJSON,
-} from './V1FlexVolumeSource';
+} from './';
 import {
     V1FlockerVolumeSource,
     V1FlockerVolumeSourceFromJSON,
     V1FlockerVolumeSourceFromJSONTyped,
     V1FlockerVolumeSourceToJSON,
-} from './V1FlockerVolumeSource';
+} from './';
 import {
     V1GCEPersistentDiskVolumeSource,
     V1GCEPersistentDiskVolumeSourceFromJSON,
     V1GCEPersistentDiskVolumeSourceFromJSONTyped,
     V1GCEPersistentDiskVolumeSourceToJSON,
-} from './V1GCEPersistentDiskVolumeSource';
+} from './';
 import {
     V1GitRepoVolumeSource,
     V1GitRepoVolumeSourceFromJSON,
     V1GitRepoVolumeSourceFromJSONTyped,
     V1GitRepoVolumeSourceToJSON,
-} from './V1GitRepoVolumeSource';
+} from './';
 import {
     V1GlusterfsVolumeSource,
     V1GlusterfsVolumeSourceFromJSON,
     V1GlusterfsVolumeSourceFromJSONTyped,
     V1GlusterfsVolumeSourceToJSON,
-} from './V1GlusterfsVolumeSource';
+} from './';
 import {
     V1HostPathVolumeSource,
     V1HostPathVolumeSourceFromJSON,
     V1HostPathVolumeSourceFromJSONTyped,
     V1HostPathVolumeSourceToJSON,
-} from './V1HostPathVolumeSource';
+} from './';
 import {
     V1ISCSIVolumeSource,
     V1ISCSIVolumeSourceFromJSON,
     V1ISCSIVolumeSourceFromJSONTyped,
     V1ISCSIVolumeSourceToJSON,
-} from './V1ISCSIVolumeSource';
+} from './';
 import {
     V1NFSVolumeSource,
     V1NFSVolumeSourceFromJSON,
     V1NFSVolumeSourceFromJSONTyped,
     V1NFSVolumeSourceToJSON,
-} from './V1NFSVolumeSource';
+} from './';
 import {
     V1PersistentVolumeClaimVolumeSource,
     V1PersistentVolumeClaimVolumeSourceFromJSON,
     V1PersistentVolumeClaimVolumeSourceFromJSONTyped,
     V1PersistentVolumeClaimVolumeSourceToJSON,
-} from './V1PersistentVolumeClaimVolumeSource';
+} from './';
 import {
     V1PhotonPersistentDiskVolumeSource,
     V1PhotonPersistentDiskVolumeSourceFromJSON,
     V1PhotonPersistentDiskVolumeSourceFromJSONTyped,
     V1PhotonPersistentDiskVolumeSourceToJSON,
-} from './V1PhotonPersistentDiskVolumeSource';
+} from './';
 import {
     V1PortworxVolumeSource,
     V1PortworxVolumeSourceFromJSON,
     V1PortworxVolumeSourceFromJSONTyped,
     V1PortworxVolumeSourceToJSON,
-} from './V1PortworxVolumeSource';
+} from './';
 import {
     V1ProjectedVolumeSource,
     V1ProjectedVolumeSourceFromJSON,
     V1ProjectedVolumeSourceFromJSONTyped,
     V1ProjectedVolumeSourceToJSON,
-} from './V1ProjectedVolumeSource';
+} from './';
 import {
     V1QuobyteVolumeSource,
     V1QuobyteVolumeSourceFromJSON,
     V1QuobyteVolumeSourceFromJSONTyped,
     V1QuobyteVolumeSourceToJSON,
-} from './V1QuobyteVolumeSource';
+} from './';
 import {
     V1RBDVolumeSource,
     V1RBDVolumeSourceFromJSON,
     V1RBDVolumeSourceFromJSONTyped,
     V1RBDVolumeSourceToJSON,
-} from './V1RBDVolumeSource';
+} from './';
 import {
     V1ScaleIOVolumeSource,
     V1ScaleIOVolumeSourceFromJSON,
     V1ScaleIOVolumeSourceFromJSONTyped,
     V1ScaleIOVolumeSourceToJSON,
-} from './V1ScaleIOVolumeSource';
+} from './';
 import {
     V1SecretVolumeSource,
     V1SecretVolumeSourceFromJSON,
     V1SecretVolumeSourceFromJSONTyped,
     V1SecretVolumeSourceToJSON,
-} from './V1SecretVolumeSource';
+} from './';
 import {
     V1StorageOSVolumeSource,
     V1StorageOSVolumeSourceFromJSON,
     V1StorageOSVolumeSourceFromJSONTyped,
     V1StorageOSVolumeSourceToJSON,
-} from './V1StorageOSVolumeSource';
+} from './';
 import {
     V1VsphereVirtualDiskVolumeSource,
     V1VsphereVirtualDiskVolumeSourceFromJSON,
     V1VsphereVirtualDiskVolumeSourceFromJSONTyped,
     V1VsphereVirtualDiskVolumeSourceToJSON,
-} from './V1VsphereVirtualDiskVolumeSource';
+} from './';
 
 /**
  * Volume represents a named volume in a pod that may be accessed by any container in the pod.

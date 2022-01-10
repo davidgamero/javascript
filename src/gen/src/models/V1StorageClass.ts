@@ -18,13 +18,13 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1TopologySelectorTerm,
     V1TopologySelectorTermFromJSON,
     V1TopologySelectorTermFromJSONTyped,
     V1TopologySelectorTermToJSON,
-} from './V1TopologySelectorTerm';
+} from './';
 
 /**
  * StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.

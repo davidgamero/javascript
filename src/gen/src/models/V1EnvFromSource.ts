@@ -18,13 +18,13 @@ import {
     V1ConfigMapEnvSourceFromJSON,
     V1ConfigMapEnvSourceFromJSONTyped,
     V1ConfigMapEnvSourceToJSON,
-} from './V1ConfigMapEnvSource';
+} from './';
 import {
     V1SecretEnvSource,
     V1SecretEnvSourceFromJSON,
     V1SecretEnvSourceFromJSONTyped,
     V1SecretEnvSourceToJSON,
-} from './V1SecretEnvSource';
+} from './';
 
 /**
  * EnvFromSource represents the source of a set of ConfigMaps

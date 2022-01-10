@@ -18,7 +18,7 @@ import {
     V1UserInfoFromJSON,
     V1UserInfoFromJSONTyped,
     V1UserInfoToJSON,
-} from './V1UserInfo';
+} from './';
 
 /**
  * TokenReviewStatus is the result of the token authentication request.

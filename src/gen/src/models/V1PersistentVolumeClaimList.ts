@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1PersistentVolumeClaim,
     V1PersistentVolumeClaimFromJSON,
     V1PersistentVolumeClaimFromJSONTyped,
     V1PersistentVolumeClaimToJSON,
-} from './V1PersistentVolumeClaim';
+} from './';
 
 /**
  * PersistentVolumeClaimList is a list of PersistentVolumeClaim items.

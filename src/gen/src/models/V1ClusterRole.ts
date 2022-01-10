@@ -18,19 +18,19 @@ import {
     V1AggregationRuleFromJSON,
     V1AggregationRuleFromJSONTyped,
     V1AggregationRuleToJSON,
-} from './V1AggregationRule';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1PolicyRule,
     V1PolicyRuleFromJSON,
     V1PolicyRuleFromJSONTyped,
     V1PolicyRuleToJSON,
-} from './V1PolicyRule';
+} from './';
 
 /**
  * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.

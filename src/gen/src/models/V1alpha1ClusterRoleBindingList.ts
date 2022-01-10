@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1alpha1ClusterRoleBinding,
     V1alpha1ClusterRoleBindingFromJSON,
     V1alpha1ClusterRoleBindingFromJSONTyped,
     V1alpha1ClusterRoleBindingToJSON,
-} from './V1alpha1ClusterRoleBinding';
+} from './';
 
 /**
  * ClusterRoleBindingList is a collection of ClusterRoleBindings. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.22.

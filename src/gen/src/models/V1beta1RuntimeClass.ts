@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1beta1Overhead,
     V1beta1OverheadFromJSON,
     V1beta1OverheadFromJSONTyped,
     V1beta1OverheadToJSON,
-} from './V1beta1Overhead';
+} from './';
 import {
     V1beta1Scheduling,
     V1beta1SchedulingFromJSON,
     V1beta1SchedulingFromJSONTyped,
     V1beta1SchedulingToJSON,
-} from './V1beta1Scheduling';
+} from './';
 
 /**
  * RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class

@@ -18,13 +18,13 @@ import {
     V1EndpointsFromJSON,
     V1EndpointsFromJSONTyped,
     V1EndpointsToJSON,
-} from './V1Endpoints';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * EndpointsList is a list of endpoints.

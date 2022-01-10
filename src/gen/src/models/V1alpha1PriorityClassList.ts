@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1alpha1PriorityClass,
     V1alpha1PriorityClassFromJSON,
     V1alpha1PriorityClassFromJSONTyped,
     V1alpha1PriorityClassToJSON,
-} from './V1alpha1PriorityClass';
+} from './';
 
 /**
  * PriorityClassList is a collection of priority classes.

@@ -18,13 +18,13 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * CSIStorageCapacity stores the result of one CSI GetCapacity call. For a given StorageClass, this describes the available capacity in a particular topology segment.  This can be used when considering where to instantiate new PersistentVolumes.

@@ -18,7 +18,7 @@ import {
     V1SecretReferenceFromJSON,
     V1SecretReferenceFromJSONTyped,
     V1SecretReferenceToJSON,
-} from './V1SecretReference';
+} from './';
 
 /**
  * Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.

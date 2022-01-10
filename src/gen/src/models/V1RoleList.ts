@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1Role,
     V1RoleFromJSON,
     V1RoleFromJSONTyped,
     V1RoleToJSON,
-} from './V1Role';
+} from './';
 
 /**
  * RoleList is a collection of Roles

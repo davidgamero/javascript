@@ -18,7 +18,7 @@ import {
     V1RollingUpdateDaemonSetFromJSON,
     V1RollingUpdateDaemonSetFromJSONTyped,
     V1RollingUpdateDaemonSetToJSON,
-} from './V1RollingUpdateDaemonSet';
+} from './';
 
 /**
  * DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.

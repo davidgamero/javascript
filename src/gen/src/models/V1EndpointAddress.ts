@@ -18,7 +18,7 @@ import {
     V1ObjectReferenceFromJSON,
     V1ObjectReferenceFromJSONTyped,
     V1ObjectReferenceToJSON,
-} from './V1ObjectReference';
+} from './';
 
 /**
  * EndpointAddress is a tuple that describes single IP address.

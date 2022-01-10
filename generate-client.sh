@@ -19,7 +19,7 @@ else
     echo ">>> Reusing gen repo at ${GEN_ROOT}"
 fi
 
-TYPESCRIPT="${GEN_ROOT}/openapi/typescript-fetch.sh"
+TYPESCRIPT="${GEN_ROOT}/openapi/typescript.sh"
 echo ">>> Running ${TYPESCRIPT}"
 ${TYPESCRIPT} src/gen settings
 echo ">>> Done."

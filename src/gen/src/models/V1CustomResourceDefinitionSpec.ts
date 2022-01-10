@@ -18,19 +18,19 @@ import {
     V1CustomResourceConversionFromJSON,
     V1CustomResourceConversionFromJSONTyped,
     V1CustomResourceConversionToJSON,
-} from './V1CustomResourceConversion';
+} from './';
 import {
     V1CustomResourceDefinitionNames,
     V1CustomResourceDefinitionNamesFromJSON,
     V1CustomResourceDefinitionNamesFromJSONTyped,
     V1CustomResourceDefinitionNamesToJSON,
-} from './V1CustomResourceDefinitionNames';
+} from './';
 import {
     V1CustomResourceDefinitionVersion,
     V1CustomResourceDefinitionVersionFromJSON,
     V1CustomResourceDefinitionVersionFromJSONTyped,
     V1CustomResourceDefinitionVersionToJSON,
-} from './V1CustomResourceDefinitionVersion';
+} from './';
 
 /**
  * CustomResourceDefinitionSpec describes how a user wants their resource to appear

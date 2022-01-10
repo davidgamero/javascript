@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1RoleRef,
     V1RoleRefFromJSON,
     V1RoleRefFromJSONTyped,
     V1RoleRefToJSON,
-} from './V1RoleRef';
+} from './';
 import {
     V1Subject,
     V1SubjectFromJSON,
     V1SubjectFromJSONTyped,
     V1SubjectToJSON,
-} from './V1Subject';
+} from './';
 
 /**
  * ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.

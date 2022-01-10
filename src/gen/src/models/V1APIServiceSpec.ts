@@ -18,7 +18,7 @@ import {
     ApiregistrationV1ServiceReferenceFromJSON,
     ApiregistrationV1ServiceReferenceFromJSONTyped,
     ApiregistrationV1ServiceReferenceToJSON,
-} from './ApiregistrationV1ServiceReference';
+} from './';
 
 /**
  * APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.

@@ -18,7 +18,7 @@ import {
     V1BoundObjectReferenceFromJSON,
     V1BoundObjectReferenceFromJSONTyped,
     V1BoundObjectReferenceToJSON,
-} from './V1BoundObjectReference';
+} from './';
 
 /**
  * TokenRequestSpec contains client provided parameters of a token request.

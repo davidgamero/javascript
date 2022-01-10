@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1TokenRequestSpec,
     V1TokenRequestSpecFromJSON,
     V1TokenRequestSpecFromJSONTyped,
     V1TokenRequestSpecToJSON,
-} from './V1TokenRequestSpec';
+} from './';
 import {
     V1TokenRequestStatus,
     V1TokenRequestStatusFromJSON,
     V1TokenRequestStatusFromJSONTyped,
     V1TokenRequestStatusToJSON,
-} from './V1TokenRequestStatus';
+} from './';
 
 /**
  * TokenRequest requests a token for a given service account.

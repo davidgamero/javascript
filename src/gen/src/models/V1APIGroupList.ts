@@ -18,7 +18,7 @@ import {
     V1APIGroupFromJSON,
     V1APIGroupFromJSONTyped,
     V1APIGroupToJSON,
-} from './V1APIGroup';
+} from './';
 
 /**
  * APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.

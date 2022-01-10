@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1SubjectAccessReviewSpec,
     V1SubjectAccessReviewSpecFromJSON,
     V1SubjectAccessReviewSpecFromJSONTyped,
     V1SubjectAccessReviewSpecToJSON,
-} from './V1SubjectAccessReviewSpec';
+} from './';
 import {
     V1SubjectAccessReviewStatus,
     V1SubjectAccessReviewStatusFromJSON,
     V1SubjectAccessReviewStatusFromJSONTyped,
     V1SubjectAccessReviewStatusToJSON,
-} from './V1SubjectAccessReviewStatus';
+} from './';
 
 /**
  * SubjectAccessReview checks whether or not a user or group can perform an action.

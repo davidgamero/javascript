@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1beta1PodDisruptionBudget,
     V1beta1PodDisruptionBudgetFromJSON,
     V1beta1PodDisruptionBudgetFromJSONTyped,
     V1beta1PodDisruptionBudgetToJSON,
-} from './V1beta1PodDisruptionBudget';
+} from './';
 
 /**
  * PodDisruptionBudgetList is a collection of PodDisruptionBudgets.

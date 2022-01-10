@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ServiceSpec,
     V1ServiceSpecFromJSON,
     V1ServiceSpecFromJSONTyped,
     V1ServiceSpecToJSON,
-} from './V1ServiceSpec';
+} from './';
 import {
     V1ServiceStatus,
     V1ServiceStatusFromJSON,
     V1ServiceStatusFromJSONTyped,
     V1ServiceStatusToJSON,
-} from './V1ServiceStatus';
+} from './';
 
 /**
  * Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.

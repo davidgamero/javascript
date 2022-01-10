@@ -18,7 +18,7 @@ import {
     V1NodeSelectorRequirementFromJSON,
     V1NodeSelectorRequirementFromJSONTyped,
     V1NodeSelectorRequirementToJSON,
-} from './V1NodeSelectorRequirement';
+} from './';
 
 /**
  * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.

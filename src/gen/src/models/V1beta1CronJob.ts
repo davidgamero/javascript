@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1beta1CronJobSpec,
     V1beta1CronJobSpecFromJSON,
     V1beta1CronJobSpecFromJSONTyped,
     V1beta1CronJobSpecToJSON,
-} from './V1beta1CronJobSpec';
+} from './';
 import {
     V1beta1CronJobStatus,
     V1beta1CronJobStatusFromJSON,
     V1beta1CronJobStatusFromJSONTyped,
     V1beta1CronJobStatusToJSON,
-} from './V1beta1CronJobStatus';
+} from './';
 
 /**
  * CronJob represents the configuration of a single cron job.

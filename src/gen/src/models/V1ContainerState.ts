@@ -18,19 +18,19 @@ import {
     V1ContainerStateRunningFromJSON,
     V1ContainerStateRunningFromJSONTyped,
     V1ContainerStateRunningToJSON,
-} from './V1ContainerStateRunning';
+} from './';
 import {
     V1ContainerStateTerminated,
     V1ContainerStateTerminatedFromJSON,
     V1ContainerStateTerminatedFromJSONTyped,
     V1ContainerStateTerminatedToJSON,
-} from './V1ContainerStateTerminated';
+} from './';
 import {
     V1ContainerStateWaiting,
     V1ContainerStateWaitingFromJSON,
     V1ContainerStateWaitingFromJSONTyped,
     V1ContainerStateWaitingToJSON,
-} from './V1ContainerStateWaiting';
+} from './';
 
 /**
  * ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.

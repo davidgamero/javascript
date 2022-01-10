@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1beta1PriorityLevelConfiguration,
     V1beta1PriorityLevelConfigurationFromJSON,
     V1beta1PriorityLevelConfigurationFromJSONTyped,
     V1beta1PriorityLevelConfigurationToJSON,
-} from './V1beta1PriorityLevelConfiguration';
+} from './';
 
 /**
  * PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.

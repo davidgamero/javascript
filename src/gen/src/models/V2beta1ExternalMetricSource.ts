@@ -18,7 +18,7 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 
 /**
  * ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster). Exactly one "target" type should be set.

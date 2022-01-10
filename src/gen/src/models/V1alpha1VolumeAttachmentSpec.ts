@@ -18,7 +18,7 @@ import {
     V1alpha1VolumeAttachmentSourceFromJSON,
     V1alpha1VolumeAttachmentSourceFromJSONTyped,
     V1alpha1VolumeAttachmentSourceToJSON,
-} from './V1alpha1VolumeAttachmentSource';
+} from './';
 
 /**
  * VolumeAttachmentSpec is the specification of a VolumeAttachment request.

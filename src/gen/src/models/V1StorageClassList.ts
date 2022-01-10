@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1StorageClass,
     V1StorageClassFromJSON,
     V1StorageClassFromJSONTyped,
     V1StorageClassToJSON,
-} from './V1StorageClass';
+} from './';
 
 /**
  * StorageClassList is a collection of storage classes.

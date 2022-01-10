@@ -18,13 +18,13 @@ import {
     V1DaemonSetFromJSON,
     V1DaemonSetFromJSONTyped,
     V1DaemonSetToJSON,
-} from './V1DaemonSet';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * DaemonSetList is a collection of daemon sets.

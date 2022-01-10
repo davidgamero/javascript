@@ -18,7 +18,7 @@ import {
     V1CSINodeDriverFromJSON,
     V1CSINodeDriverFromJSONTyped,
     V1CSINodeDriverToJSON,
-} from './V1CSINodeDriver';
+} from './';
 
 /**
  * CSINodeSpec holds information about the specification of all CSI drivers installed on a node

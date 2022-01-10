@@ -18,13 +18,13 @@ import {
     V1ComponentConditionFromJSON,
     V1ComponentConditionFromJSONTyped,
     V1ComponentConditionToJSON,
-} from './V1ComponentCondition';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * ComponentStatus (and ComponentStatusList) holds the cluster validation info. Deprecated: This API is deprecated in v1.19+

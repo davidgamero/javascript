@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1alpha1ClusterRole,
     V1alpha1ClusterRoleFromJSON,
     V1alpha1ClusterRoleFromJSONTyped,
     V1alpha1ClusterRoleToJSON,
-} from './V1alpha1ClusterRole';
+} from './';
 
 /**
  * ClusterRoleList is a collection of ClusterRoles. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.22.

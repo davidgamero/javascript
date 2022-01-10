@@ -18,13 +18,13 @@ import {
     V1HorizontalPodAutoscalerFromJSON,
     V1HorizontalPodAutoscalerFromJSONTyped,
     V1HorizontalPodAutoscalerToJSON,
-} from './V1HorizontalPodAutoscaler';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * list of horizontal pod autoscaler objects.

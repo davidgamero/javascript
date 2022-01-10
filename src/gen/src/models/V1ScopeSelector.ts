@@ -18,7 +18,7 @@ import {
     V1ScopedResourceSelectorRequirementFromJSON,
     V1ScopedResourceSelectorRequirementFromJSONTyped,
     V1ScopedResourceSelectorRequirementToJSON,
-} from './V1ScopedResourceSelectorRequirement';
+} from './';
 
 /**
  * A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.

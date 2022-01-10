@@ -18,7 +18,7 @@ import {
     V1ServerAddressByClientCIDRFromJSON,
     V1ServerAddressByClientCIDRFromJSONTyped,
     V1ServerAddressByClientCIDRToJSON,
-} from './V1ServerAddressByClientCIDR';
+} from './';
 
 /**
  * APIVersions lists the versions that are available, to allow clients to discover the API at /api, which is the root path of the legacy v1 API.

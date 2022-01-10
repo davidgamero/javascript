@@ -18,7 +18,7 @@ import {
     V1VolumeErrorFromJSON,
     V1VolumeErrorFromJSONTyped,
     V1VolumeErrorToJSON,
-} from './V1VolumeError';
+} from './';
 
 /**
  * VolumeAttachmentStatus is the status of a VolumeAttachment request.

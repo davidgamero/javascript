@@ -18,13 +18,13 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1PersistentVolumeClaimSpec,
     V1PersistentVolumeClaimSpecFromJSON,
     V1PersistentVolumeClaimSpecFromJSONTyped,
     V1PersistentVolumeClaimSpecToJSON,
-} from './V1PersistentVolumeClaimSpec';
+} from './';
 
 /**
  * PersistentVolumeClaimTemplate is used to produce PersistentVolumeClaim objects as part of an EphemeralVolumeSource.

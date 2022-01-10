@@ -18,13 +18,13 @@ import {
     V1DeploymentFromJSON,
     V1DeploymentFromJSONTyped,
     V1DeploymentToJSON,
-} from './V1Deployment';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * DeploymentList is a list of Deployments.

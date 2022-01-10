@@ -18,13 +18,13 @@ import {
     V1IngressClassFromJSON,
     V1IngressClassFromJSONTyped,
     V1IngressClassToJSON,
-} from './V1IngressClass';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * IngressClassList is a collection of IngressClasses.

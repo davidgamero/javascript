@@ -18,7 +18,7 @@ import {
     V1LocalObjectReferenceFromJSON,
     V1LocalObjectReferenceFromJSONTyped,
     V1LocalObjectReferenceToJSON,
-} from './V1LocalObjectReference';
+} from './';
 
 /**
  * Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.

@@ -18,7 +18,7 @@ import {
     V1SecretReferenceFromJSON,
     V1SecretReferenceFromJSONTyped,
     V1SecretReferenceToJSON,
-} from './V1SecretReference';
+} from './';
 
 /**
  * Represents storage that is managed by an external CSI volume driver (Beta feature)

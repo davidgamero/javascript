@@ -18,13 +18,13 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1PodSpec,
     V1PodSpecFromJSON,
     V1PodSpecFromJSONTyped,
     V1PodSpecToJSON,
-} from './V1PodSpec';
+} from './';
 
 /**
  * PodTemplateSpec describes the data a pod should have when created from a template

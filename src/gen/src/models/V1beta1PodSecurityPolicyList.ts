@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1beta1PodSecurityPolicy,
     V1beta1PodSecurityPolicyFromJSON,
     V1beta1PodSecurityPolicyFromJSONTyped,
     V1beta1PodSecurityPolicyToJSON,
-} from './V1beta1PodSecurityPolicy';
+} from './';
 
 /**
  * PodSecurityPolicyList is a list of PodSecurityPolicy objects.

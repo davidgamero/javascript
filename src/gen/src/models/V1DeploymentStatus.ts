@@ -18,7 +18,7 @@ import {
     V1DeploymentConditionFromJSON,
     V1DeploymentConditionFromJSONTyped,
     V1DeploymentConditionToJSON,
-} from './V1DeploymentCondition';
+} from './';
 
 /**
  * DeploymentStatus is the most recently observed status of the Deployment.

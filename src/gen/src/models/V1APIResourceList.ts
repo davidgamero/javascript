@@ -18,7 +18,7 @@ import {
     V1APIResourceFromJSON,
     V1APIResourceFromJSONTyped,
     V1APIResourceToJSON,
-} from './V1APIResource';
+} from './';
 
 /**
  * APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.

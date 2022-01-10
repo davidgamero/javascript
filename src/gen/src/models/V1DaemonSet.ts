@@ -18,19 +18,19 @@ import {
     V1DaemonSetSpecFromJSON,
     V1DaemonSetSpecFromJSONTyped,
     V1DaemonSetSpecToJSON,
-} from './V1DaemonSetSpec';
+} from './';
 import {
     V1DaemonSetStatus,
     V1DaemonSetStatusFromJSON,
     V1DaemonSetStatusFromJSONTyped,
     V1DaemonSetStatusToJSON,
-} from './V1DaemonSetStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * DaemonSet represents the configuration of a daemon set.

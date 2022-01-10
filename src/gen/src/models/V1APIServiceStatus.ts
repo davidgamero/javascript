@@ -18,7 +18,7 @@ import {
     V1APIServiceConditionFromJSON,
     V1APIServiceConditionFromJSONTyped,
     V1APIServiceConditionToJSON,
-} from './V1APIServiceCondition';
+} from './';
 
 /**
  * APIServiceStatus contains derived information about an API server

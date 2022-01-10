@@ -18,13 +18,13 @@ import {
     V2beta2HorizontalPodAutoscalerConditionFromJSON,
     V2beta2HorizontalPodAutoscalerConditionFromJSONTyped,
     V2beta2HorizontalPodAutoscalerConditionToJSON,
-} from './V2beta2HorizontalPodAutoscalerCondition';
+} from './';
 import {
     V2beta2MetricStatus,
     V2beta2MetricStatusFromJSON,
     V2beta2MetricStatusFromJSONTyped,
     V2beta2MetricStatusToJSON,
-} from './V2beta2MetricStatus';
+} from './';
 
 /**
  * HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.

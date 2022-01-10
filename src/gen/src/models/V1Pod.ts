@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1PodSpec,
     V1PodSpecFromJSON,
     V1PodSpecFromJSONTyped,
     V1PodSpecToJSON,
-} from './V1PodSpec';
+} from './';
 import {
     V1PodStatus,
     V1PodStatusFromJSON,
     V1PodStatusFromJSONTyped,
     V1PodStatusToJSON,
-} from './V1PodStatus';
+} from './';
 
 /**
  * Pod is a collection of containers that can run on a host. This resource is created by clients and scheduled onto hosts.

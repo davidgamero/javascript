@@ -18,19 +18,19 @@ import {
     V1APIServiceSpecFromJSON,
     V1APIServiceSpecFromJSONTyped,
     V1APIServiceSpecToJSON,
-} from './V1APIServiceSpec';
+} from './';
 import {
     V1APIServiceStatus,
     V1APIServiceStatusFromJSON,
     V1APIServiceStatusFromJSONTyped,
     V1APIServiceStatusToJSON,
-} from './V1APIServiceStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * APIService represents a server for a particular GroupVersion. Name must be "version.group".

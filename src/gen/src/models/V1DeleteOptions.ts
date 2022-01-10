@@ -18,7 +18,7 @@ import {
     V1PreconditionsFromJSON,
     V1PreconditionsFromJSONTyped,
     V1PreconditionsToJSON,
-} from './V1Preconditions';
+} from './';
 
 /**
  * DeleteOptions may be provided when deleting an API object.

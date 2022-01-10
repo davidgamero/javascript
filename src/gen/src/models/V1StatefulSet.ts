@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1StatefulSetSpec,
     V1StatefulSetSpecFromJSON,
     V1StatefulSetSpecFromJSONTyped,
     V1StatefulSetSpecToJSON,
-} from './V1StatefulSetSpec';
+} from './';
 import {
     V1StatefulSetStatus,
     V1StatefulSetStatusFromJSON,
     V1StatefulSetStatusFromJSONTyped,
     V1StatefulSetStatusToJSON,
-} from './V1StatefulSetStatus';
+} from './';
 
 /**
  * StatefulSet represents a set of pods with consistent identities. Identities are defined as:

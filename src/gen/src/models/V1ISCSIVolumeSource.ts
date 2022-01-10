@@ -18,7 +18,7 @@ import {
     V1LocalObjectReferenceFromJSON,
     V1LocalObjectReferenceFromJSONTyped,
     V1LocalObjectReferenceToJSON,
-} from './V1LocalObjectReference';
+} from './';
 
 /**
  * Represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.

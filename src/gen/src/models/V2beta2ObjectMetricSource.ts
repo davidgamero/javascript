@@ -18,19 +18,19 @@ import {
     V2beta2CrossVersionObjectReferenceFromJSON,
     V2beta2CrossVersionObjectReferenceFromJSONTyped,
     V2beta2CrossVersionObjectReferenceToJSON,
-} from './V2beta2CrossVersionObjectReference';
+} from './';
 import {
     V2beta2MetricIdentifier,
     V2beta2MetricIdentifierFromJSON,
     V2beta2MetricIdentifierFromJSONTyped,
     V2beta2MetricIdentifierToJSON,
-} from './V2beta2MetricIdentifier';
+} from './';
 import {
     V2beta2MetricTarget,
     V2beta2MetricTargetFromJSON,
     V2beta2MetricTargetFromJSONTyped,
     V2beta2MetricTargetToJSON,
-} from './V2beta2MetricTarget';
+} from './';
 
 /**
  * ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).

@@ -18,13 +18,13 @@ import {
     V1LimitRangeFromJSON,
     V1LimitRangeFromJSONTyped,
     V1LimitRangeToJSON,
-} from './V1LimitRange';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * LimitRangeList is a list of LimitRange items.

@@ -18,13 +18,13 @@ import {
     V2beta2MetricIdentifierFromJSON,
     V2beta2MetricIdentifierFromJSONTyped,
     V2beta2MetricIdentifierToJSON,
-} from './V2beta2MetricIdentifier';
+} from './';
 import {
     V2beta2MetricTarget,
     V2beta2MetricTargetFromJSON,
     V2beta2MetricTargetFromJSONTyped,
     V2beta2MetricTargetToJSON,
-} from './V2beta2MetricTarget';
+} from './';
 
 /**
  * ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).

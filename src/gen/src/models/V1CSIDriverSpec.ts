@@ -18,7 +18,7 @@ import {
     StorageV1TokenRequestFromJSON,
     StorageV1TokenRequestFromJSONTyped,
     StorageV1TokenRequestToJSON,
-} from './StorageV1TokenRequest';
+} from './';
 
 /**
  * CSIDriverSpec is the specification of a CSIDriver.

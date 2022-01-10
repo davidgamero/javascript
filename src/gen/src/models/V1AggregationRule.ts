@@ -18,7 +18,7 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 
 /**
  * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole

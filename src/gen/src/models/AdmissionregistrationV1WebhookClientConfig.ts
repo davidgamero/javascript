@@ -18,7 +18,7 @@ import {
     AdmissionregistrationV1ServiceReferenceFromJSON,
     AdmissionregistrationV1ServiceReferenceFromJSONTyped,
     AdmissionregistrationV1ServiceReferenceToJSON,
-} from './AdmissionregistrationV1ServiceReference';
+} from './';
 
 /**
  * WebhookClientConfig contains the information to make a TLS connection with the webhook

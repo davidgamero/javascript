@@ -18,19 +18,19 @@ import {
     V1NamespaceSpecFromJSON,
     V1NamespaceSpecFromJSONTyped,
     V1NamespaceSpecToJSON,
-} from './V1NamespaceSpec';
+} from './';
 import {
     V1NamespaceStatus,
     V1NamespaceStatusFromJSON,
     V1NamespaceStatusFromJSONTyped,
     V1NamespaceStatusToJSON,
-} from './V1NamespaceStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * Namespace provides a scope for Names. Use of multiple namespaces is optional.

@@ -18,19 +18,19 @@ import {
     V1CustomResourceDefinitionSpecFromJSON,
     V1CustomResourceDefinitionSpecFromJSONTyped,
     V1CustomResourceDefinitionSpecToJSON,
-} from './V1CustomResourceDefinitionSpec';
+} from './';
 import {
     V1CustomResourceDefinitionStatus,
     V1CustomResourceDefinitionStatusFromJSON,
     V1CustomResourceDefinitionStatusFromJSONTyped,
     V1CustomResourceDefinitionStatusToJSON,
-} from './V1CustomResourceDefinitionStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format <.spec.name>.<.spec.group>.

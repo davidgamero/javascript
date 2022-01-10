@@ -18,7 +18,7 @@ import {
     V1VolumeProjectionFromJSON,
     V1VolumeProjectionFromJSONTyped,
     V1VolumeProjectionToJSON,
-} from './V1VolumeProjection';
+} from './';
 
 /**
  * Represents a projected volume source

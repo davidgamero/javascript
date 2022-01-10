@@ -18,19 +18,19 @@ import {
     V1CustomResourceColumnDefinitionFromJSON,
     V1CustomResourceColumnDefinitionFromJSONTyped,
     V1CustomResourceColumnDefinitionToJSON,
-} from './V1CustomResourceColumnDefinition';
+} from './';
 import {
     V1CustomResourceSubresources,
     V1CustomResourceSubresourcesFromJSON,
     V1CustomResourceSubresourcesFromJSONTyped,
     V1CustomResourceSubresourcesToJSON,
-} from './V1CustomResourceSubresources';
+} from './';
 import {
     V1CustomResourceValidation,
     V1CustomResourceValidationFromJSON,
     V1CustomResourceValidationFromJSONTyped,
     V1CustomResourceValidationToJSON,
-} from './V1CustomResourceValidation';
+} from './';
 
 /**
  * CustomResourceDefinitionVersion describes a version for CRD.

@@ -18,19 +18,19 @@ import {
     V1IngressSpecFromJSON,
     V1IngressSpecFromJSONTyped,
     V1IngressSpecToJSON,
-} from './V1IngressSpec';
+} from './';
 import {
     V1IngressStatus,
     V1IngressStatusFromJSON,
     V1IngressStatusFromJSONTyped,
     V1IngressStatusToJSON,
-} from './V1IngressStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend. An Ingress can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.

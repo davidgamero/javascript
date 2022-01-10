@@ -18,7 +18,7 @@ import {
     V1ForZoneFromJSON,
     V1ForZoneFromJSONTyped,
     V1ForZoneToJSON,
-} from './V1ForZone';
+} from './';
 
 /**
  * EndpointHints provides hints describing how an endpoint should be consumed.

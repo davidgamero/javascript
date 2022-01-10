@@ -18,19 +18,19 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 import {
     V1ResourceRequirements,
     V1ResourceRequirementsFromJSON,
     V1ResourceRequirementsFromJSONTyped,
     V1ResourceRequirementsToJSON,
-} from './V1ResourceRequirements';
+} from './';
 import {
     V1TypedLocalObjectReference,
     V1TypedLocalObjectReferenceFromJSON,
     V1TypedLocalObjectReferenceFromJSONTyped,
     V1TypedLocalObjectReferenceToJSON,
-} from './V1TypedLocalObjectReference';
+} from './';
 
 /**
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes

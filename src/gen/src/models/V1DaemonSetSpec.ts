@@ -18,19 +18,19 @@ import {
     V1DaemonSetUpdateStrategyFromJSON,
     V1DaemonSetUpdateStrategyFromJSONTyped,
     V1DaemonSetUpdateStrategyToJSON,
-} from './V1DaemonSetUpdateStrategy';
+} from './';
 import {
     V1LabelSelector,
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 import {
     V1PodTemplateSpec,
     V1PodTemplateSpecFromJSON,
     V1PodTemplateSpecFromJSONTyped,
     V1PodTemplateSpecToJSON,
-} from './V1PodTemplateSpec';
+} from './';
 
 /**
  * DaemonSetSpec is the specification of a daemon set.

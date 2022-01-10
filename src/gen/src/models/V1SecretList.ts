@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1Secret,
     V1SecretFromJSON,
     V1SecretFromJSONTyped,
     V1SecretToJSON,
-} from './V1Secret';
+} from './';
 
 /**
  * SecretList is a list of Secret.

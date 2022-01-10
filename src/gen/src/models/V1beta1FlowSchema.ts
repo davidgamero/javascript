@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1beta1FlowSchemaSpec,
     V1beta1FlowSchemaSpecFromJSON,
     V1beta1FlowSchemaSpecFromJSONTyped,
     V1beta1FlowSchemaSpecToJSON,
-} from './V1beta1FlowSchemaSpec';
+} from './';
 import {
     V1beta1FlowSchemaStatus,
     V1beta1FlowSchemaStatusFromJSON,
     V1beta1FlowSchemaStatusFromJSONTyped,
     V1beta1FlowSchemaStatusToJSON,
-} from './V1beta1FlowSchemaStatus';
+} from './';
 
 /**
  * FlowSchema defines the schema of a group of flows. Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".

@@ -18,25 +18,25 @@ import {
     V1ConfigMapProjectionFromJSON,
     V1ConfigMapProjectionFromJSONTyped,
     V1ConfigMapProjectionToJSON,
-} from './V1ConfigMapProjection';
+} from './';
 import {
     V1DownwardAPIProjection,
     V1DownwardAPIProjectionFromJSON,
     V1DownwardAPIProjectionFromJSONTyped,
     V1DownwardAPIProjectionToJSON,
-} from './V1DownwardAPIProjection';
+} from './';
 import {
     V1SecretProjection,
     V1SecretProjectionFromJSON,
     V1SecretProjectionFromJSONTyped,
     V1SecretProjectionToJSON,
-} from './V1SecretProjection';
+} from './';
 import {
     V1ServiceAccountTokenProjection,
     V1ServiceAccountTokenProjectionFromJSON,
     V1ServiceAccountTokenProjectionFromJSONTyped,
     V1ServiceAccountTokenProjectionToJSON,
-} from './V1ServiceAccountTokenProjection';
+} from './';
 
 /**
  * Projection that may be projected along with other supported volume types

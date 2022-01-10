@@ -18,13 +18,13 @@ import {
     V1EndpointSliceFromJSON,
     V1EndpointSliceFromJSONTyped,
     V1EndpointSliceToJSON,
-} from './V1EndpointSlice';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * EndpointSliceList represents a list of endpoint slices

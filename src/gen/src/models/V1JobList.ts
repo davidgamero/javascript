@@ -18,13 +18,13 @@ import {
     V1JobFromJSON,
     V1JobFromJSONTyped,
     V1JobToJSON,
-} from './V1Job';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * JobList is a collection of jobs.

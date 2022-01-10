@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1ResourceQuota,
     V1ResourceQuotaFromJSON,
     V1ResourceQuotaFromJSONTyped,
     V1ResourceQuotaToJSON,
-} from './V1ResourceQuota';
+} from './';
 
 /**
  * ResourceQuotaList is a list of ResourceQuota items.

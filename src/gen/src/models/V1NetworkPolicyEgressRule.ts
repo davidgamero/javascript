@@ -18,13 +18,13 @@ import {
     V1NetworkPolicyPeerFromJSON,
     V1NetworkPolicyPeerFromJSONTyped,
     V1NetworkPolicyPeerToJSON,
-} from './V1NetworkPolicyPeer';
+} from './';
 import {
     V1NetworkPolicyPort,
     V1NetworkPolicyPortFromJSON,
     V1NetworkPolicyPortFromJSONTyped,
     V1NetworkPolicyPortToJSON,
-} from './V1NetworkPolicyPort';
+} from './';
 
 /**
  * NetworkPolicyEgressRule describes a particular set of traffic that is allowed out of pods matched by a NetworkPolicySpec's podSelector. The traffic must match both ports and to. This type is beta-level in 1.8

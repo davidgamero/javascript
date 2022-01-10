@@ -18,13 +18,13 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1PodTemplateSpec,
     V1PodTemplateSpecFromJSON,
     V1PodTemplateSpecFromJSONTyped,
     V1PodTemplateSpecToJSON,
-} from './V1PodTemplateSpec';
+} from './';
 
 /**
  * PodTemplate describes a template for creating copies of a predefined pod.

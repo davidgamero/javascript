@@ -18,7 +18,7 @@ import {
     V1RollingUpdateDeploymentFromJSON,
     V1RollingUpdateDeploymentFromJSONTyped,
     V1RollingUpdateDeploymentToJSON,
-} from './V1RollingUpdateDeployment';
+} from './';
 
 /**
  * DeploymentStrategy describes how to replace existing pods with new ones.

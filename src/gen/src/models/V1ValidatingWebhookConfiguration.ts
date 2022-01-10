@@ -18,13 +18,13 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ValidatingWebhook,
     V1ValidatingWebhookFromJSON,
     V1ValidatingWebhookFromJSONTyped,
     V1ValidatingWebhookToJSON,
-} from './V1ValidatingWebhook';
+} from './';
 
 /**
  * ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.

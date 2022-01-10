@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ScaleSpec,
     V1ScaleSpecFromJSON,
     V1ScaleSpecFromJSONTyped,
     V1ScaleSpecToJSON,
-} from './V1ScaleSpec';
+} from './';
 import {
     V1ScaleStatus,
     V1ScaleStatusFromJSON,
     V1ScaleStatusFromJSONTyped,
     V1ScaleStatusToJSON,
-} from './V1ScaleStatus';
+} from './';
 
 /**
  * Scale represents a scaling request for a resource.

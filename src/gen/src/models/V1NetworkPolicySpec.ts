@@ -18,19 +18,19 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 import {
     V1NetworkPolicyEgressRule,
     V1NetworkPolicyEgressRuleFromJSON,
     V1NetworkPolicyEgressRuleFromJSONTyped,
     V1NetworkPolicyEgressRuleToJSON,
-} from './V1NetworkPolicyEgressRule';
+} from './';
 import {
     V1NetworkPolicyIngressRule,
     V1NetworkPolicyIngressRuleFromJSON,
     V1NetworkPolicyIngressRuleFromJSONTyped,
     V1NetworkPolicyIngressRuleToJSON,
-} from './V1NetworkPolicyIngressRule';
+} from './';
 
 /**
  * NetworkPolicySpec provides the specification of a NetworkPolicy

@@ -18,7 +18,7 @@ import {
     V1ExternalDocumentationFromJSON,
     V1ExternalDocumentationFromJSONTyped,
     V1ExternalDocumentationToJSON,
-} from './V1ExternalDocumentation';
+} from './';
 
 /**
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).

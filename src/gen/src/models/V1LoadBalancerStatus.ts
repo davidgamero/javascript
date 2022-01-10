@@ -18,7 +18,7 @@ import {
     V1LoadBalancerIngressFromJSON,
     V1LoadBalancerIngressFromJSONTyped,
     V1LoadBalancerIngressToJSON,
-} from './V1LoadBalancerIngress';
+} from './';
 
 /**
  * LoadBalancerStatus represents the status of a load-balancer.

@@ -18,19 +18,19 @@ import {
     V1ExecActionFromJSON,
     V1ExecActionFromJSONTyped,
     V1ExecActionToJSON,
-} from './V1ExecAction';
+} from './';
 import {
     V1HTTPGetAction,
     V1HTTPGetActionFromJSON,
     V1HTTPGetActionFromJSONTyped,
     V1HTTPGetActionToJSON,
-} from './V1HTTPGetAction';
+} from './';
 import {
     V1TCPSocketAction,
     V1TCPSocketActionFromJSON,
     V1TCPSocketActionFromJSONTyped,
     V1TCPSocketActionToJSON,
-} from './V1TCPSocketAction';
+} from './';
 
 /**
  * Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.

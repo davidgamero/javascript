@@ -18,19 +18,19 @@ import {
     V1HorizontalPodAutoscalerSpecFromJSON,
     V1HorizontalPodAutoscalerSpecFromJSONTyped,
     V1HorizontalPodAutoscalerSpecToJSON,
-} from './V1HorizontalPodAutoscalerSpec';
+} from './';
 import {
     V1HorizontalPodAutoscalerStatus,
     V1HorizontalPodAutoscalerStatusFromJSON,
     V1HorizontalPodAutoscalerStatusFromJSONTyped,
     V1HorizontalPodAutoscalerStatusToJSON,
-} from './V1HorizontalPodAutoscalerStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * configuration of a horizontal pod autoscaler.

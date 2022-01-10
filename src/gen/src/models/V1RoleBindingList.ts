@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1RoleBinding,
     V1RoleBindingFromJSON,
     V1RoleBindingFromJSONTyped,
     V1RoleBindingToJSON,
-} from './V1RoleBinding';
+} from './';
 
 /**
  * RoleBindingList is a collection of RoleBindings

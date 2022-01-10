@@ -18,25 +18,25 @@ import {
     V1ConfigMapKeySelectorFromJSON,
     V1ConfigMapKeySelectorFromJSONTyped,
     V1ConfigMapKeySelectorToJSON,
-} from './V1ConfigMapKeySelector';
+} from './';
 import {
     V1ObjectFieldSelector,
     V1ObjectFieldSelectorFromJSON,
     V1ObjectFieldSelectorFromJSONTyped,
     V1ObjectFieldSelectorToJSON,
-} from './V1ObjectFieldSelector';
+} from './';
 import {
     V1ResourceFieldSelector,
     V1ResourceFieldSelectorFromJSON,
     V1ResourceFieldSelectorFromJSONTyped,
     V1ResourceFieldSelectorToJSON,
-} from './V1ResourceFieldSelector';
+} from './';
 import {
     V1SecretKeySelector,
     V1SecretKeySelectorFromJSON,
     V1SecretKeySelectorFromJSONTyped,
     V1SecretKeySelectorToJSON,
-} from './V1SecretKeySelector';
+} from './';
 
 /**
  * EnvVarSource represents a source for the value of an EnvVar.

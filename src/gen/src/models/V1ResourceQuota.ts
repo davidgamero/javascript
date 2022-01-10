@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ResourceQuotaSpec,
     V1ResourceQuotaSpecFromJSON,
     V1ResourceQuotaSpecFromJSONTyped,
     V1ResourceQuotaSpecToJSON,
-} from './V1ResourceQuotaSpec';
+} from './';
 import {
     V1ResourceQuotaStatus,
     V1ResourceQuotaStatusFromJSON,
     V1ResourceQuotaStatusFromJSONTyped,
     V1ResourceQuotaStatusToJSON,
-} from './V1ResourceQuotaStatus';
+} from './';
 
 /**
  * ResourceQuota sets aggregate quota restrictions enforced per namespace

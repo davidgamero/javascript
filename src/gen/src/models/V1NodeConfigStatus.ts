@@ -18,7 +18,7 @@ import {
     V1NodeConfigSourceFromJSON,
     V1NodeConfigSourceFromJSONTyped,
     V1NodeConfigSourceToJSON,
-} from './V1NodeConfigSource';
+} from './';
 
 /**
  * NodeConfigStatus describes the status of the config assigned by Node.Spec.ConfigSource.

@@ -18,19 +18,19 @@ import {
     V1beta1NonResourcePolicyRuleFromJSON,
     V1beta1NonResourcePolicyRuleFromJSONTyped,
     V1beta1NonResourcePolicyRuleToJSON,
-} from './V1beta1NonResourcePolicyRule';
+} from './';
 import {
     V1beta1ResourcePolicyRule,
     V1beta1ResourcePolicyRuleFromJSON,
     V1beta1ResourcePolicyRuleFromJSONTyped,
     V1beta1ResourcePolicyRuleToJSON,
-} from './V1beta1ResourcePolicyRule';
+} from './';
 import {
     V1beta1Subject,
     V1beta1SubjectFromJSON,
     V1beta1SubjectFromJSONTyped,
     V1beta1SubjectToJSON,
-} from './V1beta1Subject';
+} from './';
 
 /**
  * PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.

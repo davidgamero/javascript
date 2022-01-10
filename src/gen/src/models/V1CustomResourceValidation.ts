@@ -18,7 +18,7 @@ import {
     V1JSONSchemaPropsFromJSON,
     V1JSONSchemaPropsFromJSONTyped,
     V1JSONSchemaPropsToJSON,
-} from './V1JSONSchemaProps';
+} from './';
 
 /**
  * CustomResourceValidation is a list of validation methods for CustomResources.

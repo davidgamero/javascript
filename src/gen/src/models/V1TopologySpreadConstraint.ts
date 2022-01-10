@@ -18,7 +18,7 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 
 /**
  * TopologySpreadConstraint specifies how to spread matching pods among the given topology.

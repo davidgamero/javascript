@@ -18,13 +18,13 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1beta1PodSecurityPolicySpec,
     V1beta1PodSecurityPolicySpecFromJSON,
     V1beta1PodSecurityPolicySpecFromJSONTyped,
     V1beta1PodSecurityPolicySpecToJSON,
-} from './V1beta1PodSecurityPolicySpec';
+} from './';
 
 /**
  * PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container. Deprecated in 1.21.

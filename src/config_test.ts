@@ -23,7 +23,7 @@ const kcInvalidContextFileName = 'testdata/empty-context-kubeconfig.yaml';
 const kcInvalidClusterFileName = 'testdata/empty-cluster-kubeconfig.yaml';
 
 /* tslint:disable: no-empty */
-describe('Config', () => {});
+describe('Config', () => { });
 
 function validateFileLoad(kc: KubeConfig) {
     // check clusters

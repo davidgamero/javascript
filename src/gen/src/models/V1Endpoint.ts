@@ -18,19 +18,19 @@ import {
     V1EndpointConditionsFromJSON,
     V1EndpointConditionsFromJSONTyped,
     V1EndpointConditionsToJSON,
-} from './V1EndpointConditions';
+} from './';
 import {
     V1EndpointHints,
     V1EndpointHintsFromJSON,
     V1EndpointHintsFromJSONTyped,
     V1EndpointHintsToJSON,
-} from './V1EndpointHints';
+} from './';
 import {
     V1ObjectReference,
     V1ObjectReferenceFromJSON,
     V1ObjectReferenceFromJSONTyped,
     V1ObjectReferenceToJSON,
-} from './V1ObjectReference';
+} from './';
 
 /**
  * Endpoint represents a single logical "backend" implementing a service.

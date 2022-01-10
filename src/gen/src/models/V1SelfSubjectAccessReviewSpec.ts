@@ -18,13 +18,13 @@ import {
     V1NonResourceAttributesFromJSON,
     V1NonResourceAttributesFromJSONTyped,
     V1NonResourceAttributesToJSON,
-} from './V1NonResourceAttributes';
+} from './';
 import {
     V1ResourceAttributes,
     V1ResourceAttributesFromJSON,
     V1ResourceAttributesFromJSONTyped,
     V1ResourceAttributesToJSON,
-} from './V1ResourceAttributes';
+} from './';
 
 /**
  * SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set

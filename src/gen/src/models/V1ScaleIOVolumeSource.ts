@@ -18,7 +18,7 @@ import {
     V1LocalObjectReferenceFromJSON,
     V1LocalObjectReferenceFromJSONTyped,
     V1LocalObjectReferenceToJSON,
-} from './V1LocalObjectReference';
+} from './';
 
 /**
  * ScaleIOVolumeSource represents a persistent ScaleIO volume

@@ -18,7 +18,7 @@ import {
     V1ConditionFromJSON,
     V1ConditionFromJSONTyped,
     V1ConditionToJSON,
-} from './V1Condition';
+} from './';
 
 /**
  * PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget. Status may trail the actual state of a system.

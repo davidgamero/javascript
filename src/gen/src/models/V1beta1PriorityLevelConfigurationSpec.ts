@@ -18,7 +18,7 @@ import {
     V1beta1LimitedPriorityLevelConfigurationFromJSON,
     V1beta1LimitedPriorityLevelConfigurationFromJSONTyped,
     V1beta1LimitedPriorityLevelConfigurationToJSON,
-} from './V1beta1LimitedPriorityLevelConfiguration';
+} from './';
 
 /**
  * PriorityLevelConfigurationSpec specifies the configuration of a priority level.

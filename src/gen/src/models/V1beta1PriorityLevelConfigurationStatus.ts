@@ -18,7 +18,7 @@ import {
     V1beta1PriorityLevelConfigurationConditionFromJSON,
     V1beta1PriorityLevelConfigurationConditionFromJSONTyped,
     V1beta1PriorityLevelConfigurationConditionToJSON,
-} from './V1beta1PriorityLevelConfigurationCondition';
+} from './';
 
 /**
  * PriorityLevelConfigurationStatus represents the current state of a "request-priority".

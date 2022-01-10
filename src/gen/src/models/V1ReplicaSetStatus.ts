@@ -18,7 +18,7 @@ import {
     V1ReplicaSetConditionFromJSON,
     V1ReplicaSetConditionFromJSONTyped,
     V1ReplicaSetConditionToJSON,
-} from './V1ReplicaSetCondition';
+} from './';
 
 /**
  * ReplicaSetStatus represents the current status of a ReplicaSet.

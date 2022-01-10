@@ -18,13 +18,13 @@ import {
     V1LeaseSpecFromJSON,
     V1LeaseSpecFromJSONTyped,
     V1LeaseSpecToJSON,
-} from './V1LeaseSpec';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * Lease defines a lease concept.

@@ -18,7 +18,7 @@ import {
     V1SecretReferenceFromJSON,
     V1SecretReferenceFromJSONTyped,
     V1SecretReferenceToJSON,
-} from './V1SecretReference';
+} from './';
 
 /**
  * FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.

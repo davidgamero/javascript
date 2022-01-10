@@ -18,7 +18,7 @@ import {
     V1ObjectReferenceFromJSON,
     V1ObjectReferenceFromJSONTyped,
     V1ObjectReferenceToJSON,
-} from './V1ObjectReference';
+} from './';
 
 /**
  * Represents a StorageOS persistent volume resource.

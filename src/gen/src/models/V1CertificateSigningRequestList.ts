@@ -18,13 +18,13 @@ import {
     V1CertificateSigningRequestFromJSON,
     V1CertificateSigningRequestFromJSONTyped,
     V1CertificateSigningRequestToJSON,
-} from './V1CertificateSigningRequest';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * CertificateSigningRequestList is a collection of CertificateSigningRequest objects

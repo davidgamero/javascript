@@ -18,13 +18,13 @@ import {
     V1CustomResourceDefinitionFromJSON,
     V1CustomResourceDefinitionFromJSONTyped,
     V1CustomResourceDefinitionToJSON,
-} from './V1CustomResourceDefinition';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * CustomResourceDefinitionList is a list of CustomResourceDefinition objects.

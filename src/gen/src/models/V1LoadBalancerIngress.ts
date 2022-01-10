@@ -18,7 +18,7 @@ import {
     V1PortStatusFromJSON,
     V1PortStatusFromJSONTyped,
     V1PortStatusToJSON,
-} from './V1PortStatus';
+} from './';
 
 /**
  * LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.

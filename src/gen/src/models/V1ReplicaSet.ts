@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ReplicaSetSpec,
     V1ReplicaSetSpecFromJSON,
     V1ReplicaSetSpecFromJSONTyped,
     V1ReplicaSetSpecToJSON,
-} from './V1ReplicaSetSpec';
+} from './';
 import {
     V1ReplicaSetStatus,
     V1ReplicaSetStatusFromJSON,
     V1ReplicaSetStatusFromJSONTyped,
     V1ReplicaSetStatusToJSON,
-} from './V1ReplicaSetStatus';
+} from './';
 
 /**
  * ReplicaSet ensures that a specified number of pod replicas are running at any given time.

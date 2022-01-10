@@ -18,7 +18,7 @@ import {
     V1LocalObjectReferenceFromJSON,
     V1LocalObjectReferenceFromJSONTyped,
     V1LocalObjectReferenceToJSON,
-} from './V1LocalObjectReference';
+} from './';
 
 /**
  * Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.

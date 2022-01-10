@@ -18,13 +18,13 @@ import {
     V1MutatingWebhookFromJSON,
     V1MutatingWebhookFromJSONTyped,
     V1MutatingWebhookToJSON,
-} from './V1MutatingWebhook';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.

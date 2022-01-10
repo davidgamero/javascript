@@ -18,13 +18,13 @@ import {
     V1LeaseFromJSON,
     V1LeaseFromJSONTyped,
     V1LeaseToJSON,
-} from './V1Lease';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * LeaseList is a list of Lease objects.

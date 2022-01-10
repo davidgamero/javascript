@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1StatefulSet,
     V1StatefulSetFromJSON,
     V1StatefulSetFromJSONTyped,
     V1StatefulSetToJSON,
-} from './V1StatefulSet';
+} from './';
 
 /**
  * StatefulSetList is a collection of StatefulSets.

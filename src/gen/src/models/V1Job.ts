@@ -18,19 +18,19 @@ import {
     V1JobSpecFromJSON,
     V1JobSpecFromJSONTyped,
     V1JobSpecToJSON,
-} from './V1JobSpec';
+} from './';
 import {
     V1JobStatus,
     V1JobStatusFromJSON,
     V1JobStatusFromJSONTyped,
     V1JobStatusToJSON,
-} from './V1JobStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * Job represents the configuration of a single job.

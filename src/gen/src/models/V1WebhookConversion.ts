@@ -18,7 +18,7 @@ import {
     ApiextensionsV1WebhookClientConfigFromJSON,
     ApiextensionsV1WebhookClientConfigFromJSONTyped,
     ApiextensionsV1WebhookClientConfigToJSON,
-} from './ApiextensionsV1WebhookClientConfig';
+} from './';
 
 /**
  * WebhookConversion describes how to call a conversion webhook

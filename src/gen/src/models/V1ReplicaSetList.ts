@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1ReplicaSet,
     V1ReplicaSetFromJSON,
     V1ReplicaSetFromJSONTyped,
     V1ReplicaSetToJSON,
-} from './V1ReplicaSet';
+} from './';
 
 /**
  * ReplicaSetList is a collection of ReplicaSets.

@@ -18,13 +18,13 @@ import {
     V1CSINodeFromJSON,
     V1CSINodeFromJSONTyped,
     V1CSINodeToJSON,
-} from './V1CSINode';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * CSINodeList is a collection of CSINode objects.

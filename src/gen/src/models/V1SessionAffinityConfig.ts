@@ -18,7 +18,7 @@ import {
     V1ClientIPConfigFromJSON,
     V1ClientIPConfigFromJSONTyped,
     V1ClientIPConfigToJSON,
-} from './V1ClientIPConfig';
+} from './';
 
 /**
  * SessionAffinityConfig represents the configurations of session affinity.

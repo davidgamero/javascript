@@ -18,7 +18,7 @@ import {
     V1EnvVarSourceFromJSON,
     V1EnvVarSourceFromJSONTyped,
     V1EnvVarSourceToJSON,
-} from './V1EnvVarSource';
+} from './';
 
 /**
  * EnvVar represents an environment variable present in a Container.

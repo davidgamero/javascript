@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1MutatingWebhookConfiguration,
     V1MutatingWebhookConfigurationFromJSON,
     V1MutatingWebhookConfigurationFromJSONTyped,
     V1MutatingWebhookConfigurationToJSON,
-} from './V1MutatingWebhookConfiguration';
+} from './';
 
 /**
  * MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.

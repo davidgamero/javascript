@@ -18,19 +18,19 @@ import {
     V1DeploymentSpecFromJSON,
     V1DeploymentSpecFromJSONTyped,
     V1DeploymentSpecToJSON,
-} from './V1DeploymentSpec';
+} from './';
 import {
     V1DeploymentStatus,
     V1DeploymentStatusFromJSON,
     V1DeploymentStatusFromJSONTyped,
     V1DeploymentStatusToJSON,
-} from './V1DeploymentStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * Deployment enables declarative updates for Pods and ReplicaSets.

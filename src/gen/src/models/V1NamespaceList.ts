@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1Namespace,
     V1NamespaceFromJSON,
     V1NamespaceFromJSONTyped,
     V1NamespaceToJSON,
-} from './V1Namespace';
+} from './';
 
 /**
  * NamespaceList is a list of Namespaces.

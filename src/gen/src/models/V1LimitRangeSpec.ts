@@ -18,7 +18,7 @@ import {
     V1LimitRangeItemFromJSON,
     V1LimitRangeItemFromJSONTyped,
     V1LimitRangeItemToJSON,
-} from './V1LimitRangeItem';
+} from './';
 
 /**
  * LimitRangeSpec defines a min/max usage limit for resources that match on kind.

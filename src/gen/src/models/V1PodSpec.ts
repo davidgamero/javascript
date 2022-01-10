@@ -18,67 +18,67 @@ import {
     V1AffinityFromJSON,
     V1AffinityFromJSONTyped,
     V1AffinityToJSON,
-} from './V1Affinity';
+} from './';
 import {
     V1Container,
     V1ContainerFromJSON,
     V1ContainerFromJSONTyped,
     V1ContainerToJSON,
-} from './V1Container';
+} from './';
 import {
     V1EphemeralContainer,
     V1EphemeralContainerFromJSON,
     V1EphemeralContainerFromJSONTyped,
     V1EphemeralContainerToJSON,
-} from './V1EphemeralContainer';
+} from './';
 import {
     V1HostAlias,
     V1HostAliasFromJSON,
     V1HostAliasFromJSONTyped,
     V1HostAliasToJSON,
-} from './V1HostAlias';
+} from './';
 import {
     V1LocalObjectReference,
     V1LocalObjectReferenceFromJSON,
     V1LocalObjectReferenceFromJSONTyped,
     V1LocalObjectReferenceToJSON,
-} from './V1LocalObjectReference';
+} from './';
 import {
     V1PodDNSConfig,
     V1PodDNSConfigFromJSON,
     V1PodDNSConfigFromJSONTyped,
     V1PodDNSConfigToJSON,
-} from './V1PodDNSConfig';
+} from './';
 import {
     V1PodReadinessGate,
     V1PodReadinessGateFromJSON,
     V1PodReadinessGateFromJSONTyped,
     V1PodReadinessGateToJSON,
-} from './V1PodReadinessGate';
+} from './';
 import {
     V1PodSecurityContext,
     V1PodSecurityContextFromJSON,
     V1PodSecurityContextFromJSONTyped,
     V1PodSecurityContextToJSON,
-} from './V1PodSecurityContext';
+} from './';
 import {
     V1Toleration,
     V1TolerationFromJSON,
     V1TolerationFromJSONTyped,
     V1TolerationToJSON,
-} from './V1Toleration';
+} from './';
 import {
     V1TopologySpreadConstraint,
     V1TopologySpreadConstraintFromJSON,
     V1TopologySpreadConstraintFromJSONTyped,
     V1TopologySpreadConstraintToJSON,
-} from './V1TopologySpreadConstraint';
+} from './';
 import {
     V1Volume,
     V1VolumeFromJSON,
     V1VolumeFromJSONTyped,
     V1VolumeToJSON,
-} from './V1Volume';
+} from './';
 
 /**
  * PodSpec is a description of a pod.

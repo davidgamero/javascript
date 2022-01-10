@@ -18,19 +18,19 @@ import {
     V1beta1GroupSubjectFromJSON,
     V1beta1GroupSubjectFromJSONTyped,
     V1beta1GroupSubjectToJSON,
-} from './V1beta1GroupSubject';
+} from './';
 import {
     V1beta1ServiceAccountSubject,
     V1beta1ServiceAccountSubjectFromJSON,
     V1beta1ServiceAccountSubjectFromJSONTyped,
     V1beta1ServiceAccountSubjectToJSON,
-} from './V1beta1ServiceAccountSubject';
+} from './';
 import {
     V1beta1UserSubject,
     V1beta1UserSubjectFromJSON,
     V1beta1UserSubjectFromJSONTyped,
     V1beta1UserSubjectToJSON,
-} from './V1beta1UserSubject';
+} from './';
 
 /**
  * Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.

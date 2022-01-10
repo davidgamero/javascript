@@ -13,6 +13,13 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    IntOrString,
+    IntOrStringFromJSON,
+    IntOrStringFromJSONTyped,
+    IntOrStringToJSON,
+} from './';
+
 /**
  * ServicePort contains information on service's port.
  * @export
@@ -50,11 +57,11 @@ export interface V1ServicePort {
      */
     protocol?: string;
     /**
-     * Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
-     * @type {object}
+     * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
+     * @type {IntOrString}
      * @memberof V1ServicePort
      */
-    targetPort?: object;
+    targetPort?: IntOrString;
 }
 
 export function V1ServicePortFromJSON(json: any): V1ServicePort {
@@ -72,7 +79,7 @@ export function V1ServicePortFromJSONTyped(json: any, ignoreDiscriminator: boole
         'nodePort': !exists(json, 'nodePort') ? undefined : json['nodePort'],
         'port': json['port'],
         'protocol': !exists(json, 'protocol') ? undefined : json['protocol'],
-        'targetPort': !exists(json, 'targetPort') ? undefined : json['targetPort'],
+        'targetPort': !exists(json, 'targetPort') ? undefined : IntOrStringFromJSON(json['targetPort']),
     };
 }
 
@@ -90,7 +97,7 @@ export function V1ServicePortToJSON(value?: V1ServicePort | null): any {
         'nodePort': value.nodePort,
         'port': value.port,
         'protocol': value.protocol,
-        'targetPort': value.targetPort,
+        'targetPort': IntOrStringToJSON(value.targetPort),
     };
 }
 

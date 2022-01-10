@@ -18,13 +18,13 @@ import {
     V1ComponentStatusFromJSON,
     V1ComponentStatusFromJSONTyped,
     V1ComponentStatusToJSON,
-} from './V1ComponentStatus';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * Status of all the conditions for the component as a list of ComponentStatus objects. Deprecated: This API is deprecated in v1.19+

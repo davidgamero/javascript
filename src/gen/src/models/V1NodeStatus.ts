@@ -18,43 +18,43 @@ import {
     V1AttachedVolumeFromJSON,
     V1AttachedVolumeFromJSONTyped,
     V1AttachedVolumeToJSON,
-} from './V1AttachedVolume';
+} from './';
 import {
     V1ContainerImage,
     V1ContainerImageFromJSON,
     V1ContainerImageFromJSONTyped,
     V1ContainerImageToJSON,
-} from './V1ContainerImage';
+} from './';
 import {
     V1NodeAddress,
     V1NodeAddressFromJSON,
     V1NodeAddressFromJSONTyped,
     V1NodeAddressToJSON,
-} from './V1NodeAddress';
+} from './';
 import {
     V1NodeCondition,
     V1NodeConditionFromJSON,
     V1NodeConditionFromJSONTyped,
     V1NodeConditionToJSON,
-} from './V1NodeCondition';
+} from './';
 import {
     V1NodeConfigStatus,
     V1NodeConfigStatusFromJSON,
     V1NodeConfigStatusFromJSONTyped,
     V1NodeConfigStatusToJSON,
-} from './V1NodeConfigStatus';
+} from './';
 import {
     V1NodeDaemonEndpoints,
     V1NodeDaemonEndpointsFromJSON,
     V1NodeDaemonEndpointsFromJSONTyped,
     V1NodeDaemonEndpointsToJSON,
-} from './V1NodeDaemonEndpoints';
+} from './';
 import {
     V1NodeSystemInfo,
     V1NodeSystemInfoFromJSON,
     V1NodeSystemInfoFromJSONTyped,
     V1NodeSystemInfoToJSON,
-} from './V1NodeSystemInfo';
+} from './';
 
 /**
  * NodeStatus is information about the current status of a node.

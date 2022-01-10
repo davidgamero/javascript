@@ -18,7 +18,7 @@ import {
     V1beta1IDRangeFromJSON,
     V1beta1IDRangeFromJSONTyped,
     V1beta1IDRangeToJSON,
-} from './V1beta1IDRange';
+} from './';
 
 /**
  * RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.

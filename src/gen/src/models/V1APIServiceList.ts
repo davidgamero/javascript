@@ -18,13 +18,13 @@ import {
     V1APIServiceFromJSON,
     V1APIServiceFromJSONTyped,
     V1APIServiceToJSON,
-} from './V1APIService';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * APIServiceList is a list of APIService objects.

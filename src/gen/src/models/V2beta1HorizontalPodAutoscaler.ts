@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V2beta1HorizontalPodAutoscalerSpec,
     V2beta1HorizontalPodAutoscalerSpecFromJSON,
     V2beta1HorizontalPodAutoscalerSpecFromJSONTyped,
     V2beta1HorizontalPodAutoscalerSpecToJSON,
-} from './V2beta1HorizontalPodAutoscalerSpec';
+} from './';
 import {
     V2beta1HorizontalPodAutoscalerStatus,
     V2beta1HorizontalPodAutoscalerStatusFromJSON,
     V2beta1HorizontalPodAutoscalerStatusFromJSONTyped,
     V2beta1HorizontalPodAutoscalerStatusToJSON,
-} from './V2beta1HorizontalPodAutoscalerStatus';
+} from './';
 
 /**
  * HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.

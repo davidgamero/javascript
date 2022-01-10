@@ -18,13 +18,13 @@ import {
     V1NodeSelectorFromJSON,
     V1NodeSelectorFromJSONTyped,
     V1NodeSelectorToJSON,
-} from './V1NodeSelector';
+} from './';
 import {
     V1PreferredSchedulingTerm,
     V1PreferredSchedulingTermFromJSON,
     V1PreferredSchedulingTermFromJSONTyped,
     V1PreferredSchedulingTermToJSON,
-} from './V1PreferredSchedulingTerm';
+} from './';
 
 /**
  * Node affinity is a group of node affinity scheduling rules.

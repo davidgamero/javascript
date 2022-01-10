@@ -18,19 +18,19 @@ import {
     V1beta1FlowDistinguisherMethodFromJSON,
     V1beta1FlowDistinguisherMethodFromJSONTyped,
     V1beta1FlowDistinguisherMethodToJSON,
-} from './V1beta1FlowDistinguisherMethod';
+} from './';
 import {
     V1beta1PolicyRulesWithSubjects,
     V1beta1PolicyRulesWithSubjectsFromJSON,
     V1beta1PolicyRulesWithSubjectsFromJSONTyped,
     V1beta1PolicyRulesWithSubjectsToJSON,
-} from './V1beta1PolicyRulesWithSubjects';
+} from './';
 import {
     V1beta1PriorityLevelConfigurationReference,
     V1beta1PriorityLevelConfigurationReferenceFromJSON,
     V1beta1PriorityLevelConfigurationReferenceFromJSONTyped,
     V1beta1PriorityLevelConfigurationReferenceToJSON,
-} from './V1beta1PriorityLevelConfigurationReference';
+} from './';
 
 /**
  * FlowSchemaSpec describes how the FlowSchema's specification looks like.

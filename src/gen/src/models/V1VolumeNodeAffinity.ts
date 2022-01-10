@@ -18,7 +18,7 @@ import {
     V1NodeSelectorFromJSON,
     V1NodeSelectorFromJSONTyped,
     V1NodeSelectorToJSON,
-} from './V1NodeSelector';
+} from './';
 
 /**
  * VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.

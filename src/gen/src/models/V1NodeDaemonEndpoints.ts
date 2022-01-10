@@ -18,7 +18,7 @@ import {
     V1DaemonEndpointFromJSON,
     V1DaemonEndpointFromJSONTyped,
     V1DaemonEndpointToJSON,
-} from './V1DaemonEndpoint';
+} from './';
 
 /**
  * NodeDaemonEndpoints lists ports opened by daemons running on the Node.

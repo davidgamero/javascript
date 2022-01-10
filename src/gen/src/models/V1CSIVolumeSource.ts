@@ -18,7 +18,7 @@ import {
     V1LocalObjectReferenceFromJSON,
     V1LocalObjectReferenceFromJSONTyped,
     V1LocalObjectReferenceToJSON,
-} from './V1LocalObjectReference';
+} from './';
 
 /**
  * Represents a source location of a volume to mount, managed by an external CSI driver

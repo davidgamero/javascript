@@ -18,7 +18,7 @@ import {
     V1KeyToPathFromJSON,
     V1KeyToPathFromJSONTyped,
     V1KeyToPathToJSON,
-} from './V1KeyToPath';
+} from './';
 
 /**
  * Adapts a ConfigMap into a projected volume.

@@ -18,7 +18,7 @@ import {
     V1WebhookConversionFromJSON,
     V1WebhookConversionFromJSONTyped,
     V1WebhookConversionToJSON,
-} from './V1WebhookConversion';
+} from './';
 
 /**
  * CustomResourceConversion describes how to convert different versions of a CR.

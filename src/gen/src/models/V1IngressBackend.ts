@@ -18,13 +18,13 @@ import {
     V1IngressServiceBackendFromJSON,
     V1IngressServiceBackendFromJSONTyped,
     V1IngressServiceBackendToJSON,
-} from './V1IngressServiceBackend';
+} from './';
 import {
     V1TypedLocalObjectReference,
     V1TypedLocalObjectReferenceFromJSON,
     V1TypedLocalObjectReferenceFromJSONTyped,
     V1TypedLocalObjectReferenceToJSON,
-} from './V1TypedLocalObjectReference';
+} from './';
 
 /**
  * IngressBackend describes all endpoints for a given service and port.

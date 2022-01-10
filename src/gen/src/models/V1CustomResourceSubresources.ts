@@ -18,7 +18,7 @@ import {
     V1CustomResourceSubresourceScaleFromJSON,
     V1CustomResourceSubresourceScaleFromJSONTyped,
     V1CustomResourceSubresourceScaleToJSON,
-} from './V1CustomResourceSubresourceScale';
+} from './';
 
 /**
  * CustomResourceSubresources defines the status and scale subresources for CustomResources.

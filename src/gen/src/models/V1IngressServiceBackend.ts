@@ -18,7 +18,7 @@ import {
     V1ServiceBackendPortFromJSON,
     V1ServiceBackendPortFromJSONTyped,
     V1ServiceBackendPortToJSON,
-} from './V1ServiceBackendPort';
+} from './';
 
 /**
  * IngressServiceBackend references a Kubernetes Service as a Backend.

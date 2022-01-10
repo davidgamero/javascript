@@ -18,7 +18,7 @@ import {
     V1IngressClassParametersReferenceFromJSON,
     V1IngressClassParametersReferenceFromJSONTyped,
     V1IngressClassParametersReferenceToJSON,
-} from './V1IngressClassParametersReference';
+} from './';
 
 /**
  * IngressClassSpec provides information about the class of an Ingress.

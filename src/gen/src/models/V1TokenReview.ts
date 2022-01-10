@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1TokenReviewSpec,
     V1TokenReviewSpecFromJSON,
     V1TokenReviewSpecFromJSONTyped,
     V1TokenReviewSpecToJSON,
-} from './V1TokenReviewSpec';
+} from './';
 import {
     V1TokenReviewStatus,
     V1TokenReviewStatusFromJSON,
     V1TokenReviewStatusFromJSONTyped,
     V1TokenReviewStatusToJSON,
-} from './V1TokenReviewStatus';
+} from './';
 
 /**
  * TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.

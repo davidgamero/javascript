@@ -30,7 +30,14 @@ export CLIENT_VERSION="0.8-SNAPSHOT"
 # Name of the release package
 export PACKAGE_NAME="@kubernetes/node-client"
 
-export OPENAPI_GENERATOR_COMMIT=4023ded
-export OPENAPI_GENERATOR_USER_ORG=davidgamero
+export OPENAPI_GENERATOR_COMMIT=9c3d4ef
+export OPENAPI_GENERATOR_USER_ORG=OpenAPITools
+
+
+#export OPENAPI_GENERATOR_COMMIT=f130ce3
+#export OPENAPI_GENERATOR_USER_ORG=davidgamero
+
+#export OPENAPI_GENERATOR_COMMIT=92e2bc1
+#export OPENAPI_GENERATOR_USER_ORG=OliverMKing
 
 export GEN_ROOT=/Users/david/Documents/gen

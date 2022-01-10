@@ -18,19 +18,19 @@ import {
     AdmissionregistrationV1WebhookClientConfigFromJSON,
     AdmissionregistrationV1WebhookClientConfigFromJSONTyped,
     AdmissionregistrationV1WebhookClientConfigToJSON,
-} from './AdmissionregistrationV1WebhookClientConfig';
+} from './';
 import {
     V1LabelSelector,
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 import {
     V1RuleWithOperations,
     V1RuleWithOperationsFromJSON,
     V1RuleWithOperationsFromJSONTyped,
     V1RuleWithOperationsToJSON,
-} from './V1RuleWithOperations';
+} from './';
 
 /**
  * MutatingWebhook describes an admission webhook and the resources and operations it applies to.

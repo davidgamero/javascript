@@ -18,7 +18,7 @@ import {
     V1beta1QueuingConfigurationFromJSON,
     V1beta1QueuingConfigurationFromJSONTyped,
     V1beta1QueuingConfigurationToJSON,
-} from './V1beta1QueuingConfiguration';
+} from './';
 
 /**
  * LimitResponse defines how to handle requests that can not be executed right now.

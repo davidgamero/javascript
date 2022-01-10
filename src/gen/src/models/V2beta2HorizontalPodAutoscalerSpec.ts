@@ -18,19 +18,19 @@ import {
     V2beta2CrossVersionObjectReferenceFromJSON,
     V2beta2CrossVersionObjectReferenceFromJSONTyped,
     V2beta2CrossVersionObjectReferenceToJSON,
-} from './V2beta2CrossVersionObjectReference';
+} from './';
 import {
     V2beta2HorizontalPodAutoscalerBehavior,
     V2beta2HorizontalPodAutoscalerBehaviorFromJSON,
     V2beta2HorizontalPodAutoscalerBehaviorFromJSONTyped,
     V2beta2HorizontalPodAutoscalerBehaviorToJSON,
-} from './V2beta2HorizontalPodAutoscalerBehavior';
+} from './';
 import {
     V2beta2MetricSpec,
     V2beta2MetricSpecFromJSON,
     V2beta2MetricSpecFromJSONTyped,
     V2beta2MetricSpecToJSON,
-} from './V2beta2MetricSpec';
+} from './';
 
 /**
  * HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.

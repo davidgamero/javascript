@@ -18,13 +18,13 @@ import {
     V1CSIDriverSpecFromJSON,
     V1CSIDriverSpecFromJSONTyped,
     V1CSIDriverSpecToJSON,
-} from './V1CSIDriverSpec';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.

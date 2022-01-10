@@ -18,7 +18,7 @@ import {
     V1ConfigMapNodeConfigSourceFromJSON,
     V1ConfigMapNodeConfigSourceFromJSONTyped,
     V1ConfigMapNodeConfigSourceToJSON,
-} from './V1ConfigMapNodeConfigSource';
+} from './';
 
 /**
  * NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil. This API is deprecated since 1.22

@@ -18,19 +18,19 @@ import {
     V1NodeSpecFromJSON,
     V1NodeSpecFromJSONTyped,
     V1NodeSpecToJSON,
-} from './V1NodeSpec';
+} from './';
 import {
     V1NodeStatus,
     V1NodeStatusFromJSON,
     V1NodeStatusFromJSONTyped,
     V1NodeStatusToJSON,
-} from './V1NodeStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * Node is a worker node in Kubernetes. Each node will have a unique identifier in the cache (i.e. in etcd).

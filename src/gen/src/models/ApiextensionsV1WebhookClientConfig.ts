@@ -18,7 +18,7 @@ import {
     ApiextensionsV1ServiceReferenceFromJSON,
     ApiextensionsV1ServiceReferenceFromJSONTyped,
     ApiextensionsV1ServiceReferenceToJSON,
-} from './ApiextensionsV1ServiceReference';
+} from './';
 
 /**
  * WebhookClientConfig contains the information to make a TLS connection with the webhook.

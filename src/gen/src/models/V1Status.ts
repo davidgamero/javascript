@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1StatusDetails,
     V1StatusDetailsFromJSON,
     V1StatusDetailsFromJSONTyped,
     V1StatusDetailsToJSON,
-} from './V1StatusDetails';
+} from './';
 
 /**
  * Status is a return value for calls that don't return other objects.

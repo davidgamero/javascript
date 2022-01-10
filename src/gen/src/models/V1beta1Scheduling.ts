@@ -18,7 +18,7 @@ import {
     V1TolerationFromJSON,
     V1TolerationFromJSONTyped,
     V1TolerationToJSON,
-} from './V1Toleration';
+} from './';
 
 /**
  * Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.

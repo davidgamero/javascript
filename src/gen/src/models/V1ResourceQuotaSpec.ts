@@ -18,7 +18,7 @@ import {
     V1ScopeSelectorFromJSON,
     V1ScopeSelectorFromJSONTyped,
     V1ScopeSelectorToJSON,
-} from './V1ScopeSelector';
+} from './';
 
 /**
  * ResourceQuotaSpec defines the desired hard limits to enforce for Quota.

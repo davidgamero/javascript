@@ -18,13 +18,13 @@ import {
     V1ManagedFieldsEntryFromJSON,
     V1ManagedFieldsEntryFromJSONTyped,
     V1ManagedFieldsEntryToJSON,
-} from './V1ManagedFieldsEntry';
+} from './';
 import {
     V1OwnerReference,
     V1OwnerReferenceFromJSON,
     V1OwnerReferenceFromJSONTyped,
     V1OwnerReferenceToJSON,
-} from './V1OwnerReference';
+} from './';
 
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.

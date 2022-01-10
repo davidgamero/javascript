@@ -18,13 +18,13 @@ import {
     V2beta2MetricIdentifierFromJSON,
     V2beta2MetricIdentifierFromJSONTyped,
     V2beta2MetricIdentifierToJSON,
-} from './V2beta2MetricIdentifier';
+} from './';
 import {
     V2beta2MetricTarget,
     V2beta2MetricTargetFromJSON,
     V2beta2MetricTargetFromJSONTyped,
     V2beta2MetricTargetToJSON,
-} from './V2beta2MetricTarget';
+} from './';
 
 /**
  * PodsMetricSource indicates how to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second). The values will be averaged together before being compared to the target value.

@@ -18,7 +18,7 @@ import {
     V1PodDNSConfigOptionFromJSON,
     V1PodDNSConfigOptionFromJSONTyped,
     V1PodDNSConfigOptionToJSON,
-} from './V1PodDNSConfigOption';
+} from './';
 
 /**
  * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.

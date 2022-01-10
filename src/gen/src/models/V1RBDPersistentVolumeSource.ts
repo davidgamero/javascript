@@ -18,7 +18,7 @@ import {
     V1SecretReferenceFromJSON,
     V1SecretReferenceFromJSONTyped,
     V1SecretReferenceToJSON,
-} from './V1SecretReference';
+} from './';
 
 /**
  * Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.

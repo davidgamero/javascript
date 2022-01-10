@@ -18,13 +18,13 @@ import {
     V1ClusterRoleFromJSON,
     V1ClusterRoleFromJSONTyped,
     V1ClusterRoleToJSON,
-} from './V1ClusterRole';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * ClusterRoleList is a collection of ClusterRoles

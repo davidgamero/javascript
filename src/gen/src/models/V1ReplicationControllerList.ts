@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1ReplicationController,
     V1ReplicationControllerFromJSON,
     V1ReplicationControllerFromJSONTyped,
     V1ReplicationControllerToJSON,
-} from './V1ReplicationController';
+} from './';
 
 /**
  * ReplicationControllerList is a collection of replication controllers.

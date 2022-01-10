@@ -18,7 +18,7 @@ import {
     V1CrossVersionObjectReferenceFromJSON,
     V1CrossVersionObjectReferenceFromJSONTyped,
     V1CrossVersionObjectReferenceToJSON,
-} from './V1CrossVersionObjectReference';
+} from './';
 
 /**
  * specification of a horizontal pod autoscaler.

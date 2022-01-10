@@ -18,19 +18,19 @@ import {
     V1ContainerStatusFromJSON,
     V1ContainerStatusFromJSONTyped,
     V1ContainerStatusToJSON,
-} from './V1ContainerStatus';
+} from './';
 import {
     V1PodCondition,
     V1PodConditionFromJSON,
     V1PodConditionFromJSONTyped,
     V1PodConditionToJSON,
-} from './V1PodCondition';
+} from './';
 import {
     V1PodIP,
     V1PodIPFromJSON,
     V1PodIPFromJSONTyped,
     V1PodIPToJSON,
-} from './V1PodIP';
+} from './';
 
 /**
  * PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.

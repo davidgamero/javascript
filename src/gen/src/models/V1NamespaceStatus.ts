@@ -18,7 +18,7 @@ import {
     V1NamespaceConditionFromJSON,
     V1NamespaceConditionFromJSONTyped,
     V1NamespaceConditionToJSON,
-} from './V1NamespaceCondition';
+} from './';
 
 /**
  * NamespaceStatus is information about the current status of a Namespace.

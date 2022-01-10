@@ -18,7 +18,7 @@ import {
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 
 /**
  * ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object.

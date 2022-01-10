@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1PersistentVolumeClaimSpec,
     V1PersistentVolumeClaimSpecFromJSON,
     V1PersistentVolumeClaimSpecFromJSONTyped,
     V1PersistentVolumeClaimSpecToJSON,
-} from './V1PersistentVolumeClaimSpec';
+} from './';
 import {
     V1PersistentVolumeClaimStatus,
     V1PersistentVolumeClaimStatusFromJSON,
     V1PersistentVolumeClaimStatusFromJSONTyped,
     V1PersistentVolumeClaimStatusToJSON,
-} from './V1PersistentVolumeClaimStatus';
+} from './';
 
 /**
  * PersistentVolumeClaim is a user's request for and claim to a persistent volume

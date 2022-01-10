@@ -18,7 +18,7 @@ import {
     V1beta1JobTemplateSpecFromJSON,
     V1beta1JobTemplateSpecFromJSONTyped,
     V1beta1JobTemplateSpecToJSON,
-} from './V1beta1JobTemplateSpec';
+} from './';
 
 /**
  * CronJobSpec describes how the job execution will look like and when it will actually run.

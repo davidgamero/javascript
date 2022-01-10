@@ -18,13 +18,13 @@ import {
     V1ObjectFieldSelectorFromJSON,
     V1ObjectFieldSelectorFromJSONTyped,
     V1ObjectFieldSelectorToJSON,
-} from './V1ObjectFieldSelector';
+} from './';
 import {
     V1ResourceFieldSelector,
     V1ResourceFieldSelectorFromJSON,
     V1ResourceFieldSelectorFromJSONTyped,
     V1ResourceFieldSelectorToJSON,
-} from './V1ResourceFieldSelector';
+} from './';
 
 /**
  * DownwardAPIVolumeFile represents information to create the file containing the pod field

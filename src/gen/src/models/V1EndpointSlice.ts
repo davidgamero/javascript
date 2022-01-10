@@ -18,19 +18,19 @@ import {
     DiscoveryV1EndpointPortFromJSON,
     DiscoveryV1EndpointPortFromJSONTyped,
     DiscoveryV1EndpointPortToJSON,
-} from './DiscoveryV1EndpointPort';
+} from './';
 import {
     V1Endpoint,
     V1EndpointFromJSON,
     V1EndpointFromJSONTyped,
     V1EndpointToJSON,
-} from './V1Endpoint';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.

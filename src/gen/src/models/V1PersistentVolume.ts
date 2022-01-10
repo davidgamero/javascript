@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1PersistentVolumeSpec,
     V1PersistentVolumeSpecFromJSON,
     V1PersistentVolumeSpecFromJSONTyped,
     V1PersistentVolumeSpecToJSON,
-} from './V1PersistentVolumeSpec';
+} from './';
 import {
     V1PersistentVolumeStatus,
     V1PersistentVolumeStatusFromJSON,
     V1PersistentVolumeStatusFromJSONTyped,
     V1PersistentVolumeStatusToJSON,
-} from './V1PersistentVolumeStatus';
+} from './';
 
 /**
  * PersistentVolume (PV) is a storage resource provisioned by an administrator. It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes

@@ -18,7 +18,7 @@ import {
     V1PodAffinityTermFromJSON,
     V1PodAffinityTermFromJSONTyped,
     V1PodAffinityTermToJSON,
-} from './V1PodAffinityTerm';
+} from './';
 
 /**
  * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)

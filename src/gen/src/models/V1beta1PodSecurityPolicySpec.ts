@@ -18,61 +18,61 @@ import {
     V1beta1AllowedCSIDriverFromJSON,
     V1beta1AllowedCSIDriverFromJSONTyped,
     V1beta1AllowedCSIDriverToJSON,
-} from './V1beta1AllowedCSIDriver';
+} from './';
 import {
     V1beta1AllowedFlexVolume,
     V1beta1AllowedFlexVolumeFromJSON,
     V1beta1AllowedFlexVolumeFromJSONTyped,
     V1beta1AllowedFlexVolumeToJSON,
-} from './V1beta1AllowedFlexVolume';
+} from './';
 import {
     V1beta1AllowedHostPath,
     V1beta1AllowedHostPathFromJSON,
     V1beta1AllowedHostPathFromJSONTyped,
     V1beta1AllowedHostPathToJSON,
-} from './V1beta1AllowedHostPath';
+} from './';
 import {
     V1beta1FSGroupStrategyOptions,
     V1beta1FSGroupStrategyOptionsFromJSON,
     V1beta1FSGroupStrategyOptionsFromJSONTyped,
     V1beta1FSGroupStrategyOptionsToJSON,
-} from './V1beta1FSGroupStrategyOptions';
+} from './';
 import {
     V1beta1HostPortRange,
     V1beta1HostPortRangeFromJSON,
     V1beta1HostPortRangeFromJSONTyped,
     V1beta1HostPortRangeToJSON,
-} from './V1beta1HostPortRange';
+} from './';
 import {
     V1beta1RunAsGroupStrategyOptions,
     V1beta1RunAsGroupStrategyOptionsFromJSON,
     V1beta1RunAsGroupStrategyOptionsFromJSONTyped,
     V1beta1RunAsGroupStrategyOptionsToJSON,
-} from './V1beta1RunAsGroupStrategyOptions';
+} from './';
 import {
     V1beta1RunAsUserStrategyOptions,
     V1beta1RunAsUserStrategyOptionsFromJSON,
     V1beta1RunAsUserStrategyOptionsFromJSONTyped,
     V1beta1RunAsUserStrategyOptionsToJSON,
-} from './V1beta1RunAsUserStrategyOptions';
+} from './';
 import {
     V1beta1RuntimeClassStrategyOptions,
     V1beta1RuntimeClassStrategyOptionsFromJSON,
     V1beta1RuntimeClassStrategyOptionsFromJSONTyped,
     V1beta1RuntimeClassStrategyOptionsToJSON,
-} from './V1beta1RuntimeClassStrategyOptions';
+} from './';
 import {
     V1beta1SELinuxStrategyOptions,
     V1beta1SELinuxStrategyOptionsFromJSON,
     V1beta1SELinuxStrategyOptionsFromJSONTyped,
     V1beta1SELinuxStrategyOptionsToJSON,
-} from './V1beta1SELinuxStrategyOptions';
+} from './';
 import {
     V1beta1SupplementalGroupsStrategyOptions,
     V1beta1SupplementalGroupsStrategyOptionsFromJSON,
     V1beta1SupplementalGroupsStrategyOptionsFromJSONTyped,
     V1beta1SupplementalGroupsStrategyOptionsToJSON,
-} from './V1beta1SupplementalGroupsStrategyOptions';
+} from './';
 
 /**
  * PodSecurityPolicySpec defines the policy enforced.

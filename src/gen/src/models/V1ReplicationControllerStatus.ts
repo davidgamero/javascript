@@ -18,7 +18,7 @@ import {
     V1ReplicationControllerConditionFromJSON,
     V1ReplicationControllerConditionFromJSONTyped,
     V1ReplicationControllerConditionToJSON,
-} from './V1ReplicationControllerCondition';
+} from './';
 
 /**
  * ReplicationControllerStatus represents the current status of a replication controller.

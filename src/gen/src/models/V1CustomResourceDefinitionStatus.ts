@@ -18,13 +18,13 @@ import {
     V1CustomResourceDefinitionConditionFromJSON,
     V1CustomResourceDefinitionConditionFromJSONTyped,
     V1CustomResourceDefinitionConditionToJSON,
-} from './V1CustomResourceDefinitionCondition';
+} from './';
 import {
     V1CustomResourceDefinitionNames,
     V1CustomResourceDefinitionNamesFromJSON,
     V1CustomResourceDefinitionNamesFromJSONTyped,
     V1CustomResourceDefinitionNamesToJSON,
-} from './V1CustomResourceDefinitionNames';
+} from './';
 
 /**
  * CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition

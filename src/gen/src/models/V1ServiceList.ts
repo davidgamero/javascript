@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1Service,
     V1ServiceFromJSON,
     V1ServiceFromJSONTyped,
     V1ServiceToJSON,
-} from './V1Service';
+} from './';
 
 /**
  * ServiceList holds a list of services.

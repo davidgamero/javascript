@@ -18,19 +18,19 @@ import {
     V1CertificateSigningRequestSpecFromJSON,
     V1CertificateSigningRequestSpecFromJSONTyped,
     V1CertificateSigningRequestSpecToJSON,
-} from './V1CertificateSigningRequestSpec';
+} from './';
 import {
     V1CertificateSigningRequestStatus,
     V1CertificateSigningRequestStatusFromJSON,
     V1CertificateSigningRequestStatusFromJSONTyped,
     V1CertificateSigningRequestStatusToJSON,
-} from './V1CertificateSigningRequestStatus';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * CertificateSigningRequest objects provide a mechanism to obtain x509 certificates by submitting a certificate signing request, and having it asynchronously approved and issued.

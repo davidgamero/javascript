@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1beta1FlowSchema,
     V1beta1FlowSchemaFromJSON,
     V1beta1FlowSchemaFromJSONTyped,
     V1beta1FlowSchemaToJSON,
-} from './V1beta1FlowSchema';
+} from './';
 
 /**
  * FlowSchemaList is a list of FlowSchema objects.

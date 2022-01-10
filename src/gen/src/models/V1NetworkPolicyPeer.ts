@@ -18,13 +18,13 @@ import {
     V1IPBlockFromJSON,
     V1IPBlockFromJSONTyped,
     V1IPBlockToJSON,
-} from './V1IPBlock';
+} from './';
 import {
     V1LabelSelector,
     V1LabelSelectorFromJSON,
     V1LabelSelectorFromJSONTyped,
     V1LabelSelectorToJSON,
-} from './V1LabelSelector';
+} from './';
 
 /**
  * NetworkPolicyPeer describes a peer to allow traffic to/from. Only certain combinations of fields are allowed

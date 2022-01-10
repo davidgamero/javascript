@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1beta1PodDisruptionBudgetSpec,
     V1beta1PodDisruptionBudgetSpecFromJSON,
     V1beta1PodDisruptionBudgetSpecFromJSONTyped,
     V1beta1PodDisruptionBudgetSpecToJSON,
-} from './V1beta1PodDisruptionBudgetSpec';
+} from './';
 import {
     V1beta1PodDisruptionBudgetStatus,
     V1beta1PodDisruptionBudgetStatusFromJSON,
     V1beta1PodDisruptionBudgetStatusFromJSONTyped,
     V1beta1PodDisruptionBudgetStatusToJSON,
-} from './V1beta1PodDisruptionBudgetStatus';
+} from './';
 
 /**
  * PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods

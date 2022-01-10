@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1ValidatingWebhookConfiguration,
     V1ValidatingWebhookConfigurationFromJSON,
     V1ValidatingWebhookConfigurationFromJSONTyped,
     V1ValidatingWebhookConfigurationToJSON,
-} from './V1ValidatingWebhookConfiguration';
+} from './';
 
 /**
  * ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.

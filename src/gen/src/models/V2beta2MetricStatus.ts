@@ -18,31 +18,31 @@ import {
     V2beta2ContainerResourceMetricStatusFromJSON,
     V2beta2ContainerResourceMetricStatusFromJSONTyped,
     V2beta2ContainerResourceMetricStatusToJSON,
-} from './V2beta2ContainerResourceMetricStatus';
+} from './';
 import {
     V2beta2ExternalMetricStatus,
     V2beta2ExternalMetricStatusFromJSON,
     V2beta2ExternalMetricStatusFromJSONTyped,
     V2beta2ExternalMetricStatusToJSON,
-} from './V2beta2ExternalMetricStatus';
+} from './';
 import {
     V2beta2ObjectMetricStatus,
     V2beta2ObjectMetricStatusFromJSON,
     V2beta2ObjectMetricStatusFromJSONTyped,
     V2beta2ObjectMetricStatusToJSON,
-} from './V2beta2ObjectMetricStatus';
+} from './';
 import {
     V2beta2PodsMetricStatus,
     V2beta2PodsMetricStatusFromJSON,
     V2beta2PodsMetricStatusFromJSONTyped,
     V2beta2PodsMetricStatusToJSON,
-} from './V2beta2PodsMetricStatus';
+} from './';
 import {
     V2beta2ResourceMetricStatus,
     V2beta2ResourceMetricStatusFromJSON,
     V2beta2ResourceMetricStatusFromJSONTyped,
     V2beta2ResourceMetricStatusToJSON,
-} from './V2beta2ResourceMetricStatus';
+} from './';
 
 /**
  * MetricStatus describes the last-read state of a single metric.

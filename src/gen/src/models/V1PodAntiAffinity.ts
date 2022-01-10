@@ -18,13 +18,13 @@ import {
     V1PodAffinityTermFromJSON,
     V1PodAffinityTermFromJSONTyped,
     V1PodAffinityTermToJSON,
-} from './V1PodAffinityTerm';
+} from './';
 import {
     V1WeightedPodAffinityTerm,
     V1WeightedPodAffinityTermFromJSON,
     V1WeightedPodAffinityTermFromJSONTyped,
     V1WeightedPodAffinityTermToJSON,
-} from './V1WeightedPodAffinityTerm';
+} from './';
 
 /**
  * Pod anti affinity is a group of inter pod anti affinity scheduling rules.

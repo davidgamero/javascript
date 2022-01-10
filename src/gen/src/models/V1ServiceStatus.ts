@@ -18,13 +18,13 @@ import {
     V1ConditionFromJSON,
     V1ConditionFromJSONTyped,
     V1ConditionToJSON,
-} from './V1Condition';
+} from './';
 import {
     V1LoadBalancerStatus,
     V1LoadBalancerStatusFromJSON,
     V1LoadBalancerStatusFromJSONTyped,
     V1LoadBalancerStatusToJSON,
-} from './V1LoadBalancerStatus';
+} from './';
 
 /**
  * ServiceStatus represents the current status of a service.

@@ -18,13 +18,13 @@ import {
     V1alpha1ServerStorageVersionFromJSON,
     V1alpha1ServerStorageVersionFromJSONTyped,
     V1alpha1ServerStorageVersionToJSON,
-} from './V1alpha1ServerStorageVersion';
+} from './';
 import {
     V1alpha1StorageVersionCondition,
     V1alpha1StorageVersionConditionFromJSON,
     V1alpha1StorageVersionConditionFromJSONTyped,
     V1alpha1StorageVersionConditionToJSON,
-} from './V1alpha1StorageVersionCondition';
+} from './';
 
 /**
  * API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.

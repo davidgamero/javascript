@@ -18,7 +18,7 @@ import {
     V1SELinuxOptionsFromJSON,
     V1SELinuxOptionsFromJSONTyped,
     V1SELinuxOptionsToJSON,
-} from './V1SELinuxOptions';
+} from './';
 
 /**
  * SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.

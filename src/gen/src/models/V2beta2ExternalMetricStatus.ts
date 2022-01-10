@@ -18,13 +18,13 @@ import {
     V2beta2MetricIdentifierFromJSON,
     V2beta2MetricIdentifierFromJSONTyped,
     V2beta2MetricIdentifierToJSON,
-} from './V2beta2MetricIdentifier';
+} from './';
 import {
     V2beta2MetricValueStatus,
     V2beta2MetricValueStatusFromJSON,
     V2beta2MetricValueStatusFromJSONTyped,
     V2beta2MetricValueStatusToJSON,
-} from './V2beta2MetricValueStatus';
+} from './';
 
 /**
  * ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object.

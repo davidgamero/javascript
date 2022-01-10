@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1beta1CronJob,
     V1beta1CronJobFromJSON,
     V1beta1CronJobFromJSONTyped,
     V1beta1CronJobToJSON,
-} from './V1beta1CronJob';
+} from './';
 
 /**
  * CronJobList is a collection of cron jobs.

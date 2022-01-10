@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1alpha1RoleBinding,
     V1alpha1RoleBindingFromJSON,
     V1alpha1RoleBindingFromJSONTyped,
     V1alpha1RoleBindingToJSON,
-} from './V1alpha1RoleBinding';
+} from './';
 
 /**
  * RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.22.

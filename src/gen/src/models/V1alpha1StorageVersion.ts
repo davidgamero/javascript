@@ -18,13 +18,13 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1alpha1StorageVersionStatus,
     V1alpha1StorageVersionStatusFromJSON,
     V1alpha1StorageVersionStatusFromJSONTyped,
     V1alpha1StorageVersionStatusToJSON,
-} from './V1alpha1StorageVersionStatus';
+} from './';
 
 /**
  * 

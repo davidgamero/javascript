@@ -18,7 +18,7 @@ import {
     V1StatefulSetConditionFromJSON,
     V1StatefulSetConditionFromJSONTyped,
     V1StatefulSetConditionToJSON,
-} from './V1StatefulSetCondition';
+} from './';
 
 /**
  * StatefulSetStatus represents the current state of a StatefulSet.

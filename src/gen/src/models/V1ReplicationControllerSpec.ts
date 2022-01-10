@@ -18,7 +18,7 @@ import {
     V1PodTemplateSpecFromJSON,
     V1PodTemplateSpecFromJSONTyped,
     V1PodTemplateSpecToJSON,
-} from './V1PodTemplateSpec';
+} from './';
 
 /**
  * ReplicationControllerSpec is the specification of a replication controller.

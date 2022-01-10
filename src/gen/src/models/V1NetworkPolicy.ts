@@ -18,13 +18,13 @@ import {
     V1NetworkPolicySpecFromJSON,
     V1NetworkPolicySpecFromJSONTyped,
     V1NetworkPolicySpecToJSON,
-} from './V1NetworkPolicySpec';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * NetworkPolicy describes what network traffic is allowed for a set of Pods

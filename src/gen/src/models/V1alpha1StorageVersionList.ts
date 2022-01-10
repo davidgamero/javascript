@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1alpha1StorageVersion,
     V1alpha1StorageVersionFromJSON,
     V1alpha1StorageVersionFromJSONTyped,
     V1alpha1StorageVersionToJSON,
-} from './V1alpha1StorageVersion';
+} from './';
 
 /**
  * A list of StorageVersions.

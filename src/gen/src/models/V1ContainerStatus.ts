@@ -18,7 +18,7 @@ import {
     V1ContainerStateFromJSON,
     V1ContainerStateFromJSONTyped,
     V1ContainerStateToJSON,
-} from './V1ContainerState';
+} from './';
 
 /**
  * ContainerStatus contains details for the current status of this container.

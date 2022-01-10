@@ -18,31 +18,31 @@ import {
     V2beta2ContainerResourceMetricSourceFromJSON,
     V2beta2ContainerResourceMetricSourceFromJSONTyped,
     V2beta2ContainerResourceMetricSourceToJSON,
-} from './V2beta2ContainerResourceMetricSource';
+} from './';
 import {
     V2beta2ExternalMetricSource,
     V2beta2ExternalMetricSourceFromJSON,
     V2beta2ExternalMetricSourceFromJSONTyped,
     V2beta2ExternalMetricSourceToJSON,
-} from './V2beta2ExternalMetricSource';
+} from './';
 import {
     V2beta2ObjectMetricSource,
     V2beta2ObjectMetricSourceFromJSON,
     V2beta2ObjectMetricSourceFromJSONTyped,
     V2beta2ObjectMetricSourceToJSON,
-} from './V2beta2ObjectMetricSource';
+} from './';
 import {
     V2beta2PodsMetricSource,
     V2beta2PodsMetricSourceFromJSON,
     V2beta2PodsMetricSourceFromJSONTyped,
     V2beta2PodsMetricSourceToJSON,
-} from './V2beta2PodsMetricSource';
+} from './';
 import {
     V2beta2ResourceMetricSource,
     V2beta2ResourceMetricSourceFromJSON,
     V2beta2ResourceMetricSourceFromJSONTyped,
     V2beta2ResourceMetricSourceToJSON,
-} from './V2beta2ResourceMetricSource';
+} from './';
 
 /**
  * MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).

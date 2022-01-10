@@ -18,13 +18,13 @@ import {
     V1LimitRangeSpecFromJSON,
     V1LimitRangeSpecFromJSONTyped,
     V1LimitRangeSpecToJSON,
-} from './V1LimitRangeSpec';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 
 /**
  * LimitRange sets resource usage limits for each kind of resource in a Namespace.

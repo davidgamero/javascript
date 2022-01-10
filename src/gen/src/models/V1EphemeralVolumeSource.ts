@@ -18,7 +18,7 @@ import {
     V1PersistentVolumeClaimTemplateFromJSON,
     V1PersistentVolumeClaimTemplateFromJSONTyped,
     V1PersistentVolumeClaimTemplateToJSON,
-} from './V1PersistentVolumeClaimTemplate';
+} from './';
 
 /**
  * Represents an ephemeral volume that is handled by a normal storage driver.

@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ReplicationControllerSpec,
     V1ReplicationControllerSpecFromJSON,
     V1ReplicationControllerSpecFromJSONTyped,
     V1ReplicationControllerSpecToJSON,
-} from './V1ReplicationControllerSpec';
+} from './';
 import {
     V1ReplicationControllerStatus,
     V1ReplicationControllerStatusFromJSON,
     V1ReplicationControllerStatusFromJSONTyped,
     V1ReplicationControllerStatusToJSON,
-} from './V1ReplicationControllerStatus';
+} from './';
 
 /**
  * ReplicationController represents the configuration of a replication controller.

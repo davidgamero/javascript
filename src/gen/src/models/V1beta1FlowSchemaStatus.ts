@@ -18,7 +18,7 @@ import {
     V1beta1FlowSchemaConditionFromJSON,
     V1beta1FlowSchemaConditionFromJSONTyped,
     V1beta1FlowSchemaConditionToJSON,
-} from './V1beta1FlowSchemaCondition';
+} from './';
 
 /**
  * FlowSchemaStatus represents the current state of a FlowSchema.

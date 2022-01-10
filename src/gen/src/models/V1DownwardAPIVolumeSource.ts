@@ -18,7 +18,7 @@ import {
     V1DownwardAPIVolumeFileFromJSON,
     V1DownwardAPIVolumeFileFromJSONTyped,
     V1DownwardAPIVolumeFileToJSON,
-} from './V1DownwardAPIVolumeFile';
+} from './';
 
 /**
  * DownwardAPIVolumeSource represents a volume containing downward API info. Downward API volumes support ownership management and SELinux relabeling.

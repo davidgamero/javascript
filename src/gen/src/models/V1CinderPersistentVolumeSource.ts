@@ -18,7 +18,7 @@ import {
     V1SecretReferenceFromJSON,
     V1SecretReferenceFromJSONTyped,
     V1SecretReferenceToJSON,
-} from './V1SecretReference';
+} from './';
 
 /**
  * Represents a cinder volume resource in Openstack. A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.

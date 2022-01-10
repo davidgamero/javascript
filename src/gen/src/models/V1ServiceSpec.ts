@@ -18,13 +18,13 @@ import {
     V1ServicePortFromJSON,
     V1ServicePortFromJSONTyped,
     V1ServicePortToJSON,
-} from './V1ServicePort';
+} from './';
 import {
     V1SessionAffinityConfig,
     V1SessionAffinityConfigFromJSON,
     V1SessionAffinityConfigFromJSONTyped,
     V1SessionAffinityConfigToJSON,
-} from './V1SessionAffinityConfig';
+} from './';
 
 /**
  * ServiceSpec describes the attributes that a user creates on a service.

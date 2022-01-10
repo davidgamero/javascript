@@ -18,19 +18,19 @@ import {
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1beta1PriorityLevelConfigurationSpec,
     V1beta1PriorityLevelConfigurationSpecFromJSON,
     V1beta1PriorityLevelConfigurationSpecFromJSONTyped,
     V1beta1PriorityLevelConfigurationSpecToJSON,
-} from './V1beta1PriorityLevelConfigurationSpec';
+} from './';
 import {
     V1beta1PriorityLevelConfigurationStatus,
     V1beta1PriorityLevelConfigurationStatusFromJSON,
     V1beta1PriorityLevelConfigurationStatusFromJSONTyped,
     V1beta1PriorityLevelConfigurationStatusToJSON,
-} from './V1beta1PriorityLevelConfigurationStatus';
+} from './';
 
 /**
  * PriorityLevelConfiguration represents the configuration of a priority level.

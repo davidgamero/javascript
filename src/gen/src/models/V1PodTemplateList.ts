@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1PodTemplate,
     V1PodTemplateFromJSON,
     V1PodTemplateFromJSONTyped,
     V1PodTemplateToJSON,
-} from './V1PodTemplate';
+} from './';
 
 /**
  * PodTemplateList is a list of PodTemplates.

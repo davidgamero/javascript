@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1ServiceAccount,
     V1ServiceAccountFromJSON,
     V1ServiceAccountFromJSONTyped,
     V1ServiceAccountToJSON,
-} from './V1ServiceAccount';
+} from './';
 
 /**
  * ServiceAccountList is a list of ServiceAccount objects

@@ -18,7 +18,7 @@ import {
     V1VolumeNodeResourcesFromJSON,
     V1VolumeNodeResourcesFromJSONTyped,
     V1VolumeNodeResourcesToJSON,
-} from './V1VolumeNodeResources';
+} from './';
 
 /**
  * CSINodeDriver holds information about the specification of one CSI driver installed on a node

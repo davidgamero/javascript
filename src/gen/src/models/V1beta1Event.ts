@@ -18,25 +18,25 @@ import {
     V1EventSourceFromJSON,
     V1EventSourceFromJSONTyped,
     V1EventSourceToJSON,
-} from './V1EventSource';
+} from './';
 import {
     V1ObjectMeta,
     V1ObjectMetaFromJSON,
     V1ObjectMetaFromJSONTyped,
     V1ObjectMetaToJSON,
-} from './V1ObjectMeta';
+} from './';
 import {
     V1ObjectReference,
     V1ObjectReferenceFromJSON,
     V1ObjectReferenceFromJSONTyped,
     V1ObjectReferenceToJSON,
-} from './V1ObjectReference';
+} from './';
 import {
     V1beta1EventSeries,
     V1beta1EventSeriesFromJSON,
     V1beta1EventSeriesFromJSONTyped,
     V1beta1EventSeriesToJSON,
-} from './V1beta1EventSeries';
+} from './';
 
 /**
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.

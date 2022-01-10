@@ -18,13 +18,13 @@ import {
     V1JobConditionFromJSON,
     V1JobConditionFromJSONTyped,
     V1JobConditionToJSON,
-} from './V1JobCondition';
+} from './';
 import {
     V1UncountedTerminatedPods,
     V1UncountedTerminatedPodsFromJSON,
     V1UncountedTerminatedPodsFromJSONTyped,
     V1UncountedTerminatedPodsToJSON,
-} from './V1UncountedTerminatedPods';
+} from './';
 
 /**
  * JobStatus represents the current state of a Job.

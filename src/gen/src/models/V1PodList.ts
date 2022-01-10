@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1Pod,
     V1PodFromJSON,
     V1PodFromJSONTyped,
     V1PodToJSON,
-} from './V1Pod';
+} from './';
 
 /**
  * PodList is a list of Pods.

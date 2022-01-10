@@ -18,13 +18,13 @@ import {
     V1ConfigMapFromJSON,
     V1ConfigMapFromJSONTyped,
     V1ConfigMapToJSON,
-} from './V1ConfigMap';
+} from './';
 import {
     V1ListMeta,
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 
 /**
  * ConfigMapList is a resource containing a list of ConfigMap objects.

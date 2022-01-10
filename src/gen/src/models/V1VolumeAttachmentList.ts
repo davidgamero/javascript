@@ -18,13 +18,13 @@ import {
     V1ListMetaFromJSON,
     V1ListMetaFromJSONTyped,
     V1ListMetaToJSON,
-} from './V1ListMeta';
+} from './';
 import {
     V1VolumeAttachment,
     V1VolumeAttachmentFromJSON,
     V1VolumeAttachmentFromJSONTyped,
     V1VolumeAttachmentToJSON,
-} from './V1VolumeAttachment';
+} from './';
 
 /**
  * VolumeAttachmentList is a collection of VolumeAttachment objects.
