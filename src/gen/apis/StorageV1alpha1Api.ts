@@ -1,12 +1,12 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
-import {Configuration} from '../configuration';
-import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
+import { Configuration } from '../configuration';
+import { RequestContext, HttpMethod, ResponseContext, HttpFile } from '../http/http';
 import * as FormData from "form-data";
 import { URLSearchParams } from 'url';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
+import { ObjectSerializer } from '../models/ObjectSerializer';
+import { ApiException } from './exception';
+import { canConsumeForm, isCodeInRange } from '../util';
 
 
 import { V1APIResourceList } from '../models/V1APIResourceList';
@@ -16,6 +16,7 @@ import { V1alpha1CSIStorageCapacity } from '../models/V1alpha1CSIStorageCapacity
 import { V1alpha1CSIStorageCapacityList } from '../models/V1alpha1CSIStorageCapacityList';
 import { V1alpha1VolumeAttachment } from '../models/V1alpha1VolumeAttachment';
 import { V1alpha1VolumeAttachmentList } from '../models/V1alpha1VolumeAttachmentList';
+import { SecurityAuthentication } from '..';
 
 /**
  * no description
@@ -576,9 +577,9 @@ export class StorageV1alpha1ApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
 
-        let authMethod = null;
+        let authMethod: SecurityAuthentication | null;
         // Apply auth methods
-        authMethod = _config.authMethods["BearerToken"]
+        authMethod = _config.authMethods["BearerToken"] || null
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -944,11 +945,11 @@ export class StorageV1alpha1ApiRequestFactory extends BaseAPIRequestFactory {
         // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json-patch+json",
-        
+
             "application/merge-patch+json",
-        
+
             "application/strategic-merge-patch+json",
-        
+
             "application/apply-patch+yaml"
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
@@ -1028,11 +1029,11 @@ export class StorageV1alpha1ApiRequestFactory extends BaseAPIRequestFactory {
         // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json-patch+json",
-        
+
             "application/merge-patch+json",
-        
+
             "application/strategic-merge-patch+json",
-        
+
             "application/apply-patch+yaml"
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
@@ -1295,7 +1296,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to createNamespacedCSIStorageCapacity
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity > {
+    public async createNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1CSIStorageCapacity = ObjectSerializer.deserialize(
@@ -1341,7 +1342,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to createVolumeAttachment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async createVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment > {
+    public async createVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1VolumeAttachment = ObjectSerializer.deserialize(
@@ -1387,7 +1388,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to deleteCollectionNamespacedCSIStorageCapacity
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteCollectionNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1Status > {
+    public async deleteCollectionNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1Status> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1Status = ObjectSerializer.deserialize(
@@ -1419,7 +1420,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to deleteCollectionVolumeAttachment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteCollectionVolumeAttachment(response: ResponseContext): Promise<V1Status > {
+    public async deleteCollectionVolumeAttachment(response: ResponseContext): Promise<V1Status> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1Status = ObjectSerializer.deserialize(
@@ -1451,7 +1452,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to deleteNamespacedCSIStorageCapacity
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1Status > {
+    public async deleteNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1Status> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1Status = ObjectSerializer.deserialize(
@@ -1490,7 +1491,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to deleteVolumeAttachment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async deleteVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment > {
+    public async deleteVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1VolumeAttachment = ObjectSerializer.deserialize(
@@ -1529,7 +1530,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to getAPIResources
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getAPIResources(response: ResponseContext): Promise<V1APIResourceList > {
+    public async getAPIResources(response: ResponseContext): Promise<V1APIResourceList> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1APIResourceList = ObjectSerializer.deserialize(
@@ -1561,7 +1562,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to listCSIStorageCapacityForAllNamespaces
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listCSIStorageCapacityForAllNamespaces(response: ResponseContext): Promise<V1alpha1CSIStorageCapacityList > {
+    public async listCSIStorageCapacityForAllNamespaces(response: ResponseContext): Promise<V1alpha1CSIStorageCapacityList> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1CSIStorageCapacityList = ObjectSerializer.deserialize(
@@ -1593,7 +1594,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to listNamespacedCSIStorageCapacity
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacityList > {
+    public async listNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacityList> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1CSIStorageCapacityList = ObjectSerializer.deserialize(
@@ -1625,7 +1626,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to listVolumeAttachment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async listVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachmentList > {
+    public async listVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachmentList> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1VolumeAttachmentList = ObjectSerializer.deserialize(
@@ -1657,7 +1658,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to patchNamespacedCSIStorageCapacity
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async patchNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity > {
+    public async patchNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1CSIStorageCapacity = ObjectSerializer.deserialize(
@@ -1696,7 +1697,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to patchVolumeAttachment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async patchVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment > {
+    public async patchVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1VolumeAttachment = ObjectSerializer.deserialize(
@@ -1735,7 +1736,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to readNamespacedCSIStorageCapacity
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async readNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity > {
+    public async readNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1CSIStorageCapacity = ObjectSerializer.deserialize(
@@ -1767,7 +1768,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to readVolumeAttachment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async readVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment > {
+    public async readVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1VolumeAttachment = ObjectSerializer.deserialize(
@@ -1799,7 +1800,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to replaceNamespacedCSIStorageCapacity
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async replaceNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity > {
+    public async replaceNamespacedCSIStorageCapacity(response: ResponseContext): Promise<V1alpha1CSIStorageCapacity> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1CSIStorageCapacity = ObjectSerializer.deserialize(
@@ -1838,7 +1839,7 @@ export class StorageV1alpha1ApiResponseProcessor {
      * @params response Response returned by the server for a request to replaceVolumeAttachment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async replaceVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment > {
+    public async replaceVolumeAttachment(response: ResponseContext): Promise<V1alpha1VolumeAttachment> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: V1alpha1VolumeAttachment = ObjectSerializer.deserialize(

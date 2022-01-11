@@ -62,7 +62,7 @@ export type AuthMethodsConfiguration = {
  * Creates the authentication methods from a swagger description.
  *
  */
-export function configureAuthMethods(config: AuthMethodsConfiguration | undefined): AuthMethods {
+export function configureAuthMethods(config: AuthMethodsConfiguration = {}): AuthMethods {
     let authMethods: AuthMethods = {}
 
     if (!config) {
