@@ -21,7 +21,7 @@ export interface SecurityAuthentication {
 }
 
 export interface TokenProvider {
-  getToken(): Promise<string> | string;
+    getToken(): Promise<string> | string;
 }
 
 /**
@@ -33,7 +33,7 @@ export class BearerTokenAuthentication implements SecurityAuthentication {
      *
      * @param apiKey: The api key to be used for every request
      */
-    public constructor(private apiKey: string) {}
+    public constructor(private apiKey: string) { }
 
     public getName(): string {
         return "BearerToken";
