@@ -4,6 +4,14 @@ import request = require('request');
 
 import { Authenticator } from './auth';
 import { User } from './config_types';
+import {
+    CoreV1Api,
+    Configuration,
+    ServerConfiguration,
+    RequestContext,
+    ResponseContext,
+    Middleware
+} from './gen';
 
 export interface CredentialStatus {
     readonly token: string;
@@ -16,10 +24,15 @@ export interface Credential {
     readonly status: CredentialStatus;
 }
 
-export class ExecAuth implements Authenticator {
+export class ExecAuth implements Middleware {
     private readonly tokenCache: { [key: string]: Credential | null } = {};
     private execFn: (cmd: string, args: string[], opts: execa.SyncOptions) => execa.ExecaSyncReturnValue =
         execa.sync;
+    private user: User | null;
+
+    constructor(user: User | null = null) {
+        this.user = user
+    }
 
     public isAuthProvider(user: User): boolean {
         if (!user) {
@@ -34,6 +47,35 @@ export class ExecAuth implements Authenticator {
         return (
             user.authProvider.name === 'exec' || !!(user.authProvider.config && user.authProvider.config.exec)
         );
+    }
+
+    pre(context: RequestContext): Promise<RequestContext> {
+        return new Promise<RequestContext>((resolve, reject) => {
+            if (this.user = null) {
+                return;
+            }
+            const credential = this.getCredential(this.user as unknown as User);
+            if (!credential) {
+                return;
+            }
+            if (credential.status.clientCertificateData) {
+                context.certData = credential.status.clientCertificateData;
+            }
+            if (credential.status.clientKeyData) {
+                context.keyData = credential.status.clientKeyData;
+            }
+            const token = this.getToken(credential);
+            if (token) {
+                context.setHeaderParam("Authorization", `Bearer ${token}`)
+            }
+            resolve(context)
+        })
+    }
+
+    post(context: ResponseContext): Promise<ResponseContext> {
+        return new Promise<ResponseContext>((resolve, reject) => {
+            resolve(context)
+        })
     }
 
     public async applyAuthentication(

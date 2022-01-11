@@ -8,8 +8,15 @@ import path = require('path');
 import request = require('request');
 import shelljs = require('shelljs');
 
-import * as api from './api';
-import { CoreV1Api } from './api';
+import * as api from './gen';
+import {
+    CoreV1Api,
+    Configuration,
+    ServerConfiguration,
+    RequestContext,
+    ResponseContext,
+    Middleware
+} from './gen';
 import { Authenticator } from './auth';
 import { AzureAuth } from './azure_auth';
 import {
@@ -39,6 +46,23 @@ function fileExists(filepath: string): boolean {
     }
 }
 
+class HttpAuthMiddleware implements Middleware {
+    constructor() {
+
+    }
+
+    pre(context: RequestContext): Promise<RequestContext> {
+        return new Promise<RequestContext>((resolve, reject) => {
+            resolve(context)
+        })
+    }
+
+    post(context: ResponseContext): Promise<ResponseContext> {
+        return new Promise<ResponseContext>((resolve, reject) => {
+            resolve(context)
+        })
+    }
+}
 export class KubeConfig {
     private static authenticators: Authenticator[] = [
         new AzureAuth(),
@@ -349,13 +373,20 @@ export class KubeConfig {
         );
     }
 
+
     public makeApiClient<T extends ApiType>(apiClientType: ApiConstructor<T>): T {
         const cluster = this.getCurrentCluster();
         if (!cluster) {
             throw new Error('No active cluster!');
         }
-        const apiClient = new apiClientType(cluster.server);
-        apiClient.setDefaultAuthentication(this);
+        const authMiddleware = new ExecAuth(this.getCurrentUser()) as Middleware
+        const serverConfig = new ServerConfiguration(cluster.server, {})
+        const config = api.createConfiguration({
+            baseServer: serverConfig,
+            promiseMiddleware: [authMiddleware],
+        })
+
+        const apiClient = new apiClientType(config);
 
         return apiClient;
     }
@@ -446,11 +477,12 @@ export class KubeConfig {
 }
 
 export interface ApiType {
-    defaultHeaders: any;
-    setDefaultAuthentication(config: api.AuthenticationApi): void;
+    //    defaultHeaders: any;
+    //   setDefaultAuthentication(config: api.PromiseAuthenticationApi): void;
+    //getAPIResources(_options?: Configuration): Promise<V1APIResourceList>
 }
 
-type ApiConstructor<T extends ApiType> = new (server: string) => T;
+type ApiConstructor<T extends ApiType> = new (configuration: Configuration) => T;
 
 // This class is deprecated and will eventually be removed.
 export class Config {
@@ -459,16 +491,16 @@ export class Config {
     public static SERVICEACCOUNT_TOKEN_PATH: string = Config.SERVICEACCOUNT_ROOT + '/token';
     public static SERVICEACCOUNT_NAMESPACE_PATH: string = Config.SERVICEACCOUNT_ROOT + '/namespace';
 
-    public static fromFile(filename: string): api.CoreV1Api {
-        return Config.apiFromFile<CoreV1Api>(filename, api.CoreV1Api<CoreV1Api>);
+    public static fromFile(filename: string): CoreV1Api {
+        return Config.apiFromFile(filename, CoreV1Api);
     }
 
-    public static fromCluster(): api.CoreV1Api {
-        return Config.apiFromCluster(api.CoreV1Api);
+    public static fromCluster(): CoreV1Api {
+        return Config.apiFromCluster(CoreV1Api);
     }
 
-    public static defaultClient(): api.CoreV1Api {
-        return Config.apiFromDefaultClient(api.CoreV1Api);
+    public static defaultClient(): CoreV1Api {
+        return Config.apiFromDefaultClient(CoreV1Api);
     }
 
     public static apiFromFile<T extends ApiType>(filename: string, apiClientType: ApiConstructor<T>): T {
@@ -486,8 +518,11 @@ export class Config {
             throw new Error('No active cluster!');
         }
 
-        const k8sApi = new apiClientType(cluster.server);
-        k8sApi.setDefaultAuthentication(kc);
+        const serverConfig = new ServerConfiguration(cluster.server, {})
+        const config = api.createConfiguration({
+            baseServer: serverConfig,
+        })
+        const k8sApi = new apiClientType(config);
 
         return k8sApi;
     }

@@ -50,6 +50,8 @@ export class RequestContext {
     private headers: { [key: string]: string } = {};
     private body: RequestBody = undefined;
     private url: URLParse;
+    public certData: string = "";
+    public keyData: string = "";
 
     /**
      * Creates the request context using a http method and request resource url
@@ -119,7 +121,7 @@ export class RequestContext {
         this.headers["Cookie"] += name + "=" + value + "; ";
     }
 
-    public setHeaderParam(key: string, value: string): void  {
+    public setHeaderParam(key: string, value: string): void {
         this.headers[key] = value;
     }
 }
@@ -133,7 +135,7 @@ export interface ResponseBody {
  * Helper class to generate a `ResponseBody` from binary data
  */
 export class SelfDecodingBody implements ResponseBody {
-    constructor(private dataSource: Promise<Buffer>) {}
+    constructor(private dataSource: Promise<Buffer>) { }
 
     binary(): Promise<Buffer> {
         return this.dataSource;
@@ -150,7 +152,7 @@ export class ResponseContext {
         public httpStatusCode: number,
         public headers: { [key: string]: string },
         public body: ResponseBody
-    ) {}
+    ) { }
 
     /**
      * Parse header value in the form `value; param1="value1"`
@@ -195,11 +197,11 @@ export class ResponseContext {
     public getBodyAsAny(): Promise<string | Buffer | undefined> {
         try {
             return this.body.text();
-        } catch {}
+        } catch { }
 
         try {
             return this.body.binary();
-        } catch {}
+        } catch { }
 
         return Promise.resolve(undefined);
     }
@@ -214,9 +216,9 @@ export interface PromiseHttpLibrary {
 }
 
 export function wrapHttpLibrary(promiseHttpLibrary: PromiseHttpLibrary): HttpLibrary {
-  return {
-    send(request: RequestContext): Observable<ResponseContext> {
-      return from(promiseHttpLibrary.send(request));
+    return {
+        send(request: RequestContext): Observable<ResponseContext> {
+            return from(promiseHttpLibrary.send(request));
+        }
     }
-  }
 }
