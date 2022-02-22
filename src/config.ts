@@ -1,5 +1,7 @@
 import execa = require('execa');
 import fs = require('fs');
+import { Server } from 'http';
+import WebSocket = require('isomorphic-ws');
 import https = require('https');
 import yaml = require('js-yaml');
 import net = require('net');
@@ -7,8 +9,11 @@ import path = require('path');
 
 import request = require('request');
 import shelljs = require('shelljs');
+import { AuthMethods, AuthMethodsConfiguration, BaseServerConfiguration, Configuration, configureAuthMethods, createConfiguration, RequestContext, ServerConfiguration } from '.';
+import { HttpMethod } from '.';
 
 import * as api from './api';
+import { CoreV1Api, SecurityAuthentication } from './api';
 import { Authenticator } from './auth';
 import { AzureAuth } from './azure_auth';
 import {
@@ -37,6 +42,11 @@ function fileExists(filepath: string): boolean {
         return false;
     }
 }
+
+const SERVICEACCOUNT_ROOT: string = '/var/run/secrets/kubernetes.io/serviceaccount';
+const SERVICEACCOUNT_CA_PATH: string = SERVICEACCOUNT_ROOT + '/ca.crt';
+const SERVICEACCOUNT_TOKEN_PATH: string = SERVICEACCOUNT_ROOT + '/token';
+const SERVICEACCOUNT_NAMESPACE_PATH: string = SERVICEACCOUNT_ROOT + '/namespace';
 
 export class KubeConfig {
     private static authenticators: Authenticator[] = [
@@ -130,32 +140,34 @@ export class KubeConfig {
         this.makePathsAbsolute(rootDirectory);
     }
 
+    public async applytoWebSocketOptions(opts: WebSocket.ClientOptions): Promise<void> {
+
+    }
+
     public async applytoHTTPSOptions(opts: https.RequestOptions): Promise<void> {
         const user = this.getCurrentUser();
 
-        await this.applyOptions(opts);
-
-        if (user && user.username) {
-            opts.auth = `${user.username}:${user.password}`;
-        }
+        await this.applyOptions(context, agentOptions);
     }
 
-    public async applyToRequest(opts: request.Options): Promise<void> {
+    /**
+     * Applies SecurityAuthentication to RequestContext of an API Call from API Client 
+     * @param context 
+     */
+    async applySecurityAuthentication(context: api.RequestContext): Promise<void> {
         const cluster = this.getCurrentCluster();
         const user = this.getCurrentUser();
 
-        await this.applyOptions(opts);
+        let agentOptions: https.AgentOptions = {};
 
-        if (cluster && cluster.skipTLSVerify) {
-            opts.strictSSL = false;
-        }
+        await this.applyOptions(context, agentOptions);
 
-        if (user && user.username) {
-            opts.auth = {
-                password: user.password,
-                username: user.username,
-            };
-        }
+        // TODO: idk where this option is now with node-fetch
+        // if (cluster && cluster.skipTLSVerify) {
+        //     opts.strictSSL = false;
+        // }
+
+        context.setAgent(new https.Agent(agentOptions))
     }
 
     public loadFromString(config: string, opts?: Partial<ConfigOptions>): void {
@@ -207,7 +219,7 @@ export class KubeConfig {
         this.clusters = [
             {
                 name: clusterName,
-                caFile: `${pathPrefix}${Config.SERVICEACCOUNT_CA_PATH}`,
+                caFile: `${pathPrefix}${SERVICEACCOUNT_CA_PATH} `,
                 server: `${scheme}://${serverHost}:${port}`,
                 skipTLSVerify: false,
             },
@@ -218,12 +230,12 @@ export class KubeConfig {
                 authProvider: {
                     name: 'tokenFile',
                     config: {
-                        tokenFile: `${pathPrefix}${Config.SERVICEACCOUNT_TOKEN_PATH}`,
+                        tokenFile: `${pathPrefix}${SERVICEACCOUNT_TOKEN_PATH}`,
                     },
                 },
             },
         ];
-        const namespaceFile = `${pathPrefix}${Config.SERVICEACCOUNT_NAMESPACE_PATH}`;
+        const namespaceFile = `${pathPrefix}${SERVICEACCOUNT_NAMESPACE_PATH}`;
         let namespace: string | undefined;
         if (fileExists(namespaceFile)) {
             namespace = fs.readFileSync(namespaceFile, 'utf8');
@@ -337,7 +349,7 @@ export class KubeConfig {
             }
         }
 
-        if (fileExists(Config.SERVICEACCOUNT_TOKEN_PATH)) {
+        if (fileExists(SERVICEACCOUNT_TOKEN_PATH)) {
             this.loadFromCluster();
             return;
         }
@@ -353,8 +365,15 @@ export class KubeConfig {
         if (!cluster) {
             throw new Error('No active cluster!');
         }
-        const apiClient = new apiClientType(cluster.server);
-        apiClient.setDefaultAuthentication(this);
+        const authConfig: AuthMethodsConfiguration = {
+            default: new KubeAuth(this)
+        }
+        const baseServerConfig: ServerConfiguration<{}> = new ServerConfiguration<{}>(cluster.server, {});
+        const config: Configuration = createConfiguration({
+            baseServer: baseServerConfig,
+            authMethods: authConfig
+        })
+        const apiClient = new apiClientType(config);
 
         return apiClient;
     }
@@ -393,7 +412,7 @@ export class KubeConfig {
         return this.getContextObject(this.currentContext);
     }
 
-    private applyHTTPSOptions(opts: request.Options | https.RequestOptions): void {
+    private applyHTTPSOptions(context: api.RequestContext, agentOptions: https.AgentOptions): void | Promise<void> {
         const cluster = this.getCurrentCluster();
         const user = this.getCurrentUser();
         if (!user) {
@@ -401,23 +420,23 @@ export class KubeConfig {
         }
 
         if (cluster != null && cluster.skipTLSVerify) {
-            opts.rejectUnauthorized = false;
+            agentOptions.rejectUnauthorized = false;
         }
         const ca = cluster != null ? bufferFromFileOrString(cluster.caFile, cluster.caData) : null;
         if (ca) {
-            opts.ca = ca;
+            agentOptions.ca = ca;
         }
         const cert = bufferFromFileOrString(user.certFile, user.certData);
         if (cert) {
-            opts.cert = cert;
+            agentOptions.cert = cert;
         }
         const key = bufferFromFileOrString(user.keyFile, user.keyData);
         if (key) {
-            opts.key = key;
+            agentOptions.key = key;
         }
     }
 
-    private async applyAuthorizationHeader(opts: request.Options | https.RequestOptions): Promise<void> {
+    private async applyAuthorizationHeader(context: api.RequestContext, agentOptions: https.AgentOptions): Promise<void> {
         const user = this.getCurrentUser();
         if (!user) {
             return;
@@ -426,77 +445,30 @@ export class KubeConfig {
             return elt.isAuthProvider(user);
         });
 
-        if (!opts.headers) {
-            opts.headers = {};
-        }
         if (authenticator) {
-            await authenticator.applyAuthentication(user, opts);
+            await authenticator.applyAuthentication(user, context, agentOptions);
         }
 
         if (user.token) {
-            opts.headers.Authorization = `Bearer ${user.token}`;
+            context.setHeaderParam('Authorization', `Bearer ${user.token}`);
+        }
+
+        if (user && user.username) {
+            var base64encodedData = Buffer.from(user.username + ':' + user.password).toString('base64');
+            context.setHeaderParam('Authorization', `Basic ${base64encodedData}`)
         }
     }
 
-    private async applyOptions(opts: request.Options | https.RequestOptions): Promise<void> {
-        this.applyHTTPSOptions(opts);
-        await this.applyAuthorizationHeader(opts);
+    private async applyOptions(context: api.RequestContext, agentOptions: https.AgentOptions): Promise<void> {
+        this.applyHTTPSOptions(context, agentOptions);
+        await this.applyAuthorizationHeader(context, agentOptions);
     }
 }
 
 export interface ApiType {
-    defaultHeaders: any;
-    setDefaultAuthentication(config: api.Authentication): void;
 }
 
-type ApiConstructor<T extends ApiType> = new (server: string) => T;
-
-// This class is deprecated and will eventually be removed.
-export class Config {
-    public static SERVICEACCOUNT_ROOT: string = '/var/run/secrets/kubernetes.io/serviceaccount';
-    public static SERVICEACCOUNT_CA_PATH: string = Config.SERVICEACCOUNT_ROOT + '/ca.crt';
-    public static SERVICEACCOUNT_TOKEN_PATH: string = Config.SERVICEACCOUNT_ROOT + '/token';
-    public static SERVICEACCOUNT_NAMESPACE_PATH: string = Config.SERVICEACCOUNT_ROOT + '/namespace';
-
-    public static fromFile(filename: string): api.CoreV1Api {
-        return Config.apiFromFile(filename, api.CoreV1Api);
-    }
-
-    public static fromCluster(): api.CoreV1Api {
-        return Config.apiFromCluster(api.CoreV1Api);
-    }
-
-    public static defaultClient(): api.CoreV1Api {
-        return Config.apiFromDefaultClient(api.CoreV1Api);
-    }
-
-    public static apiFromFile<T extends ApiType>(filename: string, apiClientType: ApiConstructor<T>): T {
-        const kc = new KubeConfig();
-        kc.loadFromFile(filename);
-        return kc.makeApiClient(apiClientType);
-    }
-
-    public static apiFromCluster<T extends ApiType>(apiClientType: ApiConstructor<T>): T {
-        const kc = new KubeConfig();
-        kc.loadFromCluster();
-
-        const cluster = kc.getCurrentCluster();
-        if (!cluster) {
-            throw new Error('No active cluster!');
-        }
-
-        const k8sApi = new apiClientType(cluster.server);
-        k8sApi.setDefaultAuthentication(kc);
-
-        return k8sApi;
-    }
-
-    public static apiFromDefaultClient<T extends ApiType>(apiClientType: ApiConstructor<T>): T {
-        const kc = new KubeConfig();
-        kc.loadFromDefault();
-        return kc.makeApiClient(apiClientType);
-    }
-}
+type ApiConstructor<T extends ApiType> = new (config: Configuration) => T;
 
 export function makeAbsolutePath(root: string, file: string): string {
     if (!root || path.isAbsolute(file)) {
@@ -539,7 +511,7 @@ export function findHomeDir(): string | null {
                 fs.accessSync(process.env.HOME);
                 return process.env.HOME;
                 // tslint:disable-next-line:no-empty
-            } catch (ignore) {}
+            } catch (ignore) { }
         }
         return null;
     }
@@ -559,7 +531,7 @@ export function findHomeDir(): string | null {
             fs.accessSync(path.join(dir, '.kube', 'config'));
             return dir;
             // tslint:disable-next-line:no-empty
-        } catch (ignore) {}
+        } catch (ignore) { }
     }
     // 2. ...the first of %HOME%, %USERPROFILE%, %HOMEDRIVE%%HOMEPATH% that exists and is writeable is returned
     for (const dir of favourUserProfileList) {
@@ -567,7 +539,7 @@ export function findHomeDir(): string | null {
             fs.accessSync(dir, fs.constants.W_OK);
             return dir;
             // tslint:disable-next-line:no-empty
-        } catch (ignore) {}
+        } catch (ignore) { }
     }
     // 3. ...the first of %HOME%, %USERPROFILE%, %HOMEDRIVE%%HOMEPATH% that exists is returned.
     for (const dir of favourUserProfileList) {
@@ -575,7 +547,7 @@ export function findHomeDir(): string | null {
             fs.accessSync(dir);
             return dir;
             // tslint:disable-next-line:no-empty
-        } catch (ignore) {}
+        } catch (ignore) { }
     }
     // 4. if none of those locations exists, the first of
     // %HOME%, %USERPROFILE%, %HOMEDRIVE%%HOMEPATH% that is set is returned.

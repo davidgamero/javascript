@@ -3,7 +3,6 @@ import request = require('request');
 import {
     ApisApi,
     HttpError,
-    ObjectSerializer,
     V1APIResource,
     V1APIResourceList,
     V1DeleteOptions,
@@ -11,6 +10,7 @@ import {
 } from './api';
 import { KubeConfig } from './config';
 import { KubernetesListObject, KubernetesObject } from './types';
+import { ObjectSerializer } from './util'
 
 /** Union type of body types returned by KubernetesObjectApi. */
 type KubernetesObjectResponseBody =
