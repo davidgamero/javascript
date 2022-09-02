@@ -13,15 +13,21 @@ import { deleteObject, ListWatch, deleteItems } from './cache';
 import { KubeConfig } from './config';
 import { Cluster, Context, User } from './config_types';
 import { ADD, UPDATE, DELETE, ERROR, ListPromise, CHANGE } from './informer';
+import byline = require('byline');
+import {RequestOptions} from 'https'
+import { URL } from 'url';
 
 use(chaiAsPromised);
 
-import { DefaultRequest, RequestResult, Watch } from './watch';
+import { DefaultFetch, RequestResult, Response, Watch } from './watch';
 
 // Object replacing real Request object in the test
 class FakeRequest extends EventEmitter implements RequestResult {
     pipe(stream: Duplex): void {}
     abort() {}
+    then() {}
+    catch() {}
+    finally() {}
 }
 
 const server = 'foo.company.com';
@@ -1187,7 +1193,7 @@ describe('ListWatchCache', () => {
         expect(listCalls).to.be.equal(2);
     });
 
-    it('should send label selector', async () => {
+    it.only('should send label selector', async () => {
         const APP_LABEL_SELECTOR = 'app=foo';
 
         const list: V1Namespace[] = [
@@ -1228,20 +1234,32 @@ describe('ListWatchCache', () => {
 
         const kc = new KubeConfig();
         Object.assign(kc, fakeConfig);
-        const fakeRequestor = mock.mock(DefaultRequest);
+        const fakeRequestor = mock.mock(DefaultFetch);
         const watch = new Watch(kc, mock.instance(fakeRequestor));
+        const fakeResponse:Response = {
+            statusCode: 200,
+            statusMessage: 'OK',
+            body: {
+                pipe: (stream: byline.LineStream) => {
+                    byline.createStream().pipe(stream);
+                }
+            },
+        }
 
         const fakeRequest = new FakeRequest();
-        mock.when(fakeRequestor.webRequest(mock.anything())).thenReturn(fakeRequest);
+        const fakePromise = new Promise<Response>((resolve) => {
+            resolve(fakeResponse);
+        })
+        mock.when(fakeRequestor.webRequest(mock.anything(),mock.anything())).thenReturn(fakePromise);
 
         const informer = new ListWatch('/some/path', watch, listFn, false, APP_LABEL_SELECTOR);
 
         await informer.start();
 
-        mock.verify(fakeRequestor.webRequest(mock.anything()));
-        const [opts] = mock.capture(fakeRequestor.webRequest).last();
-        const reqOpts: request.OptionsWithUri = opts as request.OptionsWithUri;
-        expect(reqOpts.qs.labelSelector).to.equal(APP_LABEL_SELECTOR);
+        mock.verify(fakeRequestor.webRequest(mock.anything(),mock.anything()));
+        const [url,opts] = mock.capture(fakeRequestor.webRequest).last();
+        const reqOpts: RequestOptions = opts as RequestOptions;
+        expect(url.searchParams.get('labelSelector')).to.equal(APP_LABEL_SELECTOR);
     });
 });
 

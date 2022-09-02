@@ -23,39 +23,30 @@ export interface RequestResult {
 export interface Response {
     statusCode: number;
     statusMessage: string;
+    body: {
+        pipe:  (stream: byline.LineStream) => void;
+    }
+}
+export interface FetchInterface {
+    webRequest(url: URL,opts: RequestOptions): Promise<Response>;
 }
 
-// The contract is that the provided request library will return a readable
-// stream with abort method.
-export interface RequestInterface {
-    webRequest(opts: request.OptionsWithUri): RequestResult;
-}
+type FetchImpl =  (url: URL,opts: RequestOptions) => Promise<Response>
 
-export class DefaultRequest implements RequestInterface {
+export class DefaultFetch implements FetchInterface {
     // requestImpl can be overriden in case we need to test mocked DefaultRequest
-    private requestImpl: (opts: request.OptionsWithUri) => request.Request;
+    private fetchImpl: FetchImpl;
 
-    constructor(requestImpl?: (opts: request.OptionsWithUri) => request.Request) {
-        this.requestImpl = requestImpl ? requestImpl : request;
+    constructor(fetchImpl?: FetchImpl) {
+        this.fetchImpl = fetchImpl || fetch;
     }
 
     // Using request lib can be confusing when combining Stream- with Callback-
     // style API. We avoid the callback and handle HTTP response errors, that
     // would otherwise require a different error handling, in a transparent way
     // to the user (see github issue request/request#647 for more info).
-    public webRequest(opts: request.OptionsWithUri): RequestResult {
-        const req = this.requestImpl(opts);
-        // pause the stream until we get a response not to miss any bytes
-        req.pause();
-        req.on('response', (resp) => {
-            if (resp.statusCode === 200) {
-                req.resume();
-            } else {
-                const error = new Error(resp.statusMessage) as Error & { statusCode: number | undefined };
-                error.statusCode = resp.statusCode;
-                req.emit('error', error);
-            }
-        });
+    public    webRequest(url: URL,opts: RequestOptions): Promise<Response>    {
+        const req = this.fetchImpl(url,opts);
         return req;
     }
 }
@@ -63,14 +54,14 @@ export class DefaultRequest implements RequestInterface {
 export class Watch {
     public static SERVER_SIDE_CLOSE: object = { error: 'Connection closed on server' };
     public config: KubeConfig;
-    private readonly requestImpl: RequestInterface;
+    private readonly fetchImpl: FetchInterface;
 
-    public constructor(config: KubeConfig, requestImpl?: RequestInterface) {
+    public constructor(config: KubeConfig, fetchImpl?: FetchInterface) {
         this.config = config;
-        if (requestImpl) {
-            this.requestImpl = requestImpl;
+        if (fetchImpl) {
+            this.fetchImpl = fetchImpl;
         } else {
-            this.requestImpl = new DefaultRequest();
+            this.fetchImpl = new DefaultFetch();
         }
     }
 
@@ -92,6 +83,9 @@ export class Watch {
         }
         const watchURL = new URL(cluster.server + path);
         watchURL.searchParams.set('watch', 'true');
+        for (const [key, value] of Object.entries(queryParams) as [string, string][]) {
+            watchURL.searchParams.set(key, value);
+        }
 
         const httpsOptions: RequestOptions = {}
         // TODO: fix applytoHTTPSOptions for watch
@@ -121,8 +115,8 @@ export class Watch {
             }
         });
 
-        const req = await fetch(watchURL, httpsOptions)
-            .then(response => {
+        const req = await this.fetchImpl.webRequest(watchURL, httpsOptions)
+            .then((response: Response) => {
                 response.body.pipe(stream)
             }).catch(doneCallOnce);
         return req;

@@ -238,20 +238,28 @@ describe('KubeConfig', () => {
     });
 
     describe('applyHTTPSOptions', () => {
-        it('should apply cert configs', () => {
+        it('should apply cert configs', async () => {
             const kc = new KubeConfig();
             kc.loadFromFile(kcFileName);
 
             const opts: https.RequestOptions = {};
-            kc.applytoHTTPSOptions(opts);
+            await kc.applytoHTTPSOptions(opts);
 
-            expect(opts).to.deep.equal({
-                headers: {},
+            const expectedAgent = new https.Agent({
                 ca: Buffer.from('CADATA2', 'utf-8'),
                 cert: Buffer.from('USER2_CADATA', 'utf-8'),
                 key: Buffer.from('USER2_CKDATA', 'utf-8'),
+                passphrase: undefined,
+                pfx: undefined,
                 rejectUnauthorized: false,
-            });
+            })
+            let expectedOptions: https.RequestOptions = {
+                headers: {},
+                rejectUnauthorized: false,
+                agent: expectedAgent,
+            }
+
+            assertRequestOptionsEqual(opts,expectedOptions)
         });
         it('should apply password', async () => {
             const kc = new KubeConfig();

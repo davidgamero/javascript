@@ -1,12 +1,11 @@
 import { expect } from 'chai';
-import request = require('request');
 import { Duplex } from 'stream';
 import { anything, capture, instance, mock, spy, verify, when } from 'ts-mockito';
 import { EventEmitter } from 'ws';
 
 import { KubeConfig } from './config';
 import { Cluster, Context, User } from './config_types';
-import { DefaultRequest, RequestResult, Watch } from './watch';
+import { Watch } from './watch';
 
 const server = 'foo.company.com';
 
@@ -35,7 +34,7 @@ const fakeConfig: {
 };
 
 // Object replacing real Request object in the test
-class FakeRequest extends EventEmitter implements RequestResult {
+class FakeRequest extends EventEmitter{
     pipe(stream: Duplex): void {}
     abort() {}
 }
