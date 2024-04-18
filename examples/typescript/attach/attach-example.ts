@@ -10,4 +10,8 @@ const namespace = 'default';
 const pod = 'nginx-4217019353-9gl4s';
 const container = 'nginx';
 
-attach.attach(namespace, pod, container, process.stdout, process.stderr, null /* stdin */, false /* tty */);
+attach
+    .attach(namespace, pod, container, process.stdout, process.stderr, null /* stdin */, false /* tty */)
+    .catch((err): void => {
+        console.error(err); // eslint-disable-line no-console
+    });

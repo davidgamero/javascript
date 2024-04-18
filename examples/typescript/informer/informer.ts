@@ -11,25 +11,25 @@ const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
 
 const namespace = 'default';
 
-const listFn = () => k8sApi.listNamespacedPod({ namespace });
+const listFn = (): Promise<k8s.V1PodList> => k8sApi.listNamespacedPod({ namespace });
 
 const informer = k8s.makeInformer(kc, `/api/v1/namespaces/${namespace}/pods`, listFn);
 
-informer.on('add', (obj: k8s.V1Pod) => {
-    console.log(`Added: ${obj.metadata!.name}`);
+informer.on('add', (obj: k8s.V1Pod): void => {
+    console.log(`Deleted: ${obj.metadata!.name}`); // eslint-disable-line no-console
 });
-informer.on('update', (obj: k8s.V1Pod) => {
-    console.log(`Updated: ${obj.metadata!.name}`);
+informer.on('update', (obj: k8s.V1Pod): void => {
+    console.log(`Deleted: ${obj.metadata!.name}`); // eslint-disable-line no-console
 });
-informer.on('delete', (obj: k8s.V1Pod) => {
-    console.log(`Deleted: ${obj.metadata!.name}`);
+informer.on('delete', (obj: k8s.V1Pod): void => {
+    console.log(`Deleted: ${obj.metadata!.name}`); // eslint-disable-line no-console
 });
-informer.on('error', (err: k8s.V1Pod) => {
-    console.error(err);
+informer.on('error', (err: k8s.V1Pod): void => {
+    console.error(err); // eslint-disable-line no-console
     // Restart informer after 5sec
-    setTimeout(() => {
-        informer.start();
+    setTimeout((): void => {
+        informer.start().catch(console.error); // eslint-disable-line no-console
     }, 5000);
 });
 
-informer.start();
+informer.start().catch(console.error); // eslint-disable-line no-console

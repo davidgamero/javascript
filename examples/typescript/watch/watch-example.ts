@@ -13,35 +13,39 @@ watch
             allowWatchBookmarks: true,
         },
         // callback is called for each received object.
-        (type, apiObj, watchObj) => {
-            if (type === 'ADDED') {
-                // tslint:disable-next-line:no-console
-                console.log('new object:');
-            } else if (type === 'MODIFIED') {
-                // tslint:disable-next-line:no-console
-                console.log('changed object:');
-            } else if (type === 'DELETED') {
-                // tslint:disable-next-line:no-console
-                console.log('deleted object:');
-            } else if (type === 'BOOKMARK') {
-                // tslint:disable-next-line:no-console
-                console.log(`bookmark: ${watchObj.metadata.resourceVersion}`);
-            } else {
-                // tslint:disable-next-line:no-console
-                console.log('unknown type: ' + type);
+        (type, apiObj, watchObj: k8s.KubernetesObject): void => {
+            if (watchObj === undefined) {
+                console.log('watchObj is undefined'); // eslint-disable-line no-console
+                return;
             }
-            // tslint:disable-next-line:no-console
-            console.log(apiObj);
+            if (type === 'ADDED') {
+                console.log('new object:'); // eslint-disable-line no-console
+            } else if (type === 'MODIFIED') {
+                console.log('changed object:'); // eslint-disable-line no-console
+            } else if (type === 'DELETED') {
+                console.log('deleted object:'); // eslint-disable-line no-console
+            } else if (type === 'BOOKMARK') {
+                if (watchObj.metadata === undefined) {
+                    console.log('bookmark: metadata is undefined'); // eslint-disable-line no-console
+                    return;
+                }
+                console.log(`bookmark: ${watchObj.metadata.resourceVersion}`); // eslint-disable-line no-console
+            } else {
+                console.log('unknown type: ' + type); // eslint-disable-line no-console
+            }
+            console.log(apiObj); // eslint-disable-line no-console
         },
         // done callback is called if the watch terminates normally
-        (err) => {
-            // tslint:disable-next-line:no-console
-            console.log(err);
+        (err): void => {
+            console.log(err); // eslint-disable-line no-console
         },
     )
-    .then((req) => {
+    .then((req): void => {
         // watch returns a request object which you can use to abort the watch.
-        setTimeout(() => {
+        setTimeout((): void => {
             req.abort();
         }, 10 * 1000);
+    })
+    .catch((err): void => {
+        console.log(err); // eslint-disable-line no-console
     });

@@ -18,7 +18,7 @@ export async function apply(specPath: string): Promise<k8s.KubernetesObject[]> {
     const fsReadFileP = promisify(fs.readFile);
     const specString = await fsReadFileP(specPath, 'utf8');
     const specs = yaml.loadAll(specString) as k8s.KubernetesObject[];
-    const validSpecs = specs.filter((s) => s && s.kind && s.metadata);
+    const validSpecs = specs.filter((s): k8s.V1ObjectMeta | undefined | '' => s && s.kind && s.metadata);
     const created: k8s.KubernetesObject[] = [];
     for (const spec of validSpecs) {
         // this is to convince the old version of TypeScript that metadata exists even though we already filtered specs
