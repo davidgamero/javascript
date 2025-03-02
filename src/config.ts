@@ -57,13 +57,7 @@ function fileExists(filepath: string): boolean {
 export interface ApiType {}
 
 export class KubeConfig implements SecurityAuthentication {
-    private static authenticators: Authenticator[] = [
-        new AzureAuth(),
-        new GoogleCloudPlatformAuth(),
-        new ExecAuth(),
-        new FileAuth(),
-        new OpenIDConnectAuth(),
-    ];
+    private authenticators: Authenticator[];
 
     /**
      * The list of all known clusters
@@ -85,10 +79,18 @@ export class KubeConfig implements SecurityAuthentication {
      */
     public 'currentContext': string;
 
-    constructor() {
+    constructor(authenticators: Authenticator[] = []) {
         this.contexts = [];
         this.clusters = [];
         this.users = [];
+        this.authenticators = [
+            new AzureAuth(),
+            new GoogleCloudPlatformAuth(),
+            new ExecAuth(),
+            new FileAuth(),
+            new OpenIDConnectAuth(),
+            ...authenticators
+        ]
     }
 
     public getContexts(): Context[] {
