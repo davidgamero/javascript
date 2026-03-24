@@ -1,0 +1,24 @@
+{
+    "permissions": {
+        "allow": [
+            "Bash(npm run typecheck)",
+            "Bash(npm run build)",
+            "Bash(cat:*)",
+            "Bash(npm test)",
+            "Bash(node:*)",
+            "WebSearch",
+            "WebFetch(domain:undici.nodejs.org)",
+            "Bash(npm test:*)",
+            "Bash(npx tsx:*)",
+            "Bash(tee:*)",
+            "Bash(perl:*)",
+            "Bash(npm install)",
+            "Bash(npm run build-with-tests)",
+            "Read(//private/tmp/k8s-gen-inspect/openapi/**)",
+            "Read(//private/tmp/k8s-gen-inspect/**)",
+            "Bash(git rm:*)"
+        ],
+        "deny": [],
+        "ask": []
+    }
+}
