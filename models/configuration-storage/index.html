@@ -1,0 +1,1286 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-models/configuration-storage" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">API Models: Configuration &amp; Storage | Kubernetes JavaScript Client</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://davidgamero.github.io/javascript/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://davidgamero.github.io/javascript/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://davidgamero.github.io/javascript/models/configuration-storage"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="API Models: Configuration &amp; Storage | Kubernetes JavaScript Client"><meta data-rh="true" name="description" content="V1CSIDriver"><meta data-rh="true" property="og:description" content="V1CSIDriver"><link data-rh="true" rel="icon" href="/javascript/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://davidgamero.github.io/javascript/models/configuration-storage"><link data-rh="true" rel="alternate" href="https://davidgamero.github.io/javascript/models/configuration-storage" hreflang="en"><link data-rh="true" rel="alternate" href="https://davidgamero.github.io/javascript/models/configuration-storage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"API Models","item":"https://davidgamero.github.io/javascript/category/api-models"},{"@type":"ListItem","position":2,"name":"Configuration & Storage","item":"https://davidgamero.github.io/javascript/models/configuration-storage"}]}</script><link rel="stylesheet" href="/javascript/assets/css/styles.c83d8800.css">
+<script src="/javascript/assets/js/runtime~main.e718e6ef.js" defer="defer"></script>
+<script src="/javascript/assets/js/main.6b514052.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/javascript/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/javascript/"><div class="navbar__logo"><img src="/javascript/img/logo.svg" alt="Kubernetes Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/javascript/img/logo.svg" alt="Kubernetes Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Kubernetes JavaScript Client</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/javascript/">Docs</a><a class="navbar__item navbar__link" href="/javascript/api-reference/core-resources/CoreV1Api">API Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/kubernetes-client/javascript" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link github-icon">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/javascript/"><span title="Getting Started" class="categoryLinkLabel_W154">Getting Started</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/examples"><span title="Examples" class="categoryLinkLabel_W154">Examples</span></a><button aria-label="Expand sidebar category &#x27;Examples&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/javascript/category/configuration"><span title="SDK Reference" class="categoryLinkLabel_W154">SDK Reference</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/configuration"><span title="Configuration" class="categoryLinkLabel_W154">Configuration</span></a><button aria-label="Expand sidebar category &#x27;Configuration&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/watching--caching"><span title="Watching &amp; Caching" class="categoryLinkLabel_W154">Watching &amp; Caching</span></a><button aria-label="Expand sidebar category &#x27;Watching &amp; Caching&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/pod-operations"><span title="Pod Operations" class="categoryLinkLabel_W154">Pod Operations</span></a><button aria-label="Expand sidebar category &#x27;Pod Operations&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/cluster-operations"><span title="Cluster Operations" class="categoryLinkLabel_W154">Cluster Operations</span></a><button aria-label="Expand sidebar category &#x27;Cluster Operations&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/utilities"><span title="Utilities" class="categoryLinkLabel_W154">Utilities</span></a><button aria-label="Expand sidebar category &#x27;Utilities&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/javascript/category/kubernetes-api-reference"><span title="Kubernetes API Reference" class="categoryLinkLabel_W154">Kubernetes API Reference</span></a><button aria-label="Collapse sidebar category &#x27;Kubernetes API Reference&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/api-reference/common-parameters"><span title="Common Parameters" class="linkLabel_WmDU">Common Parameters</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/core-resources/CoreV1Api/"><span title="Core Resources" class="categoryLinkLabel_W154">Core Resources</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/workloads/AppsV1Api"><span title="Workloads" class="categoryLinkLabel_W154">Workloads</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/networking/DiscoveryV1Api"><span title="Networking" class="categoryLinkLabel_W154">Networking</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/security/AuthenticationV1Api"><span title="Security" class="categoryLinkLabel_W154">Security</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/configuration-storage/CoordinationV1alpha2Api"><span title="Configuration &amp; Storage" class="categoryLinkLabel_W154">Configuration &amp; Storage</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/cluster/AdmissionregistrationV1alpha1Api"><span title="Cluster" class="categoryLinkLabel_W154">Cluster</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/other/AutoscalingV1Api"><span title="Other" class="categoryLinkLabel_W154">Other</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/javascript/category/api-models"><span title="API Models" class="categoryLinkLabel_W154">API Models</span></a><button aria-label="Collapse sidebar category &#x27;API Models&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/cluster"><span title="Cluster" class="linkLabel_WmDU">Cluster</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/javascript/models/configuration-storage"><span title="Configuration &amp; Storage" class="linkLabel_WmDU">Configuration &amp; Storage</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/core"><span title="Core" class="linkLabel_WmDU">Core</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/networking"><span title="Networking" class="linkLabel_WmDU">Networking</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/other"><span title="Other" class="linkLabel_WmDU">Other</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/security"><span title="Security" class="linkLabel_WmDU">Security</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/workloads"><span title="Workloads" class="linkLabel_WmDU">Workloads</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/javascript/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/javascript/category/api-models"><span>API Models</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Configuration &amp; Storage</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Configuration &amp; Storage Models</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csidriver">V1CSIDriver<a href="#v1csidriver" class="hash-link" aria-label="Direct link to V1CSIDriver" title="Direct link to V1CSIDriver" translate="no">​</a></h2>
+<ul>
+<li class="">CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSIDriver.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1csidriverspec" class="">V1CSIDriverSpec</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1CSIDriver </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createCSIDriver</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#createCSIDriver"><code>StorageV1Api.createCSIDriver</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#patchCSIDriver"><code>StorageV1Api.patchCSIDriver</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#readCSIDriver"><code>StorageV1Api.readCSIDriver</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csidriverlist">V1CSIDriverList<a href="#v1csidriverlist" class="hash-link" aria-label="Direct link to V1CSIDriverList" title="Direct link to V1CSIDriverList" translate="no">​</a></h2>
+<ul>
+<li class="">CSIDriverList is a collection of CSIDriver objects.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSIDriverList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1csidriver" class="">V1CSIDriver</a>[]</td><td>items is the list of CSIDriver</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1CSIDriverList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listCSIDriver</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#listCSIDriver"><code>StorageV1Api.listCSIDriver</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csidriverspec">V1CSIDriverSpec<a href="#v1csidriverspec" class="hash-link" aria-label="Direct link to V1CSIDriverSpec" title="Direct link to V1CSIDriverSpec" translate="no">​</a></h2>
+<ul>
+<li class="">CSIDriverSpec is the specification of a CSIDriver.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSIDriverSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>attachRequired</code></td><td><code>boolean</code></td><td>attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should...</td></tr><tr><td><code>fsGroupPolicy</code></td><td><code>string</code></td><td>fsGroupPolicy defines if the underlying volume supports changing ownership and permission of the volume before being mounted. Refer to the specific FSGroupPolicy values for additional details.  This...</td></tr><tr><td><code>nodeAllocatableUpdatePeriodSeconds</code></td><td><code>number</code></td><td>nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by...</td></tr><tr><td><code>podInfoOnMount</code></td><td><code>boolean</code></td><td>podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations, if set to true. If set to false, pod information will not be...</td></tr><tr><td><code>requiresRepublish</code></td><td><code>boolean</code></td><td>requiresRepublish indicates the CSI driver wants <code>NodePublishVolume</code> being periodically called to reflect any possible change in the mounted volume. This field defaults to false.  Note: After a...</td></tr><tr><td><code>seLinuxMount</code></td><td><code>boolean</code></td><td>seLinuxMount specifies if the CSI driver supports &quot;-o context&quot; mount option.  When &quot;true&quot;, the CSI driver must ensure that all volumes provided by this CSI driver can be mounted separately with...</td></tr><tr><td><code>serviceAccountTokenInSecrets</code></td><td><code>boolean</code></td><td>serviceAccountTokenInSecrets is an opt-in for CSI drivers to indicate that service account tokens should be passed via the Secrets field in NodePublishVolumeRequest instead of the VolumeContext...</td></tr><tr><td><code>storageCapacity</code></td><td><code>boolean</code></td><td>storageCapacity indicates that the CSI volume driver wants pod scheduling to consider the storage capacity that the driver deployment will report by creating CSIStorageCapacity objects with capacity...</td></tr><tr><td><code>tokenRequests</code></td><td><code>StorageV1TokenRequest[]</code></td><td>tokenRequests indicates the CSI driver needs pods&#x27; service account tokens it is mounting volume for to do necessary authentication. Kubelet will pass the tokens in VolumeContext in the CSI...</td></tr><tr><td><code>volumeLifecycleModes</code></td><td><code>string[]</code></td><td>volumeLifecycleModes defines what kind of volumes this CSI volume driver supports. The default if the list is empty is &quot;Persistent&quot;, which is the usage defined by the CSI specification and...</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csinode">V1CSINode<a href="#v1csinode" class="hash-link" aria-label="Direct link to V1CSINode" title="Direct link to V1CSINode" translate="no">​</a></h2>
+<ul>
+<li class="">CSINode holds information about all CSI drivers installed on a node. CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn&#x27;t create this object. CSINode has an OwnerReference that points to the corresponding node object.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSINode.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1csinodespec" class="">V1CSINodeSpec</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1CSINode </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createCSINode</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#createCSINode"><code>StorageV1Api.createCSINode</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#patchCSINode"><code>StorageV1Api.patchCSINode</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#readCSINode"><code>StorageV1Api.readCSINode</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csinodedriver">V1CSINodeDriver<a href="#v1csinodedriver" class="hash-link" aria-label="Direct link to V1CSINodeDriver" title="Direct link to V1CSINodeDriver" translate="no">​</a></h2>
+<ul>
+<li class="">CSINodeDriver holds information about the specification of one CSI driver installed on a node</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSINodeDriver.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td>name represents the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.</td></tr><tr><td><code>nodeID</code></td><td><code>string</code></td><td>nodeID of the node from the driver point of view. This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may...</td></tr><tr><td><code>topologyKeys</code></td><td><code>string[]</code></td><td>topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. &quot;company.com/zone&quot;,...</td></tr><tr><td><code>allocatable</code></td><td><a class="" href="/javascript/models/other#v1volumenoderesources">V1VolumeNodeResources</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csinodelist">V1CSINodeList<a href="#v1csinodelist" class="hash-link" aria-label="Direct link to V1CSINodeList" title="Direct link to V1CSINodeList" translate="no">​</a></h2>
+<ul>
+<li class="">CSINodeList is a collection of CSINode objects.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSINodeList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1csinode" class="">V1CSINode</a>[]</td><td>items is the list of CSINode</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1CSINodeList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listCSINode</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#listCSINode"><code>StorageV1Api.listCSINode</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csinodespec">V1CSINodeSpec<a href="#v1csinodespec" class="hash-link" aria-label="Direct link to V1CSINodeSpec" title="Direct link to V1CSINodeSpec" translate="no">​</a></h2>
+<ul>
+<li class="">CSINodeSpec holds information about the specification of all CSI drivers installed on a node</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSINodeSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>drivers</code></td><td><a href="#v1csinodedriver" class="">V1CSINodeDriver</a>[]</td><td>drivers is a list of information of all CSI Drivers existing on a node. If all drivers in the list are uninstalled, this can become empty.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csipersistentvolumesource">V1CSIPersistentVolumeSource<a href="#v1csipersistentvolumesource" class="hash-link" aria-label="Direct link to V1CSIPersistentVolumeSource" title="Direct link to V1CSIPersistentVolumeSource" translate="no">​</a></h2>
+<ul>
+<li class="">Represents storage that is managed by an external CSI volume driver</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSIPersistentVolumeSource.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>driver</code></td><td><code>string</code></td><td>driver is the name of the driver to use for this volume. Required.</td></tr><tr><td><code>fsType</code></td><td><code>string</code></td><td>fsType to mount. Must be a filesystem type supported by the host operating system. Ex. &quot;ext4&quot;, &quot;xfs&quot;, &quot;ntfs&quot;.</td></tr><tr><td><code>readOnly</code></td><td><code>boolean</code></td><td>readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).</td></tr><tr><td><code>volumeAttributes</code></td><td><code>{ [key: string]: string</code></td><td>volumeAttributes of the volume to publish.</td></tr><tr><td><code>volumeHandle</code></td><td><code>string</code></td><td>volumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.</td></tr><tr><td><code>controllerExpandSecretRef</code></td><td><a class="" href="/javascript/models/core#v1secretreference">V1SecretReference</a></td><td></td></tr><tr><td><code>controllerPublishSecretRef</code></td><td><a class="" href="/javascript/models/core#v1secretreference">V1SecretReference</a></td><td></td></tr><tr><td><code>nodeExpandSecretRef</code></td><td><a class="" href="/javascript/models/core#v1secretreference">V1SecretReference</a></td><td></td></tr><tr><td><code>nodePublishSecretRef</code></td><td><a class="" href="/javascript/models/core#v1secretreference">V1SecretReference</a></td><td></td></tr><tr><td><code>nodeStageSecretRef</code></td><td><a class="" href="/javascript/models/core#v1secretreference">V1SecretReference</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csistoragecapacity">V1CSIStorageCapacity<a href="#v1csistoragecapacity" class="hash-link" aria-label="Direct link to V1CSIStorageCapacity" title="Direct link to V1CSIStorageCapacity" translate="no">​</a></h2>
+<ul>
+<li class="">CSIStorageCapacity stores the result of one CSI GetCapacity call. For a given StorageClass, this describes the available capacity in a particular topology segment.  This can be used when considering where to instantiate new PersistentVolumes.  For example this can express things like: - StorageClass &quot;standard&quot; has &quot;1234 GiB&quot; available in &quot;topology.kubernetes.io/zone=us-east1&quot; - StorageClass &quot;localssd&quot; has &quot;10 GiB&quot; available in &quot;kubernetes.io/hostname=knode-abc123&quot;  The following three cases all imply that no capacity is available for a certain combination: - no object exists with suitable topology and storage class name - such an object exists, but the capacity is unset - such an object exists, but the capacity is zero  The producer of these objects can decide which approach is more suitable.  They are consumed by the kube-scheduler when a CSI driver opts into capacity-aware scheduling with CSIDriverSpec.StorageCapacity. The scheduler compares the MaximumVolumeSize against the requested size of pending volumes to filter out unsuitable nodes. If MaximumVolumeSize is unset, it falls back to a comparison against the less precise Capacity. If that is also unset, the scheduler assumes that capacity is insufficient and tries some other node.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSIStorageCapacity.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>capacity</code></td><td><code>string</code></td><td>capacity is the value reported by the CSI driver in its GetCapacityResponse for a GetCapacityRequest with topology and parameters that match the previous fields.  The semantic is currently (CSI spec...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>maximumVolumeSize</code></td><td><code>string</code></td><td>maximumVolumeSize is the value reported by the CSI driver in its GetCapacityResponse for a GetCapacityRequest with topology and parameters that match the previous fields.  This is defined since CSI...</td></tr><tr><td><code>storageClassName</code></td><td><code>string</code></td><td>storageClassName represents the name of the StorageClass that the reported capacity applies to. It must meet the same requirements as the name of a StorageClass object (non-empty, DNS subdomain). If...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>nodeTopology</code></td><td><a class="" href="/javascript/models/other#v1labelselector">V1LabelSelector</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1CSIStorageCapacity </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createNamespacedCSIStorageCapacity</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#createNamespacedCSIStorageCapacity"><code>StorageV1Api.createNamespacedCSIStorageCapacity</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#patchNamespacedCSIStorageCapacity"><code>StorageV1Api.patchNamespacedCSIStorageCapacity</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#readNamespacedCSIStorageCapacity"><code>StorageV1Api.readNamespacedCSIStorageCapacity</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csistoragecapacitylist">V1CSIStorageCapacityList<a href="#v1csistoragecapacitylist" class="hash-link" aria-label="Direct link to V1CSIStorageCapacityList" title="Direct link to V1CSIStorageCapacityList" translate="no">​</a></h2>
+<ul>
+<li class="">CSIStorageCapacityList is a collection of CSIStorageCapacity objects.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSIStorageCapacityList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1csistoragecapacity" class="">V1CSIStorageCapacity</a>[]</td><td>items is the list of CSIStorageCapacity objects.</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1CSIStorageCapacityList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listNamespacedCSIStorageCapacity</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#listCSIStorageCapacityForAllNamespaces"><code>StorageV1Api.listCSIStorageCapacityForAllNamespaces</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#listNamespacedCSIStorageCapacity"><code>StorageV1Api.listNamespacedCSIStorageCapacity</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1csivolumesource">V1CSIVolumeSource<a href="#v1csivolumesource" class="hash-link" aria-label="Direct link to V1CSIVolumeSource" title="Direct link to V1CSIVolumeSource" translate="no">​</a></h2>
+<ul>
+<li class="">Represents a source location of a volume to mount, managed by an external CSI driver</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CSIVolumeSource.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>driver</code></td><td><code>string</code></td><td>driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.</td></tr><tr><td><code>fsType</code></td><td><code>string</code></td><td>fsType to mount. Ex. &quot;ext4&quot;, &quot;xfs&quot;, &quot;ntfs&quot;. If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.</td></tr><tr><td><code>readOnly</code></td><td><code>boolean</code></td><td>readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).</td></tr><tr><td><code>volumeAttributes</code></td><td><code>{ [key: string]: string</code></td><td>volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver&#x27;s documentation for supported values.</td></tr><tr><td><code>nodePublishSecretRef</code></td><td><a class="" href="/javascript/models/other#v1localobjectreference">V1LocalObjectReference</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1flowschema">V1FlowSchema<a href="#v1flowschema" class="hash-link" aria-label="Direct link to V1FlowSchema" title="Direct link to V1FlowSchema" translate="no">​</a></h2>
+<ul>
+<li class="">FlowSchema defines the schema of a group of flows. Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a &quot;flow distinguisher&quot;.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1FlowSchema.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1flowschemaspec" class="">V1FlowSchemaSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1flowschemastatus" class="">V1FlowSchemaStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">FlowcontrolApiserverV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1FlowSchema </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createFlowSchema</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#createFlowSchema"><code>FlowcontrolApiserverV1Api.createFlowSchema</code></a> · <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#readFlowSchema"><code>FlowcontrolApiserverV1Api.readFlowSchema</code></a> · <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#readFlowSchemaStatus"><code>FlowcontrolApiserverV1Api.readFlowSchemaStatus</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1flowschemacondition">V1FlowSchemaCondition<a href="#v1flowschemacondition" class="hash-link" aria-label="Direct link to V1FlowSchemaCondition" title="Direct link to V1FlowSchemaCondition" translate="no">​</a></h2>
+<ul>
+<li class="">FlowSchemaCondition describes conditions for a FlowSchema.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1FlowSchemaCondition.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>lastTransitionTime</code></td><td><code>Date</code></td><td><code>lastTransitionTime</code> is the last time the condition transitioned from one status to another.</td></tr><tr><td><code>message</code></td><td><code>string</code></td><td><code>message</code> is a human-readable message indicating details about last transition.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td><code>reason</code> is a unique, one-word, CamelCase reason for the condition&#x27;s last transition.</td></tr><tr><td><code>status</code></td><td><code>string</code></td><td><code>status</code> is the status of the condition. Can be True, False, Unknown. Required.</td></tr><tr><td><code>type</code></td><td><code>string</code></td><td><code>type</code> is the type of the condition. Required.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1flowschemalist">V1FlowSchemaList<a href="#v1flowschemalist" class="hash-link" aria-label="Direct link to V1FlowSchemaList" title="Direct link to V1FlowSchemaList" translate="no">​</a></h2>
+<ul>
+<li class="">FlowSchemaList is a list of FlowSchema objects.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1FlowSchemaList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1flowschema" class="">V1FlowSchema</a>[]</td><td><code>items</code> is a list of FlowSchemas.</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">FlowcontrolApiserverV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1FlowSchemaList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listFlowSchema</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#listFlowSchema"><code>FlowcontrolApiserverV1Api.listFlowSchema</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1flowschemaspec">V1FlowSchemaSpec<a href="#v1flowschemaspec" class="hash-link" aria-label="Direct link to V1FlowSchemaSpec" title="Direct link to V1FlowSchemaSpec" translate="no">​</a></h2>
+<ul>
+<li class="">FlowSchemaSpec describes how the FlowSchema&#x27;s specification looks like.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1FlowSchemaSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>matchingPrecedence</code></td><td><code>number</code></td><td><code>matchingPrecedence</code> is used to choose among the FlowSchemas that match a given request. The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest)...</td></tr><tr><td><code>rules</code></td><td><a class="" href="/javascript/models/other#v1policyruleswithsubjects">V1PolicyRulesWithSubjects</a>[]</td><td><code>rules</code> describes which requests will match this flow schema. This FlowSchema matches a request if and only if at least one member of rules matches the request. if it is an empty slice, there will be...</td></tr><tr><td><code>distinguisherMethod</code></td><td><a class="" href="/javascript/models/other#v1flowdistinguishermethod">V1FlowDistinguisherMethod</a></td><td></td></tr><tr><td><code>priorityLevelConfiguration</code></td><td><a href="#v1prioritylevelconfigurationreference" class="">V1PriorityLevelConfigurationReference</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1flowschemastatus">V1FlowSchemaStatus<a href="#v1flowschemastatus" class="hash-link" aria-label="Direct link to V1FlowSchemaStatus" title="Direct link to V1FlowSchemaStatus" translate="no">​</a></h2>
+<ul>
+<li class="">FlowSchemaStatus represents the current state of a FlowSchema.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1FlowSchemaStatus.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>conditions</code></td><td><a href="#v1flowschemacondition" class="">V1FlowSchemaCondition</a>[]</td><td><code>conditions</code> is a list of the current states of FlowSchema.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1lease">V1Lease<a href="#v1lease" class="hash-link" aria-label="Direct link to V1Lease" title="Direct link to V1Lease" translate="no">​</a></h2>
+<ul>
+<li class="">Lease defines a lease concept.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1Lease.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1leasespec" class="">V1LeaseSpec</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">CoordinationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1Lease </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createNamespacedLease</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/CoordinationV1Api#createNamespacedLease"><code>CoordinationV1Api.createNamespacedLease</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/CoordinationV1Api#patchNamespacedLease"><code>CoordinationV1Api.patchNamespacedLease</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/CoordinationV1Api#readNamespacedLease"><code>CoordinationV1Api.readNamespacedLease</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1leaselist">V1LeaseList<a href="#v1leaselist" class="hash-link" aria-label="Direct link to V1LeaseList" title="Direct link to V1LeaseList" translate="no">​</a></h2>
+<ul>
+<li class="">LeaseList is a list of Lease objects.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1LeaseList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1lease" class="">V1Lease</a>[]</td><td>items is a list of schema objects.</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">CoordinationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1LeaseList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listNamespacedLease</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/CoordinationV1Api#listLeaseForAllNamespaces"><code>CoordinationV1Api.listLeaseForAllNamespaces</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/CoordinationV1Api#listNamespacedLease"><code>CoordinationV1Api.listNamespacedLease</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1leasespec">V1LeaseSpec<a href="#v1leasespec" class="hash-link" aria-label="Direct link to V1LeaseSpec" title="Direct link to V1LeaseSpec" translate="no">​</a></h2>
+<ul>
+<li class="">LeaseSpec is a specification of a Lease.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1LeaseSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>acquireTime</code></td><td><code>V1MicroTime</code></td><td>MicroTime is version of Time with microsecond level precision.</td></tr><tr><td><code>holderIdentity</code></td><td><code>string</code></td><td>holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name field.</td></tr><tr><td><code>leaseDurationSeconds</code></td><td><code>number</code></td><td>leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measured against the time of last observed renewTime.</td></tr><tr><td><code>leaseTransitions</code></td><td><code>number</code></td><td>leaseTransitions is the number of transitions of a lease between holders.</td></tr><tr><td><code>preferredHolder</code></td><td><code>string</code></td><td>PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.</td></tr><tr><td><code>renewTime</code></td><td><code>V1MicroTime</code></td><td>MicroTime is version of Time with microsecond level precision.</td></tr><tr><td><code>strategy</code></td><td><code>string</code></td><td>Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field...</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1prioritylevelconfiguration">V1PriorityLevelConfiguration<a href="#v1prioritylevelconfiguration" class="hash-link" aria-label="Direct link to V1PriorityLevelConfiguration" title="Direct link to V1PriorityLevelConfiguration" translate="no">​</a></h2>
+<ul>
+<li class="">PriorityLevelConfiguration represents the configuration of a priority level.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1PriorityLevelConfiguration.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1prioritylevelconfigurationspec" class="">V1PriorityLevelConfigurationSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1prioritylevelconfigurationstatus" class="">V1PriorityLevelConfigurationStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">FlowcontrolApiserverV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1PriorityLevelConfiguration </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createPriorityLevelConfiguration</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#createPriorityLevelConfiguration"><code>FlowcontrolApiserverV1Api.createPriorityLevelConfiguration</code></a> · <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#readPriorityLevelConfiguration"><code>FlowcontrolApiserverV1Api.readPriorityLevelConfiguration</code></a> · <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#readPriorityLevelConfigurationStatus"><code>FlowcontrolApiserverV1Api.readPriorityLevelConfigurationStatus</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1prioritylevelconfigurationcondition">V1PriorityLevelConfigurationCondition<a href="#v1prioritylevelconfigurationcondition" class="hash-link" aria-label="Direct link to V1PriorityLevelConfigurationCondition" title="Direct link to V1PriorityLevelConfigurationCondition" translate="no">​</a></h2>
+<ul>
+<li class="">PriorityLevelConfigurationCondition defines the condition of priority level.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1PriorityLevelConfigurationCondition.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>lastTransitionTime</code></td><td><code>Date</code></td><td><code>lastTransitionTime</code> is the last time the condition transitioned from one status to another.</td></tr><tr><td><code>message</code></td><td><code>string</code></td><td><code>message</code> is a human-readable message indicating details about last transition.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td><code>reason</code> is a unique, one-word, CamelCase reason for the condition&#x27;s last transition.</td></tr><tr><td><code>status</code></td><td><code>string</code></td><td><code>status</code> is the status of the condition. Can be True, False, Unknown. Required.</td></tr><tr><td><code>type</code></td><td><code>string</code></td><td><code>type</code> is the type of the condition. Required.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1prioritylevelconfigurationlist">V1PriorityLevelConfigurationList<a href="#v1prioritylevelconfigurationlist" class="hash-link" aria-label="Direct link to V1PriorityLevelConfigurationList" title="Direct link to V1PriorityLevelConfigurationList" translate="no">​</a></h2>
+<ul>
+<li class="">PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1PriorityLevelConfigurationList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1prioritylevelconfiguration" class="">V1PriorityLevelConfiguration</a>[]</td><td><code>items</code> is a list of request-priorities.</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">FlowcontrolApiserverV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1PriorityLevelConfigurationList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listPriorityLevelConfiguration</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/other/FlowcontrolApiserverV1Api#listPriorityLevelConfiguration"><code>FlowcontrolApiserverV1Api.listPriorityLevelConfiguration</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1prioritylevelconfigurationreference">V1PriorityLevelConfigurationReference<a href="#v1prioritylevelconfigurationreference" class="hash-link" aria-label="Direct link to V1PriorityLevelConfigurationReference" title="Direct link to V1PriorityLevelConfigurationReference" translate="no">​</a></h2>
+<ul>
+<li class="">PriorityLevelConfigurationReference contains information that points to the &quot;request-priority&quot; being used.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1PriorityLevelConfigurationReference.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td><code>name</code> is the name of the priority level configuration being referenced Required.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1prioritylevelconfigurationspec">V1PriorityLevelConfigurationSpec<a href="#v1prioritylevelconfigurationspec" class="hash-link" aria-label="Direct link to V1PriorityLevelConfigurationSpec" title="Direct link to V1PriorityLevelConfigurationSpec" translate="no">​</a></h2>
+<ul>
+<li class="">PriorityLevelConfigurationSpec specifies the configuration of a priority level.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1PriorityLevelConfigurationSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td><code>string</code></td><td><code>type</code> indicates whether this priority level is subject to limitation on request execution.  A value of <code>\&quot;Exempt\&quot;</code> means that requests of this priority level are not subject to a limit (and thus...</td></tr><tr><td><code>exempt</code></td><td><a class="" href="/javascript/models/other#v1exemptprioritylevelconfiguration">V1ExemptPriorityLevelConfiguration</a></td><td></td></tr><tr><td><code>limited</code></td><td><a class="" href="/javascript/models/other#v1limitedprioritylevelconfiguration">V1LimitedPriorityLevelConfiguration</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1prioritylevelconfigurationstatus">V1PriorityLevelConfigurationStatus<a href="#v1prioritylevelconfigurationstatus" class="hash-link" aria-label="Direct link to V1PriorityLevelConfigurationStatus" title="Direct link to V1PriorityLevelConfigurationStatus" translate="no">​</a></h2>
+<ul>
+<li class="">PriorityLevelConfigurationStatus represents the current state of a &quot;request-priority&quot;.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1PriorityLevelConfigurationStatus.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>conditions</code></td><td><a href="#v1prioritylevelconfigurationcondition" class="">V1PriorityLevelConfigurationCondition</a>[]</td><td><code>conditions</code> is the current state of &quot;request-priority&quot;.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1storageclass">V1StorageClass<a href="#v1storageclass" class="hash-link" aria-label="Direct link to V1StorageClass" title="Direct link to V1StorageClass" translate="no">​</a></h2>
+<ul>
+<li class="">StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.  StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1StorageClass.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>allowVolumeExpansion</code></td><td><code>boolean</code></td><td>allowVolumeExpansion shows whether the storage class allow volume expand.</td></tr><tr><td><code>allowedTopologies</code></td><td><a class="" href="/javascript/models/other#v1topologyselectorterm">V1TopologySelectorTerm</a>[]</td><td>allowedTopologies restrict the node topologies where volumes can be dynamically provisioned. Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list...</td></tr><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>mountOptions</code></td><td><code>string[]</code></td><td>mountOptions controls the mountOptions for dynamically provisioned PersistentVolumes of this storage class. e.g. [&quot;ro&quot;, &quot;soft&quot;]. Not validated - mount of the PVs will simply fail if one is...</td></tr><tr><td><code>parameters</code></td><td><code>{ [key: string]: string</code></td><td>parameters holds the parameters for the provisioner that should create volumes of this storage class.</td></tr><tr><td><code>provisioner</code></td><td><code>string</code></td><td>provisioner indicates the type of the provisioner.</td></tr><tr><td><code>reclaimPolicy</code></td><td><code>string</code></td><td>reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class. Defaults to Delete.</td></tr><tr><td><code>volumeBindingMode</code></td><td><code>string</code></td><td>volumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.  When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1StorageClass </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createStorageClass</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#createStorageClass"><code>StorageV1Api.createStorageClass</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#patchStorageClass"><code>StorageV1Api.patchStorageClass</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#readStorageClass"><code>StorageV1Api.readStorageClass</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1storageclasslist">V1StorageClassList<a href="#v1storageclasslist" class="hash-link" aria-label="Direct link to V1StorageClassList" title="Direct link to V1StorageClassList" translate="no">​</a></h2>
+<ul>
+<li class="">StorageClassList is a collection of storage classes.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1StorageClassList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1storageclass" class="">V1StorageClass</a>[]</td><td>items is the list of StorageClasses</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1StorageClassList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listStorageClass</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#listStorageClass"><code>StorageV1Api.listStorageClass</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1volumeattachment">V1VolumeAttachment<a href="#v1volumeattachment" class="hash-link" aria-label="Direct link to V1VolumeAttachment" title="Direct link to V1VolumeAttachment" translate="no">​</a></h2>
+<ul>
+<li class="">VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.  VolumeAttachment objects are non-namespaced.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1VolumeAttachment.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1volumeattachmentspec" class="">V1VolumeAttachmentSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1volumeattachmentstatus" class="">V1VolumeAttachmentStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1VolumeAttachment </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createVolumeAttachment</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#createVolumeAttachment"><code>StorageV1Api.createVolumeAttachment</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#readVolumeAttachment"><code>StorageV1Api.readVolumeAttachment</code></a> · <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#readVolumeAttachmentStatus"><code>StorageV1Api.readVolumeAttachmentStatus</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1volumeattachmentlist">V1VolumeAttachmentList<a href="#v1volumeattachmentlist" class="hash-link" aria-label="Direct link to V1VolumeAttachmentList" title="Direct link to V1VolumeAttachmentList" translate="no">​</a></h2>
+<ul>
+<li class="">VolumeAttachmentList is a collection of VolumeAttachment objects.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1VolumeAttachmentList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1volumeattachment" class="">V1VolumeAttachment</a>[]</td><td>items is the list of VolumeAttachments</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">StorageV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1VolumeAttachmentList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listVolumeAttachment</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/configuration-storage/StorageV1Api#listVolumeAttachment"><code>StorageV1Api.listVolumeAttachment</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1volumeattachmentsource">V1VolumeAttachmentSource<a href="#v1volumeattachmentsource" class="hash-link" aria-label="Direct link to V1VolumeAttachmentSource" title="Direct link to V1VolumeAttachmentSource" translate="no">​</a></h2>
+<ul>
+<li class="">VolumeAttachmentSource represents a volume that should be attached. Right now only PersistentVolumes can be attached via external attacher, in the future we may allow also inline volumes in pods. Exactly one member can be set.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1VolumeAttachmentSource.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>persistentVolumeName</code></td><td><code>string</code></td><td>persistentVolumeName represents the name of the persistent volume to attach.</td></tr><tr><td><code>inlineVolumeSpec</code></td><td><a class="" href="/javascript/models/core#v1persistentvolumespec">V1PersistentVolumeSpec</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1volumeattachmentspec">V1VolumeAttachmentSpec<a href="#v1volumeattachmentspec" class="hash-link" aria-label="Direct link to V1VolumeAttachmentSpec" title="Direct link to V1VolumeAttachmentSpec" translate="no">​</a></h2>
+<ul>
+<li class="">VolumeAttachmentSpec is the specification of a VolumeAttachment request.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1VolumeAttachmentSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>attacher</code></td><td><code>string</code></td><td>attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().</td></tr><tr><td><code>nodeName</code></td><td><code>string</code></td><td>nodeName represents the node that the volume should be attached to.</td></tr><tr><td><code>source</code></td><td><a href="#v1volumeattachmentsource" class="">V1VolumeAttachmentSource</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1volumeattachmentstatus">V1VolumeAttachmentStatus<a href="#v1volumeattachmentstatus" class="hash-link" aria-label="Direct link to V1VolumeAttachmentStatus" title="Direct link to V1VolumeAttachmentStatus" translate="no">​</a></h2>
+<ul>
+<li class="">VolumeAttachmentStatus is the status of a VolumeAttachment request.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1VolumeAttachmentStatus.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>attached</code></td><td><code>boolean</code></td><td>attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.</td></tr><tr><td><code>attachmentMetadata</code></td><td><code>{ [key: string]: string</code></td><td>attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only...</td></tr><tr><td><code>attachError</code></td><td><a class="" href="/javascript/models/other#v1volumeerror">V1VolumeError</a></td><td></td></tr><tr><td><code>detachError</code></td><td><a class="" href="/javascript/models/other#v1volumeerror">V1VolumeError</a></td><td></td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/kubernetes-client/javascript/tree/main/docs/docs/models/configuration-storage.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/javascript/models/cluster"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Cluster</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/javascript/models/core"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Core</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#v1csidriver" class="table-of-contents__link toc-highlight">V1CSIDriver</a></li><li><a href="#v1csidriverlist" class="table-of-contents__link toc-highlight">V1CSIDriverList</a></li><li><a href="#v1csidriverspec" class="table-of-contents__link toc-highlight">V1CSIDriverSpec</a></li><li><a href="#v1csinode" class="table-of-contents__link toc-highlight">V1CSINode</a></li><li><a href="#v1csinodedriver" class="table-of-contents__link toc-highlight">V1CSINodeDriver</a></li><li><a href="#v1csinodelist" class="table-of-contents__link toc-highlight">V1CSINodeList</a></li><li><a href="#v1csinodespec" class="table-of-contents__link toc-highlight">V1CSINodeSpec</a></li><li><a href="#v1csipersistentvolumesource" class="table-of-contents__link toc-highlight">V1CSIPersistentVolumeSource</a></li><li><a href="#v1csistoragecapacity" class="table-of-contents__link toc-highlight">V1CSIStorageCapacity</a></li><li><a href="#v1csistoragecapacitylist" class="table-of-contents__link toc-highlight">V1CSIStorageCapacityList</a></li><li><a href="#v1csivolumesource" class="table-of-contents__link toc-highlight">V1CSIVolumeSource</a></li><li><a href="#v1flowschema" class="table-of-contents__link toc-highlight">V1FlowSchema</a></li><li><a href="#v1flowschemacondition" class="table-of-contents__link toc-highlight">V1FlowSchemaCondition</a></li><li><a href="#v1flowschemalist" class="table-of-contents__link toc-highlight">V1FlowSchemaList</a></li><li><a href="#v1flowschemaspec" class="table-of-contents__link toc-highlight">V1FlowSchemaSpec</a></li><li><a href="#v1flowschemastatus" class="table-of-contents__link toc-highlight">V1FlowSchemaStatus</a></li><li><a href="#v1lease" class="table-of-contents__link toc-highlight">V1Lease</a></li><li><a href="#v1leaselist" class="table-of-contents__link toc-highlight">V1LeaseList</a></li><li><a href="#v1leasespec" class="table-of-contents__link toc-highlight">V1LeaseSpec</a></li><li><a href="#v1prioritylevelconfiguration" class="table-of-contents__link toc-highlight">V1PriorityLevelConfiguration</a></li><li><a href="#v1prioritylevelconfigurationcondition" class="table-of-contents__link toc-highlight">V1PriorityLevelConfigurationCondition</a></li><li><a href="#v1prioritylevelconfigurationlist" class="table-of-contents__link toc-highlight">V1PriorityLevelConfigurationList</a></li><li><a href="#v1prioritylevelconfigurationreference" class="table-of-contents__link toc-highlight">V1PriorityLevelConfigurationReference</a></li><li><a href="#v1prioritylevelconfigurationspec" class="table-of-contents__link toc-highlight">V1PriorityLevelConfigurationSpec</a></li><li><a href="#v1prioritylevelconfigurationstatus" class="table-of-contents__link toc-highlight">V1PriorityLevelConfigurationStatus</a></li><li><a href="#v1storageclass" class="table-of-contents__link toc-highlight">V1StorageClass</a></li><li><a href="#v1storageclasslist" class="table-of-contents__link toc-highlight">V1StorageClassList</a></li><li><a href="#v1volumeattachment" class="table-of-contents__link toc-highlight">V1VolumeAttachment</a></li><li><a href="#v1volumeattachmentlist" class="table-of-contents__link toc-highlight">V1VolumeAttachmentList</a></li><li><a href="#v1volumeattachmentsource" class="table-of-contents__link toc-highlight">V1VolumeAttachmentSource</a></li><li><a href="#v1volumeattachmentspec" class="table-of-contents__link toc-highlight">V1VolumeAttachmentSpec</a></li><li><a href="#v1volumeattachmentstatus" class="table-of-contents__link toc-highlight">V1VolumeAttachmentStatus</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/kubernetes-client/javascript" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/kubernetes-client/javascript/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">Issues<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://kubernetes.slack.com" target="_blank" rel="noopener noreferrer" class="footer__link-item">Slack<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Kubernetes Community. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

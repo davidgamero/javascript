@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-models/security" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">API Models: Security | Kubernetes JavaScript Client</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://davidgamero.github.io/javascript/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://davidgamero.github.io/javascript/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://davidgamero.github.io/javascript/models/security"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="API Models: Security | Kubernetes JavaScript Client"><meta data-rh="true" name="description" content="V1CertificateSigningRequest"><meta data-rh="true" property="og:description" content="V1CertificateSigningRequest"><link data-rh="true" rel="icon" href="/javascript/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://davidgamero.github.io/javascript/models/security"><link data-rh="true" rel="alternate" href="https://davidgamero.github.io/javascript/models/security" hreflang="en"><link data-rh="true" rel="alternate" href="https://davidgamero.github.io/javascript/models/security" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"API Models","item":"https://davidgamero.github.io/javascript/category/api-models"},{"@type":"ListItem","position":2,"name":"Security","item":"https://davidgamero.github.io/javascript/models/security"}]}</script><link rel="stylesheet" href="/javascript/assets/css/styles.c83d8800.css">
+<script src="/javascript/assets/js/runtime~main.e718e6ef.js" defer="defer"></script>
+<script src="/javascript/assets/js/main.6b514052.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/javascript/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/javascript/"><div class="navbar__logo"><img src="/javascript/img/logo.svg" alt="Kubernetes Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/javascript/img/logo.svg" alt="Kubernetes Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Kubernetes JavaScript Client</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/javascript/">Docs</a><a class="navbar__item navbar__link" href="/javascript/api-reference/core-resources/CoreV1Api">API Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/kubernetes-client/javascript" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link github-icon">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/javascript/"><span title="Getting Started" class="categoryLinkLabel_W154">Getting Started</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/examples"><span title="Examples" class="categoryLinkLabel_W154">Examples</span></a><button aria-label="Expand sidebar category &#x27;Examples&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/javascript/category/configuration"><span title="SDK Reference" class="categoryLinkLabel_W154">SDK Reference</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/configuration"><span title="Configuration" class="categoryLinkLabel_W154">Configuration</span></a><button aria-label="Expand sidebar category &#x27;Configuration&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/watching--caching"><span title="Watching &amp; Caching" class="categoryLinkLabel_W154">Watching &amp; Caching</span></a><button aria-label="Expand sidebar category &#x27;Watching &amp; Caching&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/pod-operations"><span title="Pod Operations" class="categoryLinkLabel_W154">Pod Operations</span></a><button aria-label="Expand sidebar category &#x27;Pod Operations&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/cluster-operations"><span title="Cluster Operations" class="categoryLinkLabel_W154">Cluster Operations</span></a><button aria-label="Expand sidebar category &#x27;Cluster Operations&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/javascript/category/utilities"><span title="Utilities" class="categoryLinkLabel_W154">Utilities</span></a><button aria-label="Expand sidebar category &#x27;Utilities&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/javascript/category/kubernetes-api-reference"><span title="Kubernetes API Reference" class="categoryLinkLabel_W154">Kubernetes API Reference</span></a><button aria-label="Collapse sidebar category &#x27;Kubernetes API Reference&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/api-reference/common-parameters"><span title="Common Parameters" class="linkLabel_WmDU">Common Parameters</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/core-resources/CoreV1Api/"><span title="Core Resources" class="categoryLinkLabel_W154">Core Resources</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/workloads/AppsV1Api"><span title="Workloads" class="categoryLinkLabel_W154">Workloads</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/networking/DiscoveryV1Api"><span title="Networking" class="categoryLinkLabel_W154">Networking</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/security/AuthenticationV1Api"><span title="Security" class="categoryLinkLabel_W154">Security</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/configuration-storage/CoordinationV1alpha2Api"><span title="Configuration &amp; Storage" class="categoryLinkLabel_W154">Configuration &amp; Storage</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/cluster/AdmissionregistrationV1alpha1Api"><span title="Cluster" class="categoryLinkLabel_W154">Cluster</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/javascript/api-reference/other/AutoscalingV1Api"><span title="Other" class="categoryLinkLabel_W154">Other</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/javascript/category/api-models"><span title="API Models" class="categoryLinkLabel_W154">API Models</span></a><button aria-label="Collapse sidebar category &#x27;API Models&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/cluster"><span title="Cluster" class="linkLabel_WmDU">Cluster</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/configuration-storage"><span title="Configuration &amp; Storage" class="linkLabel_WmDU">Configuration &amp; Storage</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/core"><span title="Core" class="linkLabel_WmDU">Core</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/networking"><span title="Networking" class="linkLabel_WmDU">Networking</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/other"><span title="Other" class="linkLabel_WmDU">Other</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/javascript/models/security"><span title="Security" class="linkLabel_WmDU">Security</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/javascript/models/workloads"><span title="Workloads" class="linkLabel_WmDU">Workloads</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/javascript/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/javascript/category/api-models"><span>API Models</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Security</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Security Models</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1certificatesigningrequest">V1CertificateSigningRequest<a href="#v1certificatesigningrequest" class="hash-link" aria-label="Direct link to V1CertificateSigningRequest" title="Direct link to V1CertificateSigningRequest" translate="no">​</a></h2>
+<ul>
+<li class="">CertificateSigningRequest objects provide a mechanism to obtain x509 certificates by submitting a certificate signing request, and having it asynchronously approved and issued.  Kubelets use this API to obtain:  1. client certificates to authenticate to kube-apiserver (with the &quot;kubernetes.io/kube-apiserver-client-kubelet&quot; signerName).  2. serving certificates for TLS endpoints kube-apiserver can connect to securely (with the &quot;kubernetes.io/kubelet-serving&quot; signerName).  This API can be used to request client certificates to authenticate to kube-apiserver (with the &quot;kubernetes.io/kube-apiserver-client&quot; signerName), or to obtain certificates from custom non-Kubernetes signers.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CertificateSigningRequest.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1certificatesigningrequestspec" class="">V1CertificateSigningRequestSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1certificatesigningrequeststatus" class="">V1CertificateSigningRequestStatus</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1certificatesigningrequestcondition">V1CertificateSigningRequestCondition<a href="#v1certificatesigningrequestcondition" class="hash-link" aria-label="Direct link to V1CertificateSigningRequestCondition" title="Direct link to V1CertificateSigningRequestCondition" translate="no">​</a></h2>
+<ul>
+<li class="">CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CertificateSigningRequestCondition.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>lastTransitionTime</code></td><td><code>Date</code></td><td>lastTransitionTime is the time the condition last transitioned from one status to another. If unset, when a new condition type is added or an existing condition&#x27;s status is changed, the server...</td></tr><tr><td><code>lastUpdateTime</code></td><td><code>Date</code></td><td>lastUpdateTime is the time of the last update to this condition</td></tr><tr><td><code>message</code></td><td><code>string</code></td><td>message contains a human readable message with details about the request state</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>reason indicates a brief reason for the request state</td></tr><tr><td><code>status</code></td><td><code>string</code></td><td>status of the condition, one of True, False, Unknown. Approved, Denied, and Failed conditions may not be &quot;False&quot; or &quot;Unknown&quot;.</td></tr><tr><td><code>type</code></td><td><code>string</code></td><td>type of the condition. Known conditions are &quot;Approved&quot;, &quot;Denied&quot;, and &quot;Failed&quot;.  An &quot;Approved&quot; condition is added via the /approval subresource, indicating the request was approved and should...</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1certificatesigningrequestlist">V1CertificateSigningRequestList<a href="#v1certificatesigningrequestlist" class="hash-link" aria-label="Direct link to V1CertificateSigningRequestList" title="Direct link to V1CertificateSigningRequestList" translate="no">​</a></h2>
+<ul>
+<li class="">CertificateSigningRequestList is a collection of CertificateSigningRequest objects</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CertificateSigningRequestList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1certificatesigningrequest" class="">V1CertificateSigningRequest</a>[]</td><td>items is a collection of CertificateSigningRequest objects</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">CertificatesV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1CertificateSigningRequestList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listCertificateSigningRequest</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/CertificatesV1Api#listCertificateSigningRequest"><code>CertificatesV1Api.listCertificateSigningRequest</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1certificatesigningrequestspec">V1CertificateSigningRequestSpec<a href="#v1certificatesigningrequestspec" class="hash-link" aria-label="Direct link to V1CertificateSigningRequestSpec" title="Direct link to V1CertificateSigningRequestSpec" translate="no">​</a></h2>
+<ul>
+<li class="">CertificateSigningRequestSpec contains the certificate request.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CertificateSigningRequestSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>expirationSeconds</code></td><td><code>number</code></td><td>expirationSeconds is the requested duration of validity of the issued certificate. The certificate signer may issue a certificate with a different validity duration so a client must check the delta...</td></tr><tr><td><code>extra</code></td><td><code>{ [key: string]: string[]</code></td><td>extra contains extra attributes of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.</td></tr><tr><td><code>groups</code></td><td><code>string[]</code></td><td>groups contains group membership of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.</td></tr><tr><td><code>request</code></td><td><code>string</code></td><td>request contains an x509 certificate signing request encoded in a &quot;CERTIFICATE REQUEST&quot; PEM block. When serialized as JSON or YAML, the data is additionally base64-encoded.</td></tr><tr><td><code>signerName</code></td><td><code>string</code></td><td>signerName indicates the requested signer, and is a qualified name.  List/watch requests for CertificateSigningRequests can filter on this field using a &quot;spec.signerName=NAME&quot; fieldSelector. ...</td></tr><tr><td><code>uid</code></td><td><code>string</code></td><td>uid contains the uid of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.</td></tr><tr><td><code>usages</code></td><td><code>string[]</code></td><td>usages specifies a set of key usages requested in the issued certificate.  Requests for TLS client certificates typically request: &quot;digital signature&quot;, &quot;key encipherment&quot;, &quot;client auth&quot;. ...</td></tr><tr><td><code>username</code></td><td><code>string</code></td><td>username contains the name of the user that created the CertificateSigningRequest. Populated by the API server on creation and immutable.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1certificatesigningrequeststatus">V1CertificateSigningRequestStatus<a href="#v1certificatesigningrequeststatus" class="hash-link" aria-label="Direct link to V1CertificateSigningRequestStatus" title="Direct link to V1CertificateSigningRequestStatus" translate="no">​</a></h2>
+<ul>
+<li class="">CertificateSigningRequestStatus contains conditions used to indicate approved/denied/failed status of the request, and the issued certificate.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1CertificateSigningRequestStatus.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>certificate</code></td><td><code>string</code></td><td>certificate is populated with an issued certificate by the signer after an Approved condition is present. This field is set via the /status subresource. Once populated, this field is immutable.  If...</td></tr><tr><td><code>conditions</code></td><td><a href="#v1certificatesigningrequestcondition" class="">V1CertificateSigningRequestCondition</a>[]</td><td>conditions applied to the request. Known conditions are &quot;Approved&quot;, &quot;Denied&quot;, and &quot;Failed&quot;.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1clusterrole">V1ClusterRole<a href="#v1clusterrole" class="hash-link" aria-label="Direct link to V1ClusterRole" title="Direct link to V1ClusterRole" translate="no">​</a></h2>
+<ul>
+<li class="">ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1ClusterRole.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>rules</code></td><td><a class="" href="/javascript/models/other#v1policyrule">V1PolicyRule</a>[]</td><td>Rules holds all the PolicyRules for this ClusterRole</td></tr><tr><td><code>aggregationRule</code></td><td><a class="" href="/javascript/models/other#v1aggregationrule">V1AggregationRule</a></td><td></td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1ClusterRole </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createClusterRole</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#createClusterRole"><code>RbacAuthorizationV1Api.createClusterRole</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#patchClusterRole"><code>RbacAuthorizationV1Api.patchClusterRole</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#readClusterRole"><code>RbacAuthorizationV1Api.readClusterRole</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1clusterrolebinding">V1ClusterRoleBinding<a href="#v1clusterrolebinding" class="hash-link" aria-label="Direct link to V1ClusterRoleBinding" title="Direct link to V1ClusterRoleBinding" translate="no">​</a></h2>
+<ul>
+<li class="">ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1ClusterRoleBinding.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>subjects</code></td><td><code>RbacV1Subject[]</code></td><td>Subjects holds references to the objects the role applies to.</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>roleRef</code></td><td><a href="#v1roleref" class="">V1RoleRef</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1ClusterRoleBinding </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createClusterRoleBinding</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#createClusterRoleBinding"><code>RbacAuthorizationV1Api.createClusterRoleBinding</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#patchClusterRoleBinding"><code>RbacAuthorizationV1Api.patchClusterRoleBinding</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#readClusterRoleBinding"><code>RbacAuthorizationV1Api.readClusterRoleBinding</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1clusterrolebindinglist">V1ClusterRoleBindingList<a href="#v1clusterrolebindinglist" class="hash-link" aria-label="Direct link to V1ClusterRoleBindingList" title="Direct link to V1ClusterRoleBindingList" translate="no">​</a></h2>
+<ul>
+<li class="">ClusterRoleBindingList is a collection of ClusterRoleBindings</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1ClusterRoleBindingList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1clusterrolebinding" class="">V1ClusterRoleBinding</a>[]</td><td>Items is a list of ClusterRoleBindings</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1ClusterRoleBindingList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listClusterRoleBinding</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#listClusterRoleBinding"><code>RbacAuthorizationV1Api.listClusterRoleBinding</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1clusterrolelist">V1ClusterRoleList<a href="#v1clusterrolelist" class="hash-link" aria-label="Direct link to V1ClusterRoleList" title="Direct link to V1ClusterRoleList" translate="no">​</a></h2>
+<ul>
+<li class="">ClusterRoleList is a collection of ClusterRoles</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1ClusterRoleList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1clusterrole" class="">V1ClusterRole</a>[]</td><td>Items is a list of ClusterRoles</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1ClusterRoleList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listClusterRole</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#listClusterRole"><code>RbacAuthorizationV1Api.listClusterRole</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1localsubjectaccessreview">V1LocalSubjectAccessReview<a href="#v1localsubjectaccessreview" class="hash-link" aria-label="Direct link to V1LocalSubjectAccessReview" title="Direct link to V1LocalSubjectAccessReview" translate="no">​</a></h2>
+<ul>
+<li class="">LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace. Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1LocalSubjectAccessReview.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1subjectaccessreviewspec" class="">V1SubjectAccessReviewSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1subjectaccessreviewstatus" class="">V1SubjectAccessReviewStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">AuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1LocalSubjectAccessReview </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createNamespacedLocalSubjectAccessReview</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/AuthorizationV1Api#createNamespacedLocalSubjectAccessReview"><code>AuthorizationV1Api.createNamespacedLocalSubjectAccessReview</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1role">V1Role<a href="#v1role" class="hash-link" aria-label="Direct link to V1Role" title="Direct link to V1Role" translate="no">​</a></h2>
+<ul>
+<li class="">Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1Role.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>rules</code></td><td><a class="" href="/javascript/models/other#v1policyrule">V1PolicyRule</a>[]</td><td>Rules holds all the PolicyRules for this Role</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1Role </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createNamespacedRole</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#createNamespacedRole"><code>RbacAuthorizationV1Api.createNamespacedRole</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#patchNamespacedRole"><code>RbacAuthorizationV1Api.patchNamespacedRole</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#readNamespacedRole"><code>RbacAuthorizationV1Api.readNamespacedRole</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1rolebinding">V1RoleBinding<a href="#v1rolebinding" class="hash-link" aria-label="Direct link to V1RoleBinding" title="Direct link to V1RoleBinding" translate="no">​</a></h2>
+<ul>
+<li class="">RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1RoleBinding.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>subjects</code></td><td><code>RbacV1Subject[]</code></td><td>Subjects holds references to the objects the role applies to.</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>roleRef</code></td><td><a href="#v1roleref" class="">V1RoleRef</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1RoleBinding </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createNamespacedRoleBinding</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#createNamespacedRoleBinding"><code>RbacAuthorizationV1Api.createNamespacedRoleBinding</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#patchNamespacedRoleBinding"><code>RbacAuthorizationV1Api.patchNamespacedRoleBinding</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#readNamespacedRoleBinding"><code>RbacAuthorizationV1Api.readNamespacedRoleBinding</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1rolebindinglist">V1RoleBindingList<a href="#v1rolebindinglist" class="hash-link" aria-label="Direct link to V1RoleBindingList" title="Direct link to V1RoleBindingList" translate="no">​</a></h2>
+<ul>
+<li class="">RoleBindingList is a collection of RoleBindings</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1RoleBindingList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1rolebinding" class="">V1RoleBinding</a>[]</td><td>Items is a list of RoleBindings</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1RoleBindingList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listNamespacedRoleBinding</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#listNamespacedRoleBinding"><code>RbacAuthorizationV1Api.listNamespacedRoleBinding</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#listRoleBindingForAllNamespaces"><code>RbacAuthorizationV1Api.listRoleBindingForAllNamespaces</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1rolelist">V1RoleList<a href="#v1rolelist" class="hash-link" aria-label="Direct link to V1RoleList" title="Direct link to V1RoleList" translate="no">​</a></h2>
+<ul>
+<li class="">RoleList is a collection of Roles</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1RoleList.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>items</code></td><td><a href="#v1role" class="">V1Role</a>[]</td><td>Items is a list of Roles</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1listmeta">V1ListMeta</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">RbacAuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1RoleList </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">listNamespacedRole</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> namespace</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;default&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> item </span><span class="token keyword" style="color:#00009f">of</span><span class="token plain"> res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">items</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">item</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#listNamespacedRole"><code>RbacAuthorizationV1Api.listNamespacedRole</code></a> · <a class="" href="/javascript/api-reference/security/RbacAuthorizationV1Api#listRoleForAllNamespaces"><code>RbacAuthorizationV1Api.listRoleForAllNamespaces</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1roleref">V1RoleRef<a href="#v1roleref" class="hash-link" aria-label="Direct link to V1RoleRef" title="Direct link to V1RoleRef" translate="no">​</a></h2>
+<ul>
+<li class="">RoleRef contains information that points to the role being used</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1RoleRef.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiGroup</code></td><td><code>string</code></td><td>APIGroup is the group for the resource being referenced</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is the type of resource being referenced</td></tr><tr><td><code>name</code></td><td><code>string</code></td><td>Name is the name of resource being referenced</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1selfsubjectaccessreview">V1SelfSubjectAccessReview<a href="#v1selfsubjectaccessreview" class="hash-link" aria-label="Direct link to V1SelfSubjectAccessReview" title="Direct link to V1SelfSubjectAccessReview" translate="no">​</a></h2>
+<ul>
+<li class="">SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling in a spec.namespace means &quot;in all namespaces&quot;.  Self is a special case, because users should always be able to check whether they can perform an action</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1SelfSubjectAccessReview.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1selfsubjectaccessreviewspec" class="">V1SelfSubjectAccessReviewSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1subjectaccessreviewstatus" class="">V1SubjectAccessReviewStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">AuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1SelfSubjectAccessReview </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createSelfSubjectAccessReview</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/AuthorizationV1Api#createSelfSubjectAccessReview"><code>AuthorizationV1Api.createSelfSubjectAccessReview</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1selfsubjectaccessreviewspec">V1SelfSubjectAccessReviewSpec<a href="#v1selfsubjectaccessreviewspec" class="hash-link" aria-label="Direct link to V1SelfSubjectAccessReviewSpec" title="Direct link to V1SelfSubjectAccessReviewSpec" translate="no">​</a></h2>
+<ul>
+<li class="">SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1SelfSubjectAccessReviewSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>nonResourceAttributes</code></td><td><a class="" href="/javascript/models/other#v1nonresourceattributes">V1NonResourceAttributes</a></td><td></td></tr><tr><td><code>resourceAttributes</code></td><td><a class="" href="/javascript/models/other#v1resourceattributes">V1ResourceAttributes</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1selfsubjectrulesreview">V1SelfSubjectRulesReview<a href="#v1selfsubjectrulesreview" class="hash-link" aria-label="Direct link to V1SelfSubjectRulesReview" title="Direct link to V1SelfSubjectRulesReview" translate="no">​</a></h2>
+<ul>
+<li class="">SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace. The returned list of actions may be incomplete depending on the server&#x27;s authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1SelfSubjectRulesReview.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1selfsubjectrulesreviewspec" class="">V1SelfSubjectRulesReviewSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a class="" href="/javascript/models/other#v1subjectrulesreviewstatus">V1SubjectRulesReviewStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">AuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1SelfSubjectRulesReview </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createSelfSubjectRulesReview</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/AuthorizationV1Api#createSelfSubjectRulesReview"><code>AuthorizationV1Api.createSelfSubjectRulesReview</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1selfsubjectrulesreviewspec">V1SelfSubjectRulesReviewSpec<a href="#v1selfsubjectrulesreviewspec" class="hash-link" aria-label="Direct link to V1SelfSubjectRulesReviewSpec" title="Direct link to V1SelfSubjectRulesReviewSpec" translate="no">​</a></h2>
+<ul>
+<li class="">SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1SelfSubjectRulesReviewSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>namespace</code></td><td><code>string</code></td><td>Namespace to evaluate rules for. Required.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1subjectaccessreview">V1SubjectAccessReview<a href="#v1subjectaccessreview" class="hash-link" aria-label="Direct link to V1SubjectAccessReview" title="Direct link to V1SubjectAccessReview" translate="no">​</a></h2>
+<ul>
+<li class="">SubjectAccessReview checks whether or not a user or group can perform an action.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1SubjectAccessReview.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1subjectaccessreviewspec" class="">V1SubjectAccessReviewSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1subjectaccessreviewstatus" class="">V1SubjectAccessReviewStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">AuthorizationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1SubjectAccessReview </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createSubjectAccessReview</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/AuthorizationV1Api#createSubjectAccessReview"><code>AuthorizationV1Api.createSubjectAccessReview</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1subjectaccessreviewspec">V1SubjectAccessReviewSpec<a href="#v1subjectaccessreviewspec" class="hash-link" aria-label="Direct link to V1SubjectAccessReviewSpec" title="Direct link to V1SubjectAccessReviewSpec" translate="no">​</a></h2>
+<ul>
+<li class="">SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1SubjectAccessReviewSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extra</code></td><td><code>{ [key: string]: string[]</code></td><td>Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.</td></tr><tr><td><code>groups</code></td><td><code>string[]</code></td><td>Groups is the groups you&#x27;re testing for.</td></tr><tr><td><code>uid</code></td><td><code>string</code></td><td>UID information about the requesting user.</td></tr><tr><td><code>user</code></td><td><code>string</code></td><td>User is the user you&#x27;re testing for. If you specify &quot;User&quot; but not &quot;Groups&quot;, then is it interpreted as &quot;What if User were not a member of any groups</td></tr><tr><td><code>nonResourceAttributes</code></td><td><a class="" href="/javascript/models/other#v1nonresourceattributes">V1NonResourceAttributes</a></td><td></td></tr><tr><td><code>resourceAttributes</code></td><td><a class="" href="/javascript/models/other#v1resourceattributes">V1ResourceAttributes</a></td><td></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1subjectaccessreviewstatus">V1SubjectAccessReviewStatus<a href="#v1subjectaccessreviewstatus" class="hash-link" aria-label="Direct link to V1SubjectAccessReviewStatus" title="Direct link to V1SubjectAccessReviewStatus" translate="no">​</a></h2>
+<ul>
+<li class="">SubjectAccessReviewStatus</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1SubjectAccessReviewStatus.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>allowed</code></td><td><code>boolean</code></td><td>Allowed is required. True if the action would be allowed, false otherwise.</td></tr><tr><td><code>denied</code></td><td><code>boolean</code></td><td>Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied...</td></tr><tr><td><code>evaluationError</code></td><td><code>string</code></td><td>EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of...</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>Reason is optional.  It indicates why a request was allowed or denied.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1tokenreview">V1TokenReview<a href="#v1tokenreview" class="hash-link" aria-label="Direct link to V1TokenReview" title="Direct link to V1TokenReview" translate="no">​</a></h2>
+<ul>
+<li class="">TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1TokenReview.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>apiVersion</code></td><td><code>string</code></td><td>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:...</td></tr><tr><td><code>kind</code></td><td><code>string</code></td><td>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:...</td></tr><tr><td><code>metadata</code></td><td><a class="" href="/javascript/models/other#v1objectmeta">V1ObjectMeta</a></td><td></td></tr><tr><td><code>spec</code></td><td><a href="#v1tokenreviewspec" class="">V1TokenReviewSpec</a></td><td></td></tr><tr><td><code>status</code></td><td><a href="#v1tokenreviewstatus" class="">V1TokenReviewStatus</a></td><td></td></tr></tbody></table>
+<p><strong>Example</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> k8s </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@kubernetes/client-node&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> kc </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">KubeConfig</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">loadFromDefault</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> api </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> kc</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeApiClient</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">AuthenticationV1Api</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> k8s</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">V1TokenReview </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    metadata</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> name</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;example&#x27;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    spec</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">/* ... */</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> res </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">await</span><span class="token plain"> api</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createTokenReview</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> body </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin">console</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">log</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">res</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">metadata</span><span class="token operator" style="color:#393A34">?.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><strong>Used by:</strong> <a class="" href="/javascript/api-reference/security/AuthenticationV1Api#createTokenReview"><code>AuthenticationV1Api.createTokenReview</code></a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1tokenreviewspec">V1TokenReviewSpec<a href="#v1tokenreviewspec" class="hash-link" aria-label="Direct link to V1TokenReviewSpec" title="Direct link to V1TokenReviewSpec" translate="no">​</a></h2>
+<ul>
+<li class="">TokenReviewSpec is a description of the token authentication request.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1TokenReviewSpec.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>audiences</code></td><td><code>string[]</code></td><td>Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of...</td></tr><tr><td><code>token</code></td><td><code>string</code></td><td>Token is the opaque bearer token.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1tokenreviewstatus">V1TokenReviewStatus<a href="#v1tokenreviewstatus" class="hash-link" aria-label="Direct link to V1TokenReviewStatus" title="Direct link to V1TokenReviewStatus" translate="no">​</a></h2>
+<ul>
+<li class="">TokenReviewStatus is the result of the token authentication request.</li>
+</ul>
+<p><a href="https://github.com/kubernetes-client/javascript/blob/main/src/gen/models/V1TokenReviewStatus.ts" target="_blank" rel="noopener noreferrer" class="">Source</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>audiences</code></td><td><code>string[]</code></td><td>Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec...</td></tr><tr><td><code>authenticated</code></td><td><code>boolean</code></td><td>Authenticated indicates that the token was associated with a known user.</td></tr><tr><td><code>error</code></td><td><code>string</code></td><td>Error indicates that the token couldn&#x27;t be checked</td></tr><tr><td><code>user</code></td><td><a class="" href="/javascript/models/other#v1userinfo">V1UserInfo</a></td><td></td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/kubernetes-client/javascript/tree/main/docs/docs/models/security.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/javascript/models/other"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Other</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/javascript/models/workloads"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Workloads</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#v1certificatesigningrequest" class="table-of-contents__link toc-highlight">V1CertificateSigningRequest</a></li><li><a href="#v1certificatesigningrequestcondition" class="table-of-contents__link toc-highlight">V1CertificateSigningRequestCondition</a></li><li><a href="#v1certificatesigningrequestlist" class="table-of-contents__link toc-highlight">V1CertificateSigningRequestList</a></li><li><a href="#v1certificatesigningrequestspec" class="table-of-contents__link toc-highlight">V1CertificateSigningRequestSpec</a></li><li><a href="#v1certificatesigningrequeststatus" class="table-of-contents__link toc-highlight">V1CertificateSigningRequestStatus</a></li><li><a href="#v1clusterrole" class="table-of-contents__link toc-highlight">V1ClusterRole</a></li><li><a href="#v1clusterrolebinding" class="table-of-contents__link toc-highlight">V1ClusterRoleBinding</a></li><li><a href="#v1clusterrolebindinglist" class="table-of-contents__link toc-highlight">V1ClusterRoleBindingList</a></li><li><a href="#v1clusterrolelist" class="table-of-contents__link toc-highlight">V1ClusterRoleList</a></li><li><a href="#v1localsubjectaccessreview" class="table-of-contents__link toc-highlight">V1LocalSubjectAccessReview</a></li><li><a href="#v1role" class="table-of-contents__link toc-highlight">V1Role</a></li><li><a href="#v1rolebinding" class="table-of-contents__link toc-highlight">V1RoleBinding</a></li><li><a href="#v1rolebindinglist" class="table-of-contents__link toc-highlight">V1RoleBindingList</a></li><li><a href="#v1rolelist" class="table-of-contents__link toc-highlight">V1RoleList</a></li><li><a href="#v1roleref" class="table-of-contents__link toc-highlight">V1RoleRef</a></li><li><a href="#v1selfsubjectaccessreview" class="table-of-contents__link toc-highlight">V1SelfSubjectAccessReview</a></li><li><a href="#v1selfsubjectaccessreviewspec" class="table-of-contents__link toc-highlight">V1SelfSubjectAccessReviewSpec</a></li><li><a href="#v1selfsubjectrulesreview" class="table-of-contents__link toc-highlight">V1SelfSubjectRulesReview</a></li><li><a href="#v1selfsubjectrulesreviewspec" class="table-of-contents__link toc-highlight">V1SelfSubjectRulesReviewSpec</a></li><li><a href="#v1subjectaccessreview" class="table-of-contents__link toc-highlight">V1SubjectAccessReview</a></li><li><a href="#v1subjectaccessreviewspec" class="table-of-contents__link toc-highlight">V1SubjectAccessReviewSpec</a></li><li><a href="#v1subjectaccessreviewstatus" class="table-of-contents__link toc-highlight">V1SubjectAccessReviewStatus</a></li><li><a href="#v1tokenreview" class="table-of-contents__link toc-highlight">V1TokenReview</a></li><li><a href="#v1tokenreviewspec" class="table-of-contents__link toc-highlight">V1TokenReviewSpec</a></li><li><a href="#v1tokenreviewstatus" class="table-of-contents__link toc-highlight">V1TokenReviewStatus</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/kubernetes-client/javascript" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/kubernetes-client/javascript/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">Issues<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://kubernetes.slack.com" target="_blank" rel="noopener noreferrer" class="footer__link-item">Slack<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Kubernetes Community. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
