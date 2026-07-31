@@ -1,0 +1,13 @@
+# Dependencies
+node_modules
+
+# Docusaurus build artifacts
+.docusaurus
+build
+
+# Generated API reference (produced by typedoc at build time)
+docs/api-reference
+
+# Misc
+.DS_Store
+*.log

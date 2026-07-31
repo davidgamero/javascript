@@ -1,0 +1,2 @@
+# Collapse generated files in GitHub diffs / exclude from language stats.
+docs-site/package-lock.json linguist-generated=true

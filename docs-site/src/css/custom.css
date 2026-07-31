@@ -1,0 +1,15 @@
+/* Custom styling for the documentation site. */
+:root {
+    --ifm-color-primary: #326ce5; /* Kubernetes blue */
+    --ifm-color-primary-dark: #1e5bd0;
+    --ifm-color-primary-darker: #1c56c4;
+    --ifm-color-primary-darkest: #1747a2;
+    --ifm-color-primary-light: #4a7fe8;
+    --ifm-color-primary-lighter: #5688ea;
+    --ifm-color-primary-lightest: #7aa1ee;
+    --ifm-code-font-size: 95%;
+}
+
+[data-theme='dark'] {
+    --ifm-color-primary: #6b9bf0;
+}

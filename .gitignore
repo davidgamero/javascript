@@ -13,4 +13,9 @@ kubernetes-client-node-*.tgz
 **/*.swp
 .idea/
 docs/*
+# Docusaurus PoC lives under docs-site/ — ignore only build artifacts
+docs-site/node_modules
+docs-site/build
+docs-site/.docusaurus
+docs-site/docs/api-reference
 .DS_Store
