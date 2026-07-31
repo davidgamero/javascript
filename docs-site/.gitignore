@@ -5,8 +5,9 @@ node_modules
 .docusaurus
 build
 
-# Generated API reference (produced by typedoc at build time)
+# Generated docs (produced at build time)
 docs/api-reference
+docs/examples
 
 # Misc
 .DS_Store

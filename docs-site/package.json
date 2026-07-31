@@ -4,8 +4,10 @@
     "private": true,
     "scripts": {
         "gen-api-docs": "typedoc",
-        "prebuild": "npm run gen-api-docs",
-        "prestart": "npm run gen-api-docs",
+        "gen-examples": "node scripts/gen-examples.mjs",
+        "gen": "npm run gen-api-docs && npm run gen-examples",
+        "prebuild": "npm run gen",
+        "prestart": "npm run gen",
         "docusaurus": "docusaurus",
         "start": "docusaurus start",
         "build": "docusaurus build",
