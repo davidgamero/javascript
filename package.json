@@ -28,7 +28,12 @@
         "integration-test": "tsx src/test/integration/index.ts",
         "prepare": "npm run build && husky",
         "prepack": "npm run build",
-        "docs": "npm --prefix ./tools/docs ci && npm --prefix ./tools/docs run docs"
+        "prepare": "npm run build && husky",
+        "prepack": "npm run build",
+        "docs": "npm --prefix ./tools/docs ci && npm --prefix ./tools/docs run docs",
+        "docs-site:install": "npm --prefix docs-site install",
+        "docs-site:start": "npm --prefix docs-site start",
+        "docs-site:build": "npm --prefix docs-site run build"
     },
     "c8": {
         "include": [
