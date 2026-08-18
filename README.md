@@ -15,6 +15,12 @@ Javascript or Typescript. The client is implemented for server-side use with Nod
 npm install @kubernetes/client-node
 ```
 
+Starting with the `2.0.0` release, the client uses [undici](https://undici.nodejs.org/)
+as its HTTP backend and requires a supported (non-EOL) version of Node.js
+(Node 18, 20, and 23 support was dropped). See the
+[2.0.0 release notes](https://github.com/kubernetes-client/javascript/releases/tag/2.0.0)
+for the full list of breaking changes.
+
 # Example code
 
 ## List all pods
@@ -120,7 +126,7 @@ npm start          # opens http://localhost:3000 with hot-reload
 
 `npm start` automatically runs the `prestart` hook which generates the API
 reference, SDK docs, and model pages from source before launching the dev
-server.  Changes to hand-written docs (e.g. `docs/docs/examples/`) are
+server. Changes to hand-written docs (e.g. `docs/docs/examples/`) are
 reflected instantly; changes to the generated sources require restarting the
 server.
 
@@ -146,17 +152,18 @@ release, we will increment the minor version whenever we update the minor Kubern
 
 Generally speaking newer clients will work with older Kubernetes, but compatibility isn't 100% guaranteed.
 
-| client version | older versions | 1.28 | 1.29 | 1.30 | 1.31 | 1.32 | 1.33 | 1.34 |
-| -------------- | -------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 0.19.x         | -              | ✓    | x    | x    | x    | x    | x    | x    |
-| 0.20.x         | -              | +    | ✓    | x    | x    | x    | x    | x    |
-| 0.21.x         | -              | +    | +    | ✓    | x    | x    | x    | x    |
-| 0.22.x         | -              | +    | +    | +    | ✓    | x    | x    | x    |
-| 1.0.x          | -              | +    | +    | +    | +    | ✓    | x    | x    |
-| 1.1.x          | -              | +    | +    | +    | +    | ✓    | x    | x    |
-| 1.2.x          | -              | +    | +    | +    | +    | +    | ✓    | x    |
-| 1.3.x          | -              | +    | +    | +    | +    | +    | ✓    | x    |
-| 1.4.x          | -              | +    | +    | +    | +    | +    | +    | ✓    |
+| client version | older versions | 1.28 | 1.29 | 1.30 | 1.31 | 1.32 | 1.33 | 1.34 | 1.35 | 1.36 |
+| -------------- | -------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 0.19.x         | -              | ✓    | x    | x    | x    | x    | x    | x    | x    | x    |
+| 0.20.x         | -              | +    | ✓    | x    | x    | x    | x    | x    | x    | x    |
+| 0.21.x         | -              | +    | +    | ✓    | x    | x    | x    | x    | x    | x    |
+| 0.22.x         | -              | +    | +    | +    | ✓    | x    | x    | x    | x    | x    |
+| 1.0.x          | -              | +    | +    | +    | +    | ✓    | x    | x    | x    | x    |
+| 1.1.x          | -              | +    | +    | +    | +    | ✓    | x    | x    | x    | x    |
+| 1.2.x          | -              | +    | +    | +    | +    | +    | ✓    | x    | x    | x    |
+| 1.3.x          | -              | +    | +    | +    | +    | +    | ✓    | x    | x    | x    |
+| 1.4.x          | -              | +    | +    | +    | +    | +    | +    | ✓    | x    | x    |
+| 2.0.x          | -              | +    | +    | +    | +    | +    | +    | +    | +    | ✓    |
 
 Key:
 
