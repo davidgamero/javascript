@@ -40,8 +40,30 @@ export class Watch {
         }
 
         const controller = new AbortController();
-        const timeoutSignal = AbortSignal.timeout(this.requestTimeoutMs);
-        const signal = AbortSignal.any([controller.signal, timeoutSignal]);
+        // The timeout is an *idle* timeout, not a deadline for the whole
+        // request: a watch is a long-lived stream that is expected to stay open
+        // for as long as the server keeps sending events. The timer is reset
+        // every time we receive data and cleared when the watch finishes, so
+        // only a silent connection is aborted.
+        const timeoutController = new AbortController();
+        const signal = AbortSignal.any([controller.signal, timeoutController.signal]);
+
+        let idleTimer: ReturnType<typeof setTimeout> | undefined;
+        const clearIdleTimer = () => {
+            if (idleTimer !== undefined) {
+                clearTimeout(idleTimer);
+                idleTimer = undefined;
+            }
+        };
+        const resetIdleTimer = () => {
+            clearIdleTimer();
+            idleTimer = setTimeout(() => {
+                idleTimer = undefined;
+                timeoutController.abort();
+            }, this.requestTimeoutMs);
+            // Don't hold the event loop open purely for the idle timer.
+            idleTimer.unref?.();
+        };
 
         const ctx = new RequestContext(watchURL.toString(), HttpMethod.GET);
         await this.config.applySecurityAuthentication(ctx);
@@ -50,14 +72,20 @@ export class Watch {
         const doneCallOnce = (err: any) => {
             if (!doneCalled) {
                 doneCalled = true;
+                clearIdleTimer();
+                const timedOut = timeoutController.signal.aborted;
                 controller.abort();
-                if (err && timeoutSignal.aborted) {
+                if (err && timedOut) {
                     done(new DOMException('The operation was aborted due to timeout', 'TimeoutError'));
                 } else {
                     done(err);
                 }
             }
         };
+
+        // Start the idle timer before the request: a server that never responds
+        // at all has to time out too.
+        resetIdleTimer();
 
         try {
             const response = await fetch(watchURL, {
@@ -68,6 +96,8 @@ export class Watch {
             });
 
             if (response.status === 200) {
+                // Headers received: start counting idle time from now.
+                resetIdleTimer();
                 const body = Readable.fromWeb(response.body! as any);
 
                 body.on('error', doneCallOnce);
@@ -79,6 +109,8 @@ export class Watch {
                 lines.on('close', () => doneCallOnce(null));
                 lines.on('finish', () => doneCallOnce(null));
                 lines.on('line', (line) => {
+                    // Any data at all means the connection is alive.
+                    resetIdleTimer();
                     try {
                         const data = JSON.parse(line.toString());
                         callback(data.type, data.object, data);

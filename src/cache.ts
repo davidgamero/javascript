@@ -26,11 +26,18 @@ export type CacheMap<T extends KubernetesObject> = Map<string, Map<string, T>>;
 
 export interface ListWatchOptions {
     delayFn?: (ms: number) => Promise<void>;
+    // Clock source, injectable for testing.
+    nowFn?: () => number;
 }
 
 export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, Informer<T> {
     private static readonly BASE_RECONNECT_DELAY_MS = 1000;
     private static readonly MAX_RECONNECT_DELAY_MS = 30000;
+    // A watch connection that stayed up at least this long is considered
+    // healthy, and resets the reconnect backoff. Without this, a resource that
+    // never emits events would back off to MAX_RECONNECT_DELAY_MS and spend
+    // half its time not watching, even though every connection was fine.
+    private static readonly STABLE_CONNECTION_MS = 10000;
 
     private objects: CacheMap<T> = new Map();
     private resourceVersion: string;
@@ -41,6 +48,8 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
     private reconnectDelayMs: number = 0;
     private hasConnected: boolean = false;
     private readonly delayFn: (ms: number) => Promise<void>;
+    private readonly nowFn: () => number;
+    private connectedAt: number | undefined;
     private readonly path: string;
     private readonly watch: Watch;
     private readonly listFn: ListPromise<T>;
@@ -63,6 +72,7 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
         this.labelSelector = labelSelector;
         this.fieldSelector = fieldSelector;
         this.delayFn = options?.delayFn ?? setTimeout;
+        this.nowFn = options?.nowFn ?? Date.now;
 
         this.callbackCache[ADD] = [];
         this.callbackCache[UPDATE] = [];
@@ -79,6 +89,7 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
         this.stopped = false;
         this.reconnectDelayMs = 0;
         this.hasConnected = false;
+        this.connectedAt = undefined;
         await this.doneHandler(null);
     }
 
@@ -204,6 +215,15 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
         if (this.fieldSelector !== undefined) {
             queryParams.fieldSelector = ObjectSerializer.serialize(this.fieldSelector, 'string');
         }
+        // A connection that stayed up for a while was healthy, whether or not
+        // it delivered any events, so don't penalize the next reconnect.
+        if (
+            this.connectedAt !== undefined &&
+            this.nowFn() - this.connectedAt >= ListWatch.STABLE_CONNECTION_MS
+        ) {
+            this.reconnectDelayMs = 0;
+        }
+        this.connectedAt = undefined;
         if (this.reconnectDelayMs > 0 && this.hasConnected) {
             await this.delayFn(this.reconnectDelayMs);
         }
@@ -214,6 +234,7 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
             );
         }
         this.hasConnected = true;
+        this.connectedAt = this.nowFn();
         this.request = await this.watch.watch(
             this.path,
             queryParams,
