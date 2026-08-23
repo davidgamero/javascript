@@ -1639,6 +1639,109 @@ describe('ListWatchCache', () => {
         deepStrictEqual(delayValues, [1000]);
     });
 
+    it('should reset backoff after a connection that stayed up, without any events', async () => {
+        // Regression test: a quiet resource (no events at all) whose watch
+        // connections are long-lived must not back off. If the delay is only
+        // reset in watchHandler, a watch over e.g. CRDs that never change
+        // doubles its reconnect delay until it hits the maximum, spending half
+        // its time not watching.
+        const fakeWatch = mock.mock(Watch);
+        const listObj = {
+            metadata: { resourceVersion: '12345' } as V1ListMeta,
+            items: [] as V1Namespace[],
+        } as V1NamespaceList;
+
+        const listFn: ListPromise<V1Namespace> = () => Promise.resolve(listObj);
+
+        const delayValues: number[] = [];
+        let now = 0;
+        const promise = new Promise((resolve) => {
+            mock.when(
+                fakeWatch.watch(mock.anything(), mock.anything(), mock.anything(), mock.anything()),
+            ).thenCall(() => {
+                resolve(new AbortController());
+                return Promise.resolve(new AbortController());
+            });
+        });
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const cache = new ListWatch(
+            '/some/path',
+            mock.instance(fakeWatch),
+            listFn,
+            true,
+            undefined,
+            undefined,
+            {
+                delayFn: (ms: number) => {
+                    delayValues.push(ms);
+                    return Promise.resolve();
+                },
+                nowFn: () => now,
+            },
+        );
+        await promise;
+
+        const [, , , doneHandler] = mock.capture(fakeWatch.watch).last();
+
+        // A connection that stayed up for a long time (the watch idle timeout
+        // elapsed, no events) must not increase the delay, even repeatedly.
+        for (let i = 0; i < 5; i++) {
+            now += 30000;
+            await doneHandler(null);
+        }
+        deepStrictEqual(delayValues, [], 'stable connections should not accrue backoff');
+    });
+
+    it('should back off when connections fail immediately', async () => {
+        // The flip side of resetting on a stable connection: a watch that dies
+        // straight away must still back off, otherwise we spin.
+        const fakeWatch = mock.mock(Watch);
+        const listObj = {
+            metadata: { resourceVersion: '12345' } as V1ListMeta,
+            items: [] as V1Namespace[],
+        } as V1NamespaceList;
+
+        const listFn: ListPromise<V1Namespace> = () => Promise.resolve(listObj);
+
+        const delayValues: number[] = [];
+        const promise = new Promise((resolve) => {
+            mock.when(
+                fakeWatch.watch(mock.anything(), mock.anything(), mock.anything(), mock.anything()),
+            ).thenCall(() => {
+                resolve(new AbortController());
+                return Promise.resolve(new AbortController());
+            });
+        });
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const cache = new ListWatch(
+            '/some/path',
+            mock.instance(fakeWatch),
+            listFn,
+            true,
+            undefined,
+            undefined,
+            {
+                delayFn: (ms: number) => {
+                    delayValues.push(ms);
+                    return Promise.resolve();
+                },
+                // Clock never advances: every connection is instantaneous.
+                nowFn: () => 0,
+            },
+        );
+        await promise;
+
+        const [, , , doneHandler] = mock.capture(fakeWatch.watch).last();
+
+        await doneHandler(null);
+        await doneHandler(null);
+        await doneHandler(null);
+        await doneHandler(null);
+        deepStrictEqual(delayValues, [1000, 2000, 4000]);
+    });
+
     it('should reconnect with backoff on TimeoutError', async () => {
         const fakeWatch = mock.mock(Watch);
         const listObj = {

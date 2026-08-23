@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, it } from 'node:test';
-import { deepStrictEqual, rejects, strictEqual } from 'node:assert';
+import { deepStrictEqual, ok, rejects, strictEqual } from 'node:assert';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { MockAgent, setGlobalDispatcher, getGlobalDispatcher, type Dispatcher } from 'undici';
 import { KubeConfig } from './config.js';
 import { Cluster, Context, User } from './config_types.js';
@@ -384,6 +385,149 @@ describe('Watch', () => {
         await donePromise;
 
         strictEqual(doneErr.name, 'TimeoutError');
+    });
+
+    it('should not time out a connection that keeps receiving data', async (t) => {
+        // Regression test: the timeout must be an idle timeout, reset on every
+        // line received, not an absolute deadline for the whole request. A
+        // healthy watch has to stay open for as long as the server keeps
+        // sending events.
+        const event = JSON.stringify({ type: 'ADDED', object: { foo: 'bar' } }) + '\n';
+        const timeoutMs = 100;
+        let interval: NodeJS.Timeout | undefined;
+
+        const kc = await setupMockSystem(t, (_req, res) => {
+            res.writeHead(200, {
+                'Content-Type': 'application/json',
+                'Transfer-Encoding': 'chunked',
+            });
+            res.flushHeaders();
+            // Send an event well inside the idle timeout window, forever.
+            interval = setInterval(() => res.write(event), timeoutMs / 5);
+            res.on('close', () => clearInterval(interval));
+        });
+        t.after(() => clearInterval(interval));
+
+        const watch = new Watch(kc);
+        // NOTE: Hack around the type system to make the timeout shorter
+        (watch as any).requestTimeoutMs = timeoutMs;
+
+        let doneCalled = false;
+        let doneErr: any;
+        let receivedEvents = 0;
+
+        const controller = await watch.watch(
+            '/some/path/to/object',
+            {},
+            () => {
+                receivedEvents += 1;
+            },
+            (err: any) => {
+                doneCalled = true;
+                doneErr = err;
+            },
+        );
+
+        // Wait for several multiples of the idle timeout. Under the buggy
+        // absolute-deadline behaviour done() fires with a TimeoutError at
+        // `timeoutMs`; with a correct idle timeout it is never called.
+        await sleep(timeoutMs * 5);
+
+        strictEqual(
+            doneCalled,
+            false,
+            `done should not be called on a healthy connection, got: ${doneErr?.name}: ${doneErr?.message}`,
+        );
+        ok(receivedEvents > 1, `expected to keep receiving events, got ${receivedEvents}`);
+
+        clearInterval(interval);
+        controller.abort();
+    });
+
+    it('should time out when the connection goes idle after receiving data', async (t) => {
+        // The idle timer must still fire once the stream goes silent, so that a
+        // genuinely dead connection is not held open forever.
+        const event = JSON.stringify({ type: 'ADDED', object: { foo: 'bar' } }) + '\n';
+        const timeoutMs = 100;
+
+        const kc = await setupMockSystem(t, (_req, res) => {
+            res.writeHead(200, {
+                'Content-Type': 'application/json',
+                'Transfer-Encoding': 'chunked',
+            });
+            res.flushHeaders();
+            res.write(event);
+            // ...and then never write again, and never end the response.
+        });
+
+        const watch = new Watch(kc);
+        // NOTE: Hack around the type system to make the timeout shorter
+        (watch as any).requestTimeoutMs = timeoutMs;
+
+        let receivedEvents = 0;
+        let doneErr: any;
+        let doneResolve: () => void;
+        const donePromise = new Promise<void>((resolve) => {
+            doneResolve = resolve;
+        });
+
+        await watch.watch(
+            '/some/path/to/object',
+            {},
+            () => {
+                receivedEvents += 1;
+            },
+            (err: any) => {
+                doneErr = err;
+                doneResolve();
+            },
+        );
+
+        await donePromise;
+
+        strictEqual(receivedEvents, 1);
+        strictEqual(doneErr?.name, 'TimeoutError');
+    });
+
+    it('should not fire the idle timeout after the server closes the connection', async (t) => {
+        // The idle timer has to be cleared when the watch finishes, otherwise a
+        // stale timer fires after a clean close (and would keep the process
+        // alive).
+        const event = JSON.stringify({ type: 'ADDED', object: { foo: 'bar' } }) + '\n';
+        const timeoutMs = 100;
+
+        const kc = await setupMockSystem(t, (_req, res) => {
+            res.write(event);
+            res.end();
+        });
+
+        const watch = new Watch(kc);
+        // NOTE: Hack around the type system to make the timeout shorter
+        (watch as any).requestTimeoutMs = timeoutMs;
+
+        const doneErrs: any[] = [];
+        let doneResolve: () => void;
+        const donePromise = new Promise<void>((resolve) => {
+            doneResolve = resolve;
+        });
+
+        await watch.watch(
+            '/some/path/to/object',
+            {},
+            () => {},
+            (err: any) => {
+                doneErrs.push(err);
+                doneResolve();
+            },
+        );
+
+        await donePromise;
+        strictEqual(doneErrs.length, 1);
+        strictEqual(doneErrs[0], null);
+
+        // Wait past the idle timeout to make sure no stale timer fires.
+        await sleep(timeoutMs * 3);
+        strictEqual(doneErrs.length, 1);
     });
 
     it('should throw on empty config', async () => {
