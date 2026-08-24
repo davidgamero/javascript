@@ -26,11 +26,32 @@ export type CacheMap<T extends KubernetesObject> = Map<string, Map<string, T>>;
 
 export interface ListWatchOptions {
     delayFn?: (ms: number) => Promise<void>;
+    // Clock source, injectable for testing.
+    nowFn?: () => number;
+    // Randomness source in [0, 1), injectable for testing.
+    randFn?: () => number;
+    // Lower bound for the server-side watch timeout, in seconds; the actual
+    // value is randomised over [min, 2*min). Mirrors client-go's
+    // ReflectorOptions.MinWatchTimeout, except that it ignores anything below
+    // its 5 minute default. We honour smaller values so watch expiry stays
+    // testable, so treat those as a testing knob.
+    minWatchTimeoutSeconds?: number;
 }
 
 export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, Informer<T> {
-    private static readonly BASE_RECONNECT_DELAY_MS = 1000;
-    private static readonly MAX_RECONNECT_DELAY_MS = 30000;
+    // All of these mirror k8s.io/client-go/tools/cache/reflector.go.
+    // The watch is bounded server-side, randomised over [MIN, 2*MIN) so a fleet
+    // does not reconnect in lockstep.
+    private static readonly MIN_WATCH_TIMEOUT_SECONDS = 300;
+    // Backoff applies to failures only (defaultBackoffInit/Max/Factor/Jitter),
+    // and resets after BACKOFF_RESET_MS without use (defaultBackoffReset).
+    private static readonly BACKOFF_INIT_MS = 800;
+    private static readonly BACKOFF_MAX_MS = 30000;
+    private static readonly BACKOFF_FACTOR = 2;
+    private static readonly BACKOFF_JITTER = 1.0;
+    private static readonly BACKOFF_RESET_MS = 120000;
+    // VeryShortWatchError: closing this fast with nothing delivered is a failure.
+    private static readonly VERY_SHORT_WATCH_MS = 1000;
 
     private objects: CacheMap<T> = new Map();
     private resourceVersion: string;
@@ -38,9 +59,14 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
     private readonly callbackCache: { [key: string]: (ObjectCallback<T> | ErrorCallback)[] } = {};
     private request: AbortController | undefined;
     private stopped: boolean = false;
-    private reconnectDelayMs: number = 0;
-    private hasConnected: boolean = false;
+    private backoffMs: number = 0;
+    private lastBackoffAt: number | undefined;
+    private connectedAt: number | undefined;
+    private eventsSinceConnect: number = 0;
     private readonly delayFn: (ms: number) => Promise<void>;
+    private readonly nowFn: () => number;
+    private readonly randFn: () => number;
+    private readonly minWatchTimeoutSeconds: number;
     private readonly path: string;
     private readonly watch: Watch;
     private readonly listFn: ListPromise<T>;
@@ -63,6 +89,9 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
         this.labelSelector = labelSelector;
         this.fieldSelector = fieldSelector;
         this.delayFn = options?.delayFn ?? setTimeout;
+        this.nowFn = options?.nowFn ?? Date.now;
+        this.randFn = options?.randFn ?? Math.random;
+        this.minWatchTimeoutSeconds = options?.minWatchTimeoutSeconds ?? ListWatch.MIN_WATCH_TIMEOUT_SECONDS;
 
         this.callbackCache[ADD] = [];
         this.callbackCache[UPDATE] = [];
@@ -77,8 +106,10 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
 
     public async start(): Promise<void> {
         this.stopped = false;
-        this.reconnectDelayMs = 0;
-        this.hasConnected = false;
+        this.backoffMs = 0;
+        this.lastBackoffAt = undefined;
+        this.connectedAt = undefined;
+        this.eventsSinceConnect = 0;
         await this.doneHandler(null);
     }
 
@@ -160,19 +191,46 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
         }
     }
 
+    // Delay before the next attempt: exponential with jitter, reset once unused
+    // for BACKOFF_RESET_MS.
+    private nextBackoffDelayMs(): number {
+        const now = this.nowFn();
+        if (this.lastBackoffAt === undefined || now - this.lastBackoffAt >= ListWatch.BACKOFF_RESET_MS) {
+            this.backoffMs = ListWatch.BACKOFF_INIT_MS;
+        } else {
+            this.backoffMs = Math.min(this.backoffMs * ListWatch.BACKOFF_FACTOR, ListWatch.BACKOFF_MAX_MS);
+        }
+        this.lastBackoffAt = now;
+        return this.backoffMs + this.randFn() * ListWatch.BACKOFF_JITTER * this.backoffMs;
+    }
+
+    // A clean close is the normal end of a watch: the server hangs up when
+    // timeoutSeconds expires. Only an instant, empty close is suspicious.
+    private wasFailedConnection(err: any): boolean {
+        if (err) {
+            return true;
+        }
+        if (this.connectedAt === undefined) {
+            return false;
+        }
+        return (
+            this.eventsSinceConnect === 0 && this.nowFn() - this.connectedAt < ListWatch.VERY_SHORT_WATCH_MS
+        );
+    }
+
     private async doneHandler(err: any): Promise<void> {
         this._stop();
+        const failed = this.wasFailedConnection(err);
+        this.connectedAt = undefined;
+        this.eventsSinceConnect = 0;
         if (
             err &&
             ((err as { statusCode?: number }).statusCode === 410 || (err as { code?: number }).code === 410)
         ) {
             this.resourceVersion = '';
         } else if (err && (err as { name?: string }).name === 'TimeoutError') {
-            // Watch client-side timeout — reconnect from last known resourceVersion.
-            // The timeout itself already throttled us for the full request timeout, so
-            // reconnecting immediately cannot tight-loop and backing off would leave
-            // quiet resources unwatched for up to MAX_RECONNECT_DELAY_MS.
-            this.reconnectDelayMs = 0;
+            // Failed to establish the watch; reconnect from the last known
+            // resourceVersion, after backing off like any other failure.
         } else if (err) {
             this.callbackCache[ERROR].forEach((elt: ErrorCallback) => elt(err));
             return;
@@ -195,12 +253,22 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
             this.addOrUpdateItems(list.items);
             this.resourceVersion = list.metadata ? list.metadata!.resourceVersion || '' : '';
         }
+        const timeoutSeconds = Math.floor(
+            this.minWatchTimeoutSeconds + this.randFn() * this.minWatchTimeoutSeconds,
+        );
         const queryParams = {
             resourceVersion: this.resourceVersion,
+            // Server-side bound, in place of a client-side deadline.
+            timeoutSeconds,
+            // Keeps a quiet watch producing traffic, and lets the next one
+            // resume from a recent resourceVersion.
+            allowWatchBookmarks: true,
         } as {
             resourceVersion: string | undefined;
             labelSelector: string | undefined;
             fieldSelector: string | undefined;
+            timeoutSeconds: number;
+            allowWatchBookmarks: boolean;
         };
         if (this.labelSelector !== undefined) {
             queryParams.labelSelector = ObjectSerializer.serialize(this.labelSelector, 'string');
@@ -208,16 +276,11 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
         if (this.fieldSelector !== undefined) {
             queryParams.fieldSelector = ObjectSerializer.serialize(this.fieldSelector, 'string');
         }
-        if (this.reconnectDelayMs > 0 && this.hasConnected) {
-            await this.delayFn(this.reconnectDelayMs);
+        if (failed) {
+            await this.delayFn(this.nextBackoffDelayMs());
         }
-        if (this.hasConnected) {
-            this.reconnectDelayMs = Math.min(
-                this.reconnectDelayMs > 0 ? this.reconnectDelayMs * 2 : ListWatch.BASE_RECONNECT_DELAY_MS,
-                ListWatch.MAX_RECONNECT_DELAY_MS,
-            );
-        }
-        this.hasConnected = true;
+        this.connectedAt = this.nowFn();
+        this.eventsSinceConnect = 0;
         this.request = await this.watch.watch(
             this.path,
             queryParams,
@@ -268,7 +331,7 @@ export class ListWatch<T extends KubernetesObject> implements ObjectCache<T>, In
                 // nothing to do, here for documentation, mostly.
                 break;
         }
-        this.reconnectDelayMs = 0;
+        this.eventsSinceConnect += 1;
         this.resourceVersion = obj.metadata ? obj.metadata!.resourceVersion || '' : '';
     }
 }
