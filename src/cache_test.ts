@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test';
-import { deepStrictEqual, notStrictEqual, strictEqual, throws } from 'node:assert';
+import { deepStrictEqual, notStrictEqual, ok, strictEqual, throws } from 'node:assert';
 import mock from 'ts-mockito';
 
 import { V1Namespace, V1NamespaceList, V1ObjectMeta, V1Pod, V1PodList, V1ListMeta } from './api.js';
@@ -1485,8 +1485,18 @@ describe('ListWatchCache', () => {
         });
 
         const pool = mockAgent.get(fakeConfig.clusters[0].server);
+        // timeoutSeconds is randomised per watch, so match on the params we
+        // care about rather than the exact query string.
         pool.intercept({
-            path: `${path}?watch=true&resourceVersion=12345&labelSelector=app%3Dfoo`,
+            path: (requestPath: string) => {
+                const params = new URL(requestPath, fakeConfig.clusters[0].server).searchParams;
+                return (
+                    requestPath.startsWith(`${path}?`) &&
+                    params.get('watch') === 'true' &&
+                    params.get('resourceVersion') === '12345' &&
+                    params.get('labelSelector') === 'app=foo'
+                );
+            },
             method: 'GET',
         }).reply(
             200,
@@ -1526,160 +1536,134 @@ describe('ListWatchCache', () => {
         mockAgent.assertNoPendingInterceptors();
     });
 
-    it('should apply exponential backoff on repeated reconnects', async () => {
+    // Reconnect model, per k8s.io/client-go/tools/cache/reflector.go: a clean
+    // close (timeoutSeconds expiring) reconnects immediately, only failures back
+    // off, a sub-second close with no events counts as a failure
+    // (VeryShortWatchError), and the backoff resets after 2 idle minutes.
+    //
+    // These cover the shape of it; watchTimeoutParity and informerReconnect
+    // cover the behaviour end to end against a real API server.
+    async function setupBackoffCache(opts: {
+        delays: number[];
+        now?: () => number;
+        rand?: () => number;
+        minWatchTimeoutSeconds?: number;
+    }) {
         const fakeWatch = mock.mock(Watch);
-        const listObj = {
-            metadata: { resourceVersion: '12345' } as V1ListMeta,
-            items: [] as V1Namespace[],
-        } as V1NamespaceList;
+        const listFn: ListPromise<V1Namespace> = () =>
+            Promise.resolve({
+                metadata: { resourceVersion: '12345' } as V1ListMeta,
+                items: [],
+            } as V1NamespaceList);
 
-        const listFn: ListPromise<V1Namespace> = () => Promise.resolve(listObj);
-
-        let watchCalls = 0;
-        const delayValues: number[] = [];
-        const promise = new Promise((resolve) => {
-            mock.when(
-                fakeWatch.watch(mock.anything(), mock.anything(), mock.anything(), mock.anything()),
-            ).thenCall(() => {
-                watchCalls++;
-                resolve(new AbortController());
-                return Promise.resolve(new AbortController());
-            });
+        let calls = 0;
+        let connected: () => void;
+        const first = new Promise<void>((r) => (connected = r));
+        mock.when(
+            fakeWatch.watch(mock.anything(), mock.anything(), mock.anything(), mock.anything()),
+        ).thenCall(() => {
+            calls++;
+            connected();
+            return Promise.resolve(new AbortController());
         });
 
-        // ListWatch is constructed for its side effects (starts watching)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const cache = new ListWatch(
             '/some/path',
             mock.instance(fakeWatch),
             listFn,
             true,
-            undefined,
-            undefined,
+            ...[undefined, undefined],
             {
                 delayFn: (ms: number) => {
-                    delayValues.push(ms);
+                    opts.delays.push(ms);
                     return Promise.resolve();
                 },
+                nowFn: opts.now ?? (() => 0),
+                randFn: opts.rand ?? (() => 0),
+                minWatchTimeoutSeconds: opts.minWatchTimeoutSeconds,
             },
         );
-        await promise;
-        strictEqual(watchCalls, 1);
+        await first;
 
-        const [, , , doneHandler] = mock.capture(fakeWatch.watch).last();
+        const last = () => mock.capture(fakeWatch.watch).last();
+        return {
+            cache,
+            calls: () => calls,
+            params: () => last()[1] as any,
+            event: () => (last()[2] as any)('ADDED', { metadata: { resourceVersion: '99' } }),
+            done: (err: any) => (last()[3] as any)(err),
+        };
+    }
 
-        await doneHandler(null);
-        strictEqual(watchCalls, 2);
-        deepStrictEqual(delayValues, []);
+    const timeoutError = () => new DOMException('aborted due to timeout', 'TimeoutError');
 
-        await doneHandler(null);
-        strictEqual(watchCalls, 3);
-        deepStrictEqual(delayValues, [1000]);
+    it('should reconnect immediately after a clean close', async () => {
+        // The quiet-resource case: every watch ends by expiring and no event
+        // ever arrives, so reconnecting must stay free.
+        const delays: number[] = [];
+        let now = 0;
+        const h = await setupBackoffCache({ delays, now: () => now });
 
-        await doneHandler(null);
-        strictEqual(watchCalls, 4);
-        deepStrictEqual(delayValues, [1000, 2000]);
+        for (let i = 0; i < 10; i++) {
+            now += 300_000;
+            await h.done(null);
+        }
 
-        await doneHandler(null);
-        strictEqual(watchCalls, 5);
-        deepStrictEqual(delayValues, [1000, 2000, 4000]);
+        deepStrictEqual(delays, [], 'a clean close should reconnect immediately');
+        strictEqual(h.calls(), 11);
     });
 
-    it('should reset backoff after receiving a watch event', async () => {
-        const fakeWatch = mock.mock(Watch);
-        const listObj = {
-            metadata: { resourceVersion: '12345' } as V1ListMeta,
-            items: [] as V1Namespace[],
-        } as V1NamespaceList;
+    it('should back off only when the watch fails, then reset when idle', async () => {
+        const delays: number[] = [];
+        let now = 0;
+        const h = await setupBackoffCache({ delays, now: () => now });
 
-        const listFn: ListPromise<V1Namespace> = () => Promise.resolve(listObj);
+        // Closing instantly with nothing delivered is a failure; the delay grows
+        // while failures continue, up to a cap.
+        for (let i = 0; i < 10; i++) {
+            await h.done(timeoutError());
+        }
+        ok(delays[0] > 0 && delays[1] > delays[0], `expected growth, got ${delays.slice(0, 2)}`);
+        const capped = delays[delays.length - 1];
+        ok(capped <= 30_000, `expected a 30s cap, got ${capped}`);
 
-        const delayValues: number[] = [];
-        const promise = new Promise((resolve) => {
-            mock.when(
-                fakeWatch.watch(mock.anything(), mock.anything(), mock.anything(), mock.anything()),
-            ).thenCall(() => {
-                resolve(new AbortController());
-                return Promise.resolve(new AbortController());
-            });
-        });
+        // Two idle minutes means healthy again.
+        now += 120_000;
+        await h.done(timeoutError());
+        ok(delays[delays.length - 1] < capped, 'expected the backoff to reset');
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const cache = new ListWatch(
-            '/some/path',
-            mock.instance(fakeWatch),
-            listFn,
-            true,
-            undefined,
-            undefined,
-            {
-                delayFn: (ms: number) => {
-                    delayValues.push(ms);
-                    return Promise.resolve();
-                },
-            },
+        // Events prove the watch worked, so a quick close after them is clean.
+        h.event();
+        const before = delays.length;
+        await h.done(null);
+        strictEqual(delays.length, before, 'a short watch with events is not a failure');
+    });
+
+    it('should request a server-side watch timeout and bookmarks', async () => {
+        const delays: number[] = [];
+        const h = await setupBackoffCache({ delays, rand: () => 0.5 });
+        // Randomised over [minWatchTimeout, 2*minWatchTimeout).
+        ok(
+            h.params().timeoutSeconds >= 300 && h.params().timeoutSeconds < 600,
+            `expected [300, 600), got ${h.params().timeoutSeconds}`,
         );
-        await promise;
+        strictEqual(h.params().allowWatchBookmarks, true);
 
-        const [, , watchHandler, doneHandler] = mock.capture(fakeWatch.watch).last();
-
-        await doneHandler(null);
-        await doneHandler(null);
-        deepStrictEqual(delayValues, [1000]);
-
-        watchHandler('ADDED', {
-            metadata: { name: 'reset', namespace: 'default', resourceVersion: '99' } as V1ObjectMeta,
-        } as V1Namespace);
-
-        delayValues.length = 0;
-        await doneHandler(null);
-        deepStrictEqual(delayValues, []);
-
-        await doneHandler(null);
-        deepStrictEqual(delayValues, [1000]);
+        // client-go's ReflectorOptions.MinWatchTimeout, without its 5m floor.
+        const short = await setupBackoffCache({ delays, rand: () => 0.5, minWatchTimeoutSeconds: 10 });
+        strictEqual(short.params().timeoutSeconds, 15);
     });
 
-    it('should reconnect with backoff on TimeoutError', async () => {
-        const fakeWatch = mock.mock(Watch);
-        const listObj = {
-            metadata: { resourceVersion: '12345' } as V1ListMeta,
-            items: [] as V1Namespace[],
-        } as V1NamespaceList;
+    it('should reconnect without emitting an error on TimeoutError', async () => {
+        const delays: number[] = [];
+        const h = await setupBackoffCache({ delays });
 
-        const listFn: ListPromise<V1Namespace> = () => Promise.resolve(listObj);
-
-        let watchCalls = 0;
         let errorEmitted = false;
-        const promise = new Promise((resolve) => {
-            mock.when(
-                fakeWatch.watch(mock.anything(), mock.anything(), mock.anything(), mock.anything()),
-            ).thenCall(() => {
-                watchCalls++;
-                resolve(new AbortController());
-                return Promise.resolve(new AbortController());
-            });
-        });
+        h.cache.on('error', () => (errorEmitted = true));
 
-        const cache = new ListWatch(
-            '/some/path',
-            mock.instance(fakeWatch),
-            listFn,
-            true,
-            undefined,
-            undefined,
-            {
-                delayFn: () => Promise.resolve(),
-            },
-        );
-        await promise;
-        cache.on('error', () => (errorEmitted = true));
-        strictEqual(watchCalls, 1);
+        await h.done(timeoutError());
 
-        const [, , , doneHandler] = mock.capture(fakeWatch.watch).last();
-
-        const timeoutError = new DOMException('The operation was aborted due to timeout', 'TimeoutError');
-        await doneHandler(timeoutError);
-        strictEqual(watchCalls, 2);
+        strictEqual(h.calls(), 2);
         strictEqual(errorEmitted, false);
     });
 });
