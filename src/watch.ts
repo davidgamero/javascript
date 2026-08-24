@@ -40,8 +40,25 @@ export class Watch {
         }
 
         const controller = new AbortController();
-        const timeoutSignal = AbortSignal.timeout(this.requestTimeoutMs);
-        const signal = AbortSignal.any([controller.signal, timeoutSignal]);
+        // Bounds establishing the connection only. An established watch is a
+        // long-lived stream with no client-side limit on how long it may stay
+        // open: it is bounded by the server-side `timeoutSeconds` (see
+        // ListWatch), and dead peers are found by the TCP keepalive configured
+        // on the dispatcher in config.ts.
+        const timeoutController = new AbortController();
+        const signal = AbortSignal.any([controller.signal, timeoutController.signal]);
+
+        let headersTimer: ReturnType<typeof setTimeout> | undefined = setTimeout(() => {
+            headersTimer = undefined;
+            timeoutController.abort();
+        }, this.requestTimeoutMs);
+        headersTimer.unref?.(); // don't hold the event loop open for this alone
+        const clearHeadersTimer = () => {
+            if (headersTimer !== undefined) {
+                clearTimeout(headersTimer);
+                headersTimer = undefined;
+            }
+        };
 
         const ctx = new RequestContext(watchURL.toString(), HttpMethod.GET);
         await this.config.applySecurityAuthentication(ctx);
@@ -50,8 +67,11 @@ export class Watch {
         const doneCallOnce = (err: any) => {
             if (!doneCalled) {
                 doneCalled = true;
+                clearHeadersTimer();
+                // Read before aborting: the abort below settles the combined signal.
+                const timedOut = timeoutController.signal.aborted;
                 controller.abort();
-                if (err && timeoutSignal.aborted) {
+                if (err && timedOut) {
                     done(new DOMException('The operation was aborted due to timeout', 'TimeoutError'));
                 } else {
                     done(err);
@@ -68,6 +88,8 @@ export class Watch {
             });
 
             if (response.status === 200) {
+                // Established; the stream may now stay open indefinitely.
+                clearHeadersTimer();
                 const body = Readable.fromWeb(response.body! as any);
 
                 body.on('error', doneCallOnce);
