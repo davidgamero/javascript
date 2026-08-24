@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, it } from 'node:test';
 import { deepStrictEqual, rejects, strictEqual } from 'node:assert';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { MockAgent, setGlobalDispatcher, getGlobalDispatcher, type Dispatcher } from 'undici';
 import { KubeConfig } from './config.js';
 import { Cluster, Context, User } from './config_types.js';
@@ -308,6 +309,11 @@ describe('Watch', () => {
 
         strictEqual(doneErr.length, 1);
         strictEqual(doneErr[0], null);
+
+        // The timeout is cleared when the watch finishes, so nothing fires late.
+        (watch as any).requestTimeoutMs = 50;
+        await sleep(150);
+        strictEqual(doneErr.length, 1);
     });
 
     it('should ignore JSON parse errors', async (t) => {
@@ -353,7 +359,11 @@ describe('Watch', () => {
         deepStrictEqual(receivedObjects, [obj.object]);
     });
 
-    it('should timeout when server takes too long to respond', async (t) => {
+    // The timeout covers establishing the watch, nothing more. Once the stream
+    // is open it is bounded by the server-side `timeoutSeconds` (see ListWatch)
+    // and by TCP keepalive, so a quiet stream is never aborted for being quiet.
+    // See k8s.io/client-go/tools/cache/reflector.go.
+    it('should timeout when server takes too long to send response headers', async (t) => {
         const kc = await setupMockSystem(t, (_req: any, _res: any) => {
             // Don't respond - simulate a hanging server
         });
@@ -429,45 +439,55 @@ describe('Watch', () => {
 
         await donePromise;
 
-        // The stream lived well past requestTimeoutMs because every event reset the timeout.
+        // The stream lived well past requestTimeoutMs: once the headers are in,
+        // nothing on the client bounds how long it stays open.
         strictEqual(receivedObjects.length, eventCount);
         strictEqual(doneErr, null);
     });
 
-    it('should timeout when the server goes silent after connecting', async (t) => {
+    it('should not time out a connection that is quiet after the headers arrive', async (t) => {
+        // A watch on a resource that produces no events is normal: the server
+        // sends nothing until something changes, or a bookmark falls due.
+        // Aborting on that silence would reconnect a quiet watch forever.
+        const timeoutMs = 100;
+
         const kc = await setupMockSystem(t, (_req, res) => {
-            res.write(JSON.stringify({ type: 'ADDED', object: { name: 'obj' } }) + '\n');
-            // Then stay silent forever.
+            res.writeHead(200, {
+                'Content-Type': 'application/json',
+                'Transfer-Encoding': 'chunked',
+            });
+            res.flushHeaders();
+            // ...and then nothing, ever. The server holds the watch open.
         });
+
         const watch = new Watch(kc);
-
         // NOTE: Hack around the type system to make the timeout shorter
-        (watch as any).requestTimeoutMs = 100;
+        (watch as any).requestTimeoutMs = timeoutMs;
 
-        const receivedObjects: any[] = [];
+        let doneCalled = false;
         let doneErr: any;
 
-        let doneResolve: () => void;
-        const donePromise = new Promise<void>((resolve) => {
-            doneResolve = resolve;
-        });
-
-        await watch.watch(
+        const controller = await watch.watch(
             '/some/path/to/object',
             {},
-            (_phase: string, obj: any) => {
-                receivedObjects.push(obj);
+            () => {
+                throw new Error('Unexpected event on a quiet watch');
             },
             (err: any) => {
+                doneCalled = true;
                 doneErr = err;
-                doneResolve();
             },
         );
 
-        await donePromise;
+        await sleep(timeoutMs * 5);
 
-        deepStrictEqual(receivedObjects, [{ name: 'obj' }]);
-        strictEqual(doneErr.name, 'TimeoutError');
+        strictEqual(
+            doneCalled,
+            false,
+            `done should not be called on a quiet connection, got: ${doneErr?.name}: ${doneErr?.message}`,
+        );
+
+        controller.abort();
     });
 
     it('should throw on empty config', async () => {
