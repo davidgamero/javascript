@@ -693,17 +693,31 @@ export class KubeConfig implements SecurityAuthentication {
         agentOptions: https.AgentOptions,
     ): Dispatcher | undefined {
         const opts = this.createDispatcherOptions(cluster, agentOptions);
+        // undici's bodyTimeout is an inactivity timeout between body chunks,
+        // defaulting to 300s. Long-lived streams (watch, following logs, exec)
+        // legitimately go quiet for longer than that, so it is disabled here.
+        // Liveness comes from the TCP keepalive configured below, and watches
+        // are additionally bounded by a server-side timeoutSeconds. headersTimeout
+        // still applies, so a server that never responds is not held forever.
+        //
+        // The 'none' case deliberately keeps returning undefined so that a
+        // globally installed dispatcher (such as MockAgent in tests) is used.
+        const streamTimeouts = { bodyTimeout: 0 };
         switch (opts.type) {
             case 'proxy':
                 return new UndiciProxyAgent({
                     uri: opts.uri,
                     requestTls: opts.requestTls,
                     connect: opts.connect,
+                    ...streamTimeouts,
                 });
             case 'socks':
-                return new UndiciAgent({ connect: createSocksConnector(opts.uri, opts.requestTls) });
+                return new UndiciAgent({
+                    connect: createSocksConnector(opts.uri, opts.requestTls),
+                    ...streamTimeouts,
+                });
             case 'agent':
-                return new UndiciAgent({ connect: opts.connect });
+                return new UndiciAgent({ connect: opts.connect, ...streamTimeouts });
             case 'none':
                 return undefined;
         }

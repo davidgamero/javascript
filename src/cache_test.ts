@@ -1572,7 +1572,8 @@ describe('ListWatchCache', () => {
             mock.instance(fakeWatch),
             listFn,
             true,
-            ...[undefined, undefined],
+            undefined,
+            undefined,
             {
                 delayFn: (ms: number) => {
                     opts.delays.push(ms);
