@@ -29,6 +29,9 @@ export default async function watchPods() {
         deleteResolve = resolve;
     });
 
+    let aborted = false;
+    let unexpectedDoneErr: any;
+
     const controller = await watch.watch(
         `/api/v1/namespaces/${namespace}/pods`,
         { labelSelector: `${labelKey}=${labelValue}` },
@@ -41,7 +44,11 @@ export default async function watchPods() {
             if (phase === 'DELETED') deleteResolve();
         },
         (err: any) => {
-            if (err && err.name !== 'AbortError') console.log('Watch done with error:', err);
+            if (aborted || (err && err.name === 'AbortError')) return;
+            // A healthy watch is closed by the server when timeoutSeconds
+            // expires, minutes away, so nothing should land here.
+            unexpectedDoneErr = err ?? new Error('watch closed unexpectedly');
+            console.log('Watch done unexpectedly:', unexpectedDoneErr);
         },
     );
 
@@ -70,7 +77,13 @@ export default async function watchPods() {
         const deleteEvent = receivedEvents.find((e) => e.type === 'DELETED' && e.name === podName);
         assert.ok(deleteEvent, 'Should have received DELETED event for pod');
         console.log('✓ Received DELETED event');
+
+        assert.ok(
+            !unexpectedDoneErr,
+            `Watch should still be open, but done() was called: ${unexpectedDoneErr}`,
+        );
     } finally {
+        aborted = true;
         controller.abort();
         try {
             await coreV1Client.deleteNamespacedPod({ name: podName, namespace });
