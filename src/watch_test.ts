@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, it } from 'node:test';
 import { deepStrictEqual, rejects, strictEqual } from 'node:assert';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { MockAgent, setGlobalDispatcher, getGlobalDispatcher, type Dispatcher } from 'undici';
 import { KubeConfig } from './config.js';
 import { Cluster, Context, User } from './config_types.js';
@@ -308,6 +309,11 @@ describe('Watch', () => {
 
         strictEqual(doneErr.length, 1);
         strictEqual(doneErr[0], null);
+
+        // The timer is cleared when the watch finishes, so nothing fires late.
+        (watch as any).requestTimeoutMs = 50;
+        await sleep(150);
+        strictEqual(doneErr.length, 1);
     });
 
     it('should ignore JSON parse errors', async (t) => {
@@ -434,40 +440,47 @@ describe('Watch', () => {
         strictEqual(doneErr, null);
     });
 
-    it('should timeout when the server goes silent after connecting', async (t) => {
+    it('should not time out a connection that is quiet after connecting', async (t) => {
+        // A watch on a resource that produces no events is normal: the server
+        // sends nothing until something changes. Silence is not failure, so
+        // once the stream is open there is no client-side deadline left.
+        const timeoutMs = 100;
+
         const kc = await setupMockSystem(t, (_req, res) => {
             res.write(JSON.stringify({ type: 'ADDED', object: { name: 'obj' } }) + '\n');
-            // Then stay silent forever.
+            // ...and then nothing, ever. The server holds the watch open.
         });
         const watch = new Watch(kc);
 
         // NOTE: Hack around the type system to make the timeout shorter
-        (watch as any).requestTimeoutMs = 100;
+        (watch as any).requestTimeoutMs = timeoutMs;
 
         const receivedObjects: any[] = [];
+        let doneCalled = false;
         let doneErr: any;
 
-        let doneResolve: () => void;
-        const donePromise = new Promise<void>((resolve) => {
-            doneResolve = resolve;
-        });
-
-        await watch.watch(
+        const controller = await watch.watch(
             '/some/path/to/object',
             {},
             (_phase: string, obj: any) => {
                 receivedObjects.push(obj);
             },
             (err: any) => {
+                doneCalled = true;
                 doneErr = err;
-                doneResolve();
             },
         );
 
-        await donePromise;
+        await sleep(timeoutMs * 5);
 
         deepStrictEqual(receivedObjects, [{ name: 'obj' }]);
-        strictEqual(doneErr.name, 'TimeoutError');
+        strictEqual(
+            doneCalled,
+            false,
+            `done should not be called on a quiet connection, got: ${doneErr?.name}: ${doneErr?.message}`,
+        );
+
+        controller.abort();
     });
 
     it('should throw on empty config', async () => {

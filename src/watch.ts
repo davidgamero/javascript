@@ -41,23 +41,23 @@ export class Watch {
 
         const controller = new AbortController();
 
+        // Bounds establishing the watch only. Once the stream is open there is
+        // no client-side limit on how long it may stay open: a watch on a quiet
+        // resource legitimately receives nothing for a long time, so silence
+        // cannot be read as failure. The watch is bounded by the server-side
+        // timeoutSeconds that ListWatch requests, and a dead peer is found by
+        // the TCP keepalive configured on the dispatcher in config.ts.
         let timedOut: boolean = false;
-        let timer: NodeJS.Timeout | undefined;
+        let timer: NodeJS.Timeout | undefined = setTimeout(() => {
+            timedOut = true;
+            controller.abort(new DOMException('The operation was aborted due to timeout', 'TimeoutError'));
+        }, this.requestTimeoutMs);
+        timer.unref();
         const clearTimer = () => {
             if (timer !== undefined) {
                 clearTimeout(timer);
                 timer = undefined;
             }
-        };
-        const resetTimer = () => {
-            clearTimer();
-            timer = setTimeout(() => {
-                timedOut = true;
-                controller.abort(
-                    new DOMException('The operation was aborted due to timeout', 'TimeoutError'),
-                );
-            }, this.requestTimeoutMs);
-            timer.unref();
         };
 
         const ctx = new RequestContext(watchURL.toString(), HttpMethod.GET);
@@ -78,7 +78,6 @@ export class Watch {
         };
 
         try {
-            resetTimer();
             const response = await fetch(watchURL, {
                 method: 'GET',
                 headers: ctx.getHeaders(),
@@ -87,8 +86,8 @@ export class Watch {
             });
 
             if (response.status === 200) {
-                // The connect timeout is over; from here on it becomes an inactivity timeout.
-                resetTimer();
+                // Established; the stream may now stay open indefinitely.
+                clearTimer();
                 const body = Readable.fromWeb(response.body! as any);
 
                 body.on('error', doneCallOnce);
@@ -107,7 +106,6 @@ export class Watch {
                         // ignore parse errors
                     }
                 });
-                body.on('data', resetTimer);
             } else {
                 const statusText =
                     response.statusText || STATUS_CODES[response.status] || 'Internal Server Error';
