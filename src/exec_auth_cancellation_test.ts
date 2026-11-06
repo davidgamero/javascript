@@ -1,8 +1,11 @@
 import { it } from 'node:test';
 import assert from 'node:assert/strict';
+import type { ChildProcessWithoutNullStreams, SpawnOptionsWithoutStdio } from 'node:child_process';
+import { EventEmitter, getEventListeners } from 'node:events';
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { PassThrough } from 'node:stream';
 import { setTimeout as delay } from 'node:timers/promises';
 
 import { CoreV1Api, HttpMethod, RequestContext, createConfiguration } from './api.js';
@@ -43,6 +46,21 @@ const stalledCredential = `
     process.on('SIGTERM', () => {});
     setInterval(() => {}, 1000);
 `;
+
+function fakeCredentialProcess(pid: number, onDirectKill: (signal?: NodeJS.Signals) => void) {
+    const subprocess = new EventEmitter() as ChildProcessWithoutNullStreams;
+    Object.assign(subprocess, {
+        pid,
+        stdin: new PassThrough(),
+        stdout: new PassThrough(),
+        stderr: new PassThrough(),
+        kill(signal?: NodeJS.Signals) {
+            onDirectKill(signal);
+            return true;
+        },
+    });
+    return subprocess;
+}
 
 for (const mode of ['interrupt', 'deadline'] as const) {
     it(
@@ -224,4 +242,155 @@ it('keeps sibling credential requests and successful credential caching independ
         await Promise.allSettled([interrupted, sibling]);
         await rm(directory, { recursive: true, force: true });
     }
+});
+
+it('cancels the legacy authProvider exec form and removes its abort listener', async () => {
+    const directory = await mkdtemp(path.join(tmpdir(), 'exec-auth-legacy-cancel-'));
+    const marker = path.join(directory, 'pids.json');
+    const auth = new ExecAuth();
+    const controller = new AbortController();
+    const reason = new Error('legacy credential cancelled');
+    const operation = auth.applyAuthentication(
+        {
+            name: 'legacy-fixture',
+            authProvider: {
+                name: 'legacy-exec',
+                config: {
+                    exec: {
+                        command: process.execPath,
+                        args: [
+                            '-e',
+                            `
+                                require('node:fs').writeFileSync(
+                                    process.argv[1],
+                                    JSON.stringify([process.pid]),
+                                );
+                                setInterval(() => {}, 1000);
+                            `,
+                            marker,
+                        ],
+                    },
+                },
+            },
+        },
+        { signal: controller.signal },
+    );
+    const rejection = assert.rejects(operation, (error: unknown) => error === reason);
+    let pids: number[] = [];
+    try {
+        pids = await waitForPids(marker);
+        assert.equal(getEventListeners(controller.signal, 'abort').length, 1);
+        controller.abort(reason);
+        await rejection;
+        assert.equal(getEventListeners(controller.signal, 'abort').length, 0);
+        assert.equal(pids.some(alive), false);
+    } finally {
+        controller.abort(reason);
+        for (const pid of pids) if (alive(pid)) process.kill(pid, 'SIGKILL');
+        await operation.catch(() => {});
+        await rm(directory, { recursive: true, force: true });
+    }
+});
+
+it('does not project certificate credentials when a running plugin is cancelled', async () => {
+    const directory = await mkdtemp(path.join(tmpdir(), 'exec-auth-cert-cancel-'));
+    const marker = path.join(directory, 'pids.json');
+    const auth = new ExecAuth();
+    const controller = new AbortController();
+    const reason = new Error('certificate credential cancelled');
+    const opts: import('node:https').RequestOptions = {
+        signal: controller.signal,
+        headers: {},
+    };
+    const operation = auth.applyAuthentication(
+        {
+            name: 'certificate-fixture',
+            exec: {
+                command: process.execPath,
+                args: [
+                    '-e',
+                    `
+                        require('node:fs').writeFileSync(
+                            process.argv[1],
+                            JSON.stringify([process.pid]),
+                        );
+                        setTimeout(() => console.log(JSON.stringify({
+                            status: {
+                                clientCertificateData: 'certificate',
+                                clientKeyData: 'private-key',
+                            },
+                        })), 2000);
+                    `,
+                    marker,
+                ],
+            },
+        },
+        opts,
+    );
+    const rejection = assert.rejects(operation, (error: unknown) => error === reason);
+    let pids: number[] = [];
+    try {
+        pids = await waitForPids(marker);
+        controller.abort(reason);
+        await rejection;
+        assert.equal(opts.cert, undefined);
+        assert.equal(opts.key, undefined);
+        assert.deepEqual(opts.headers, {});
+        assert.equal(getEventListeners(controller.signal, 'abort').length, 0);
+        assert.equal(pids.some(alive), false);
+    } finally {
+        controller.abort(reason);
+        for (const pid of pids) if (alive(pid)) process.kill(pid, 'SIGKILL');
+        await operation.catch(() => {});
+        await rm(directory, { recursive: true, force: true });
+    }
+});
+
+it('targets the owned POSIX process group and preserves the abort reason', async (t) => {
+    const auth = new ExecAuth();
+    const controller = new AbortController();
+    const reason = new Error('credential cancelled');
+    const pid = 424242;
+    const directKills: Array<NodeJS.Signals | undefined> = [];
+    const groupKills: Array<[number, NodeJS.Signals | number | undefined]> = [];
+    const subprocess = fakeCredentialProcess(pid, (signal) => {
+        directKills.push(signal);
+        queueMicrotask(() => subprocess.emit('close', null, signal));
+    });
+    let spawnOptions: SpawnOptionsWithoutStdio | undefined;
+    (auth as any).execFn = (
+        _command: string,
+        _args: readonly string[],
+        options: SpawnOptionsWithoutStdio,
+    ) => {
+        spawnOptions = options;
+        return subprocess;
+    };
+    t.mock.method(process, 'kill', ((target: number, signal?: NodeJS.Signals | number) => {
+        groupKills.push([target, signal]);
+        queueMicrotask(() => subprocess.emit('close', null, signal));
+        return true;
+    }) as typeof process.kill);
+
+    const operation = auth.applyAuthentication(
+        {
+            name: 'fixture',
+            exec: { command: 'credential-plugin' },
+        },
+        { signal: controller.signal },
+    );
+    assert.equal(getEventListeners(controller.signal, 'abort').length, 1);
+    controller.abort(reason);
+    await assert.rejects(operation, (error: unknown) => error === reason);
+
+    if (process.platform === 'win32') {
+        assert.equal(spawnOptions?.detached, false);
+        assert.deepEqual(directKills, ['SIGKILL']);
+        assert.deepEqual(groupKills, []);
+    } else {
+        assert.equal(spawnOptions?.detached, true);
+        assert.deepEqual(groupKills, [[-pid, 'SIGKILL']]);
+        assert.deepEqual(directKills, []);
+    }
+    assert.equal(getEventListeners(controller.signal, 'abort').length, 0);
 });
